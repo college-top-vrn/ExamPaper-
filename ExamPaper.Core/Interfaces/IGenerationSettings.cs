@@ -9,10 +9,10 @@ public interface IGenerationSettings
     /// Получение общего количества билетов, которые необходимо создать.
     /// </summary>
     /// <value>Положительное целое число.</value>
-    uint TotalTicketsCount { get; }
+    int TotalTicketsCount { get; }
     /// <summary>
     /// Получение количества вопросов, закрепленных за одним билетом.
     /// </summary>
     /// <value>Положительное целое число.</value>
-    uint QuestionsPerTicketCount { get; }
+    int QuestionsPerTicketCount { get; }
 }
