@@ -1,3 +1,5 @@
+using System;
+
 namespace ExamPaper.Core.Interfaces;
 
 public interface IQuestion
