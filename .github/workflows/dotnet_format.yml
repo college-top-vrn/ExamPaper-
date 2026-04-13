@@ -1,0 +1,20 @@
+name: dotnet format
+on:
+  pull_request:
+    branches: [ "develop" ]
+
+jobs:
+  check-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v6
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Run dotnet format
+        run: dotnet format --no-restore --verify-no-changes
