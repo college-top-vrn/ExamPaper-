@@ -16,3 +16,4 @@ public interface IGenerationSettings
     /// <value>Положительное целое число.</value>
     int QuestionsPerTicketCount { get; }
 }
+

@@ -7,54 +7,11 @@ using System.Linq;
 
 
 
+
 public interface IExamPaper
 {
-    string Title { get; }
-    IReadOnlyCollection<IQuestion> Questions { get; }
-
-    void AddQuestion(IQuestion question);
-    bool RemoveQuestion(Guid questionId);
-}
-
-
-
-
-
-public sealed class ExamPaper : IExamPaper
-{
-    private readonly List<IQuestion> _questions = new();
-
-    public string Title { get; private set; }
-
-    public IReadOnlyCollection<IQuestion> Questions => new ReadOnlyCollection<IQuestion>(_questions);
-
-    public ExamPaper(string title)
-    {
-        Title = title;
-        Validate();
-    }
-
-    public void AddQuestion(IQuestion question)
-    {
-        if (question is null)
-            throw new ArgumentNullException(nameof(question));
-
-        question.Validate();
-        _questions.Add(question);
-    }
-
-    public bool RemoveQuestion(Guid questionId)
-    {
-        var question = _questions.FirstOrDefault(q => q.Id == questionId);
-        if (question is null)
-            return false;
-
-        return _questions.Remove(question);
-    }
-
-    private void Validate()
-    {
-        if (string.IsNullOrWhiteSpace(Title))
-            throw new ArgumentException("Title must be filled.", nameof(Title));
-    }
+    Guid id { get; init; }
+    string Title { get; init; }
+    /// <summary>Список вопросов, попавших в данный билет.</summary>
+    IReadOnlyCollection<IQuestion> Questions { get; init; }
 }
