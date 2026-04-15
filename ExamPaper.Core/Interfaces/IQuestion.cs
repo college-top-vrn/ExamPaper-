@@ -4,7 +4,7 @@ namespace ExamPaper.Core.Interfaces;
 
 public interface IQuestion
 {
-    Guid Id { get; }
-    string Text { get; }
-    
+    Guid Id { get; init; }
+    string Text { get; init; }
+
 }
