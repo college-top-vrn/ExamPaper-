@@ -92,7 +92,7 @@ public class QuestionRepository : IQuestionRepository
             return [];
         }
     }
-    
+
     /// <summary>
     /// Проверяет корректность пути к файлу.
     /// </summary>
