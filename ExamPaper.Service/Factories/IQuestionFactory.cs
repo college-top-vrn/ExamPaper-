@@ -1,8 +1,11 @@
-using ExamPaper.Core.Interfaces;
+using System;
 
-namespace ExamPaper.Service.Factores;
+using ExamPaper.Core.Interfaces;
+using ExamPaper.Core.Models;
+
+namespace ExamPaper.Service.Factories;
 
 public interface IQuestionFactory
 {
-    public IQuestion CreateQuestion(Guid id, string text);
+    IQuestion CreateQuestion(Guid id, string text);
 }

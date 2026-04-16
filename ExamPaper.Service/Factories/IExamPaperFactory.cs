@@ -1,8 +1,11 @@
+using System;
+using System.Collections.Generic;
+
 using ExamPaper.Core.Interfaces;
 
-namespace ExamPaper.Service.Factores;
+namespace ExamPaper.Service.Factories;
 
-public interface IExamPaperFactory : IExamPaper
+public interface IExamPaperFactory
 {
-    public IExamPaper CreateExamPaper(string name, IEnumerable<IQuestion> questions);
+     IExamPaper CreateExamPaper(Guid id,string name, IEnumerable<IQuestion> questions);
 }
