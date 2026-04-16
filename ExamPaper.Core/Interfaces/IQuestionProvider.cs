@@ -2,7 +2,6 @@
 
 namespace ExamPaper.Core.Interfaces;
 
-
 /// <summary>
 /// Определяет контракт для компонента, обеспечивающего доступ к коллекции вопросов.
 /// </summary>

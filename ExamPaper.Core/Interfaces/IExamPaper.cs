@@ -2,16 +2,22 @@ namespace ExamPaper.Core.Interfaces;
 
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 
-
-
-
+/// <summary>
+/// Интерфейс экзаменационного билета
+/// </summary>
 public interface IExamPaper
 {
-    Guid id { get; init; }
+    /// <summary>
+    /// Уникальный Guid идентификатор билета.
+    /// </summary>
+    Guid Id { get; init; }
+
+    /// <summary>
+    /// Название билета.
+    /// </summary>
     string Title { get; init; }
+
     /// <summary>Список вопросов, попавших в данный билет.</summary>
     IReadOnlyCollection<IQuestion> Questions { get; init; }
 }
