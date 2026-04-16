@@ -5,7 +5,7 @@ using System.Text.Json;
 
 using ExamPaper.Core.Interfaces;
 
-namespace ExamPaper.Core.Model;
+namespace ExamPaper.Core.Models;
 
 /// <summary>
 /// Реализация провайдера вопросов для загрузки данных из файла
