@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using ExamPaper.Core.Generation;
 using ExamPaper.Core.Interfaces;
 
@@ -27,24 +28,20 @@ public class ExamPaperGenerator : IExamGenerator
     {
         if (availableQuestions == null)
             throw new ArgumentNullException(nameof(availableQuestions));
-        
         if (settings == null)
             throw new ArgumentNullException(nameof(settings));
-        
         var questions = availableQuestions.ToList();
-        
         if (questions.Count < settings.QuestionsPerTicketCount)
             throw new InvalidOperationException(
                 $"Недостаточно вопросов для генерации билета. " +
                 $"Доступно: {questions.Count}, требуется: {settings.QuestionsPerTicketCount}");
-        
         var random = new Random();
-        
         return Enumerable.Range(1, settings.TotalTicketsCount)
-            .Select(ticketNum => new ExamPaper(
-                ticketNum, 
-                questions
-                    .OrderBy(x => random.Next())
+            .Select(ticketNum => new Core.Models.ExamPaper(
+                id: Guid.NewGuid(),
+                title: $"Билет №{ticketNum}",
+                questions: questions
+                    .OrderBy(_ => random.Next())
                     .Take(settings.QuestionsPerTicketCount)
                     .ToList()));
     }
