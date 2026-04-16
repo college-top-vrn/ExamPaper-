@@ -4,6 +4,7 @@ using ExamPaper.Core.Interfaces;
 using ExamPaper.Core.Models;
 
 namespace ExamPaper.Service.Factories;
+
 /// <summary>
 /// фабрика для создания объекта Question
 /// </summary>
@@ -15,8 +16,5 @@ public class QuestionFactory : IQuestionFactory
     /// <param name="id">id вопроса</param>
     /// <param name="text"> текст вопроса</param>
     /// <returns></returns>
-    public IQuestion CreateQuestion(Guid id, string text) => new Question(id, text); 
-
-
-
+    public IQuestion CreateQuestion(Guid id, string text) => new Question(id, text);
 }

@@ -17,7 +17,6 @@ public class ExamPaperFactory : IExamPaperFactory
     /// <param name="name">имя билета</param>
     /// <param name="questions">список вопросов из которого берутся вопросы для сздания билета</param>
     /// <returns></returns>
-    public IExamPaper CreateExamPaper(Guid id, string name, IEnumerable<IQuestion> questions) => new Core.Models.ExamPaper(id,name, questions);
-    
-
+    public IExamPaper CreateExamPaper(Guid id, string name, IEnumerable<IQuestion> questions) =>
+        new Core.Models.ExamPaper(id, name, questions);
 }

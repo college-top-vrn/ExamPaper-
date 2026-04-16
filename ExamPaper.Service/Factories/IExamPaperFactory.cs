@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ExamPaper.Core.Interfaces;
 
 namespace ExamPaper.Service.Factories;
+
 /// <summary>
 /// интервейс фбрики ExamPaper
 /// </summary>
@@ -16,5 +17,5 @@ public interface IExamPaperFactory
     /// <param name="name">имя билета</param>
     /// <param name="questions">списовк вопросов для создания билета </param>
     /// <returns></returns>
-     IExamPaper CreateExamPaper(Guid id,string name, IEnumerable<IQuestion> questions);
+    IExamPaper CreateExamPaper(Guid id, string name, IEnumerable<IQuestion> questions);
 }
