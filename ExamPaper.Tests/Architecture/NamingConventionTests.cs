@@ -69,7 +69,7 @@ public class NamingConventionTests
     }
 
     /// <summary>
-    /// Проверяет, что все классы экспорта данных (JSON, PDF), находящиеся в слое Infrastructure, 
+    /// Проверяет, что все классы экспорта данных, находящиеся в слое Infrastructure, 
     /// имеют обязательный суффикс 'Exporter' в названии.
     /// </summary>
     [Fact]
