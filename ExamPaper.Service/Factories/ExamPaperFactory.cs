@@ -8,7 +8,7 @@ namespace ExamPaper.Service.Factories;
 /// <summary>
 /// класс фабрики ExamPaperFactory
 /// </summary>
-public class ExamPaperFacto : IExamPaperFactory
+public class ExamPaperFactory : IExamPaperFactory
 {
     /// <summary>
     /// метод фабрики для создания объекта ExamPaper где создается новй объекст ExamPaper
