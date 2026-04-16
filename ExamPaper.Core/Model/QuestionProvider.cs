@@ -8,7 +8,7 @@ using ExamPaper.Core.Interfaces;
 namespace ExamPaper.Core.Model;
 
 /// <summary>
-/// Реализация провайдера вопросов для загрузки данных из JSON-файла
+/// Реализация провайдера вопросов для загрузки данных из файла
 /// </summary>
 public class QuestionProvider : IQuestionProvider
 {
@@ -17,7 +17,7 @@ public class QuestionProvider : IQuestionProvider
     /// <summary>
     /// Инициализирует новый экземпляр провайдера вопросов
     /// </summary>
-    /// <param name="filePath">Путь к JSON-файлу с вопросами</param>
+    /// <param name="filePath">Путь к файлу с вопросами</param>
     /// <exception cref="ArgumentException">Выбрасывается, если путь к файлу пуст или содержит только пробелы.</exception>
     /// <exception cref="FileNotFoundException">Выбрасывается, если файл по указанному пути не найден.</exception>
     public QuestionProvider(string filePath)
@@ -26,7 +26,7 @@ public class QuestionProvider : IQuestionProvider
     }
 
     /// <summary>
-    /// Читает содержимое JSON-файла
+    /// Читает содержимое файла
     /// </summary>
     /// <returns>Содержимое файла в виде строки. Если файл не найден, возвращает пустую строку</returns>
     private string ReadFile()
