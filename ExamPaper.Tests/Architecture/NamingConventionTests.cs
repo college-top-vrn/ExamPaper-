@@ -2,6 +2,10 @@
 
 namespace ExamPaper.Tests.Architecture;
 
+/// <summary>
+/// Содержит архитектурные тесты для проверки соблюдения командой разработчиков 
+/// единых соглашений об именовании классов, методов и других компонентов системы.
+/// </summary>
 public class NamingConventionTests
 {
     private readonly System.Reflection.Assembly _coreAssembly = typeof(ExamPaper.Core.Models.Question).Assembly;

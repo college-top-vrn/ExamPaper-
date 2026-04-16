@@ -2,6 +2,11 @@
 
 namespace ExamPaper.Tests.Architecture;
 
+
+/// <summary>
+/// Содержит архитектурные тесты для проверки соблюдения правил проектирования,
+///  правильного использования модификаторов доступа и защиты инкапсуляции.
+/// </summary>
 public class DesignRulesTests
 {
     private readonly System.Reflection.Assembly _coreAssembly = typeof(ExamPaper.Core.Models.Question).Assembly;

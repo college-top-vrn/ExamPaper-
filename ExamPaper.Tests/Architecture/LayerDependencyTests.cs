@@ -1,7 +1,11 @@
 ﻿using NetArchTest.Rules;
 
 namespace ExamPaper.Tests.Architecture;
-
+/// <summary>
+/// Содержит архитектурные тесты для контроля соблюдения правил Слоистой Архитектуры
+/// Гарантирует, что граф зависимостей всегда направлен внутрь — к слою Core, 
+/// и предотвращает протекание деталей реализации (инфраструктуры) в доменную и бизнес-логику.
+/// </summary>
 public class LayerDependencyTests
 {
     private const string CoreNamespace = "ExamPaper.Core";
@@ -36,4 +40,19 @@ public class LayerDependencyTests
         
         Assert.True(result.IsSuccessful, "Слой сервиса не должен иметь зависимость от слоя инфраструктуры.");
     }
+    
+    /// <summary>
+    /// Проверяет, что слой Infrastructure не зависит от слоя Service.
+    /// </summary>
+    [Fact]
+    public void InfrastructureLayer_ShouldNot_HaveDependencyOn_Service()
+    {
+        var result = Types.InAssembly(typeof(ExamPaper.Infrastructure.Repositories.QuestionRepository).Assembly)
+            .ShouldNot()
+            .HaveDependencyOn(ServiceNamespace)
+            .GetResult(); 
+        
+        Assert.True(result.IsSuccessful, "Слой Infrastructure не должен иметь зависимостей от слоя Service.");
+    }
+    
 }
