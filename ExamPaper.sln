@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamPaper.Service", "ExamPa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamPaper.Infrastructure", "ExamPaper.Infrastructure\ExamPaper.Infrastructure.csproj", "{CAA1A269-100A-445A-8D24-EE88891035CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamPaper.Tests", "ExamPaper.Tests\ExamPaper.Tests.csproj", "{2A90C457-3849-42B1-8C3A-4E14E91A2268}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{CAA1A269-100A-445A-8D24-EE88891035CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAA1A269-100A-445A-8D24-EE88891035CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAA1A269-100A-445A-8D24-EE88891035CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A90C457-3849-42B1-8C3A-4E14E91A2268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A90C457-3849-42B1-8C3A-4E14E91A2268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A90C457-3849-42B1-8C3A-4E14E91A2268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A90C457-3849-42B1-8C3A-4E14E91A2268}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
