@@ -8,8 +8,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ExamPaper.Core\ExamPaper.Core.csproj" />
       <PackageReference Include="QuestPDF" Version="2026.2.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ExamPaper.Core\ExamPaper.Core.csproj" />
     </ItemGroup>
   
 </Project>
