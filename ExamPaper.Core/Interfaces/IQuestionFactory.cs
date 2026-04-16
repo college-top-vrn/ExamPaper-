@@ -1,9 +1,6 @@
 using System;
 
-using ExamPaper.Core.Interfaces;
-using ExamPaper.Core.Models;
-
-namespace ExamPaper.Service.Factories;
+namespace ExamPaper.Core.Interfaces;
 
 /// <summary>
 /// Интерфейс фабрики создания вопросов QuestionFactory
