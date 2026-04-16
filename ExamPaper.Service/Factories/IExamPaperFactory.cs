@@ -14,8 +14,8 @@ public interface IExamPaperFactory
     /// метод для создания билета
     /// </summary>
     /// <param name="id">id билета</param>
-    /// <param name="name">имя билета</param>
+    /// <param name="title">имя билета</param>
     /// <param name="questions">списовк вопросов для создания билета </param>
     /// <returns></returns>
-    IExamPaper CreateExamPaper(Guid id, string name, IEnumerable<IQuestion> questions);
+    IExamPaper CreateExamPaper(Guid id, string title, IEnumerable<IQuestion> questions);
 }
