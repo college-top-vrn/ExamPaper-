@@ -1,9 +1,7 @@
 using ExamPaper.Core.Interfaces;
-
 namespace ExamPaper.Core.Models;
 
 using System;
-using System.Linq;
 
 /// <summary>
 /// Класс для хранения экзаменационного вопроса
