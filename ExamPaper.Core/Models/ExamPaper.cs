@@ -10,7 +10,7 @@ using System.Linq;
 /// <summary>
 /// Класс для хранения экзаменационного билета.
 /// </summary>
-public class ExamPaper : IExamPaper
+public sealed class ExamPaper : IExamPaper
 {
     /// <summary>
     /// Уникальный Guid идентификатор билета.
