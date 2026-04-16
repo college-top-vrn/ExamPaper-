@@ -27,19 +27,14 @@ public class ExamPaperGenerator : IExamGenerator
     {
         if (availableQuestions == null)
             throw new ArgumentNullException(nameof(availableQuestions));
-        
         if (settings == null)
             throw new ArgumentNullException(nameof(settings));
-        
         var questions = availableQuestions.ToList();
-        
         if (questions.Count < settings.QuestionsPerTicketCount)
             throw new InvalidOperationException(
                 $"Недостаточно вопросов для генерации билета. " +
                 $"Доступно: {questions.Count}, требуется: {settings.QuestionsPerTicketCount}");
-        
         var random = new Random();
-        
         return Enumerable.Range(1, settings.TotalTicketsCount)
             .Select(ticketNum => new Core.Models.ExamPaper(
                 id: Guid.NewGuid(),
