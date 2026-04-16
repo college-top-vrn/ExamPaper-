@@ -41,10 +41,11 @@ public class ExamPaperGenerator : IExamGenerator
         var random = new Random();
         
         return Enumerable.Range(1, settings.TotalTicketsCount)
-            .Select(ticketNum => new ExamPaper(
-                ticketNum, 
-                questions
-                    .OrderBy(x => random.Next())
+            .Select(ticketNum => new Core.Models.ExamPaper(
+                id: Guid.NewGuid(),
+                title: $"Билет №{ticketNum}",
+                questions: questions
+                    .OrderBy(_ => random.Next())
                     .Take(settings.QuestionsPerTicketCount)
                     .ToList()));
     }
