@@ -13,7 +13,7 @@ namespace ExamPaper.Infrastructure.Exporter;
 /// <summary>
 /// Класс-стратегия для экспорта экзаменационных билетов в PDF.
 /// </summary>
-public class PdfExamExporter : IExamExporter
+public sealed class PdfExamExporter : IExamExporter
 {
     /// <summary>
     /// Метод для экспорта списка билетов в PDF, закодированный в байтах,

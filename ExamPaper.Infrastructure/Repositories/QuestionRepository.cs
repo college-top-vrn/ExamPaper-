@@ -39,7 +39,7 @@ namespace ExamPaper.Infrastructure.Repositories;
 /// </code>
 /// </para>
 /// </remarks>
-public class QuestionRepository : IQuestionRepository
+public sealed class QuestionRepository : IQuestionRepository
 {
     private readonly string _filePath;
     private readonly List<IQuestion> _questions;

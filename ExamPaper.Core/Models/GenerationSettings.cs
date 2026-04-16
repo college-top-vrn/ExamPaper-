@@ -7,7 +7,7 @@ namespace ExamPaper.Core.Models;
 /// <summary>
 /// Реализация настроек генерации экзаменационных билетов.
 /// </summary>
-public class GenerationSettings : IGenerationSettings
+public sealed class GenerationSettings : IGenerationSettings
 {
     /// <summary>
     /// Общее количество билетов.

@@ -9,7 +9,7 @@ namespace ExamPaper.Infrastructure.Exporter;
 /// <summary>
 /// Класс-стратегия для экспорта экзаменационных билетов в JSON файл.
 /// </summary>
-public class JsonExamExporter : IExamExporter
+public sealed class JsonExamExporter : IExamExporter
 {
     private static readonly JsonSerializerOptions SerializerOptions = new()
     {
