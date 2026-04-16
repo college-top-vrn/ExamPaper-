@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-using ExamPaper.Core.Interfaces;
-
-namespace ExamPaper.Service.Factories;
+namespace ExamPaper.Core.Interfaces;
 
 /// <summary>
 /// интервейс фбрики ExamPaper

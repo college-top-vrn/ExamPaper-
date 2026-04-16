@@ -2,7 +2,6 @@
 
 namespace ExamPaper.Tests.Architecture;
 
-
 /// <summary>
 /// Содержит архитектурные тесты для проверки соблюдения правил проектирования,
 ///  правильного использования модификаторов доступа и защиты инкапсуляции.
@@ -74,5 +73,27 @@ public class DesignRulesTests
 
         Assert.True(result.IsSuccessful,
             "Слой Core не должен содержать статических классов (используйте интерфейсы и DI).");
+    }
+
+
+    
+    /// <summary>
+    /// Проверяет что все контаркты определены в Core
+    /// </summary>
+    [Fact]
+    public void AllInterfaces_Should_Reside_In_Core()
+    {
+        var coreAssembly = typeof(ExamPaper.Core.Models.Question).Assembly;
+        var serviceAssembly = typeof(ExamPaper.Service.Generator.ExamPaperGenerator).Assembly;
+        var infrastructureAssembly = typeof(ExamPaper.Infrastructure.Repositories.QuestionRepository).Assembly;
+        
+        var result = Types.InAssemblies([coreAssembly, serviceAssembly, infrastructureAssembly])
+            .That()
+            .AreInterfaces()
+            .Should()
+            .ResideInNamespaceStartingWith("ExamPaper.Core")
+            .GetResult();
+
+        Assert.True(result.IsSuccessful, "Все контракты системы должны располагаться в слое Core");
     }
 }

@@ -1,9 +1,6 @@
-using ExamPaper.Core.Interfaces;
-
-namespace ExamPaper.Infrastructure.Interfaces;
-
 using System;
-using System.Collections.Generic;
+
+namespace ExamPaper.Core.Interfaces;
 
 /// <summary>
 /// Репозиторий для управления вопросами. Объединяет чтение и модификацию данных.
