@@ -16,4 +16,4 @@ public interface IQuestion
     /// Текст вопроса.
     /// </summary>
     string Text { get; init; }
-  }
+}
