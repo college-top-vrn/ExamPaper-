@@ -11,6 +11,5 @@ public interface IExamExporter
     /// Метод для экспорта коллекции билетов в указанный файл.
     /// </summary>
     /// <param name="examPapers">Коллекция билетов для экспорта.</param>
-    /// <param name="destinationPath">Путь к выходному файлу (PDF).</param>
-    void Export(IEnumerable<IExamPaper> examPapers, string destinationPath);
+    byte[] Export(IEnumerable<IExamPaper> examPapers);
 }
