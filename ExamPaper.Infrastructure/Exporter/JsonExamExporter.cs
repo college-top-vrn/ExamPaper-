@@ -9,14 +9,13 @@ namespace ExamPaper.Infrastructure.Exporter;
 /// <summary>
 /// Класс-стратегия для экспорта экзаменационных билетов в JSON файл.
 /// </summary>
-public class JsonExamExporter: IExamExporter
+public class JsonExamExporter : IExamExporter
 {
     private static readonly JsonSerializerOptions SerializerOptions = new()
     {
-        WriteIndented = true,
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        WriteIndented = true, PropertyNamingPolicy = JsonNamingPolicy.CamelCase
     };
-    
+
     /// <summary>
     /// Экспортирует список экзаменационных билетов через JSON файл, закодированный в байтах.
     /// </summary>
@@ -30,6 +29,7 @@ public class JsonExamExporter: IExamExporter
         {
             throw new JsonException("Json export failed.");
         }
+
         return Encoding.UTF8.GetBytes(json);
     }
 }
