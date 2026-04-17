@@ -1,5 +1,4 @@
 using System;
-
 using ExamPaper.Core.Generation;
 
 namespace ExamPaper.Core.Models;

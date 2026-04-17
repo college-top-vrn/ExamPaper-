@@ -2,11 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
 using ExamPaper.Core.Interfaces;
 using ExamPaper.Core.Models;
 using ExamPaper.Infrastructure.Repositories;
-
 using Xunit;
 
 namespace ExamPaper.Tests.Unit;
@@ -144,7 +142,9 @@ public class QuestionRepositoryTests : IDisposable
 
         var questions = new List<Question>
         {
-            new Question(Guid.NewGuid(), "Q1"), new Question(targetId, "Target"), new Question(Guid.NewGuid(), "Q3")
+            new Question(Guid.NewGuid(), "Q1"),
+            new Question(targetId, "Target"),
+            new Question(Guid.NewGuid(), "Q3"),
         };
 
         foreach (var q in questions)
@@ -209,8 +209,9 @@ public class QuestionRepositoryTests : IDisposable
         var repository = new QuestionRepository(_tempFilePath);
         var questions = new[]
         {
-            new Question(Guid.NewGuid(), "Question 1"), new Question(Guid.NewGuid(), "Question 2"),
-            new Question(Guid.NewGuid(), "Question 3")
+            new Question(Guid.NewGuid(), "Question 1"),
+            new Question(Guid.NewGuid(), "Question 2"),
+            new Question(Guid.NewGuid(), "Question 3"),
         };
 
         foreach (var q in questions)

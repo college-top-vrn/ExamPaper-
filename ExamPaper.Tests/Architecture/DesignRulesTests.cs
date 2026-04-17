@@ -1,5 +1,4 @@
 ﻿using NetArchTest.Rules;
-
 using Xunit;
 
 namespace ExamPaper.Tests.Architecture;
