@@ -19,6 +19,9 @@ jobs:
     - name: Install DocFX
       run: dotnet tool update -g docfx
       
+    - name: Init DocFX
+      run: docfx init
+            
     - name: Build Docs
       run: docfx docfx.json
       
