@@ -50,7 +50,7 @@ public class QuestionRepositoryTests : IDisposable
     {
         // Act
         var repository = new QuestionRepository(_tempFilePath);
-        
+
         // Assert
         Assert.NotNull(repository);
     }
@@ -146,7 +146,7 @@ public class QuestionRepositoryTests : IDisposable
 
         // Act
         repository.RemoveQuestion(questionId);
-        
+
         // Assert
         Assert.Empty(repository.GetAllQuestions());
     }
@@ -230,10 +230,10 @@ public class QuestionRepositoryTests : IDisposable
     {
         // Arrange
         var repository = new QuestionRepository(_tempFilePath);
-        
+
         // Act
         var questions = repository.GetAllQuestions();
-        
+
         // Assert
         Assert.IsAssignableFrom<IReadOnlyList<IQuestion>>(questions);
     }
@@ -278,7 +278,7 @@ public class QuestionRepositoryTests : IDisposable
     {
         // Arrange
         var repository = new QuestionRepository(_tempFilePath);
-        
+
         // Act & Assert
         Assert.Throws<ArgumentNullException>(() => repository.AddQuestion(null));
     }
@@ -292,11 +292,11 @@ public class QuestionRepositoryTests : IDisposable
     {
         // Arrange
         File.WriteAllText(_tempFilePath, "{ invalid json }");
-        
+
         // Act
         var repository = new QuestionRepository(_tempFilePath);
         var questions = repository.GetAllQuestions();
-        
+
         // Assert
         Assert.Empty(questions);
     }
@@ -310,11 +310,11 @@ public class QuestionRepositoryTests : IDisposable
     {
         // Arrange
         File.WriteAllText(_tempFilePath, "");
-        
+
         // Act
         var repository = new QuestionRepository(_tempFilePath);
         var questions = repository.GetAllQuestions();
-        
+
         // Assert
         Assert.Empty(questions);
     }
@@ -329,14 +329,14 @@ public class QuestionRepositoryTests : IDisposable
         // Arrange
         var nonExistentFile = Path.GetTempFileName();
         File.Delete(nonExistentFile);
-        
+
         // Act
         var repository = new QuestionRepository(nonExistentFile);
         var questions = repository.GetAllQuestions();
-        
+
         // Assert
         Assert.Empty(questions);
-        
+
         // Cleanup
         if (File.Exists(nonExistentFile))
             File.Delete(nonExistentFile);
@@ -357,13 +357,13 @@ public class QuestionRepositoryTests : IDisposable
             new Question(Guid.NewGuid(), "Question 2"),
             new Question(Guid.NewGuid(), "Question 3"),
         };
-        
+
         // Act
         foreach (var q in questions)
         {
             repository.AddQuestion(q);
         }
-        
+
         // Assert
         var allQuestions = repository.GetAllQuestions();
         Assert.Equal(3, allQuestions.Count());
@@ -379,10 +379,10 @@ public class QuestionRepositoryTests : IDisposable
         // Arrange
         var repository = new QuestionRepository(_tempFilePath);
         var nonExistentId = Guid.NewGuid();
-        
+
         // Act
         var result = repository.GetQuestionById(nonExistentId);
-        
+
         // Assert
         Assert.Null(result);
     }

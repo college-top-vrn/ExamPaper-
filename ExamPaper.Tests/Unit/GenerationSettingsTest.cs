@@ -1,6 +1,8 @@
 using System;
 using System.Reflection;
+
 using ExamPaper.Core.Models;
+
 using Xunit;
 
 namespace ExamPaper.Tests.Unit;
@@ -137,10 +139,10 @@ public class GenerationSettingsTests
         {
             // Arrange
             var settings = new GenerationSettings(totalTickets, questionsPerTicket);
-            
+
             // Act
             var isValid = settings.IsValid();
-            
+
             // Assert
             Assert.Equal(expected, isValid);
         }
@@ -185,7 +187,7 @@ public class GenerationSettingsTests
 
             // Act
             var isValid = settings.IsValid();
-            
+
             // Assert
             Assert.Equal(expected, isValid);
         }
@@ -215,10 +217,10 @@ public class GenerationSettingsTests
         {
             // Arrange
             var settings = new GenerationSettings(totalTickets, questionsPerTicket);
-            
+
             // Act
             var result = settings.ToString();
-            
+
             // Assert
             Assert.Equal(expected, result);
         }
@@ -232,10 +234,10 @@ public class GenerationSettingsTests
         {
             // Arrange
             var settings = new GenerationSettings();
-            
+
             // Act
             var result = settings.ToString();
-            
+
             // Assert
             Assert.Equal("Билетов: 0, Вопросов на билет: 0", result);
         }
