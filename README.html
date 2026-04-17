@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Диаграммы </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Диаграммы ">
+    
+    
+      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="stylesheet" href="styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="styles/docfx.css">
+      <link rel="stylesheet" href="styles/main.css">
+      <meta property="docfx:navrel" content="">
+      <meta property="docfx:tocrel" content="">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="диаграммы">Диаграммы</h1>
+
+<h2 id="компонентов">Компонентов</h2>
+<p><img src="docs/assets/diagram_component.SVG" alt="Диаграмма компонентов"></p>
+<h2 id="прецедентов">Прецедентов</h2>
+<pre><code class="lang-mermaid">flowchart LR
+  actor1[Пользователь]
+
+
+    uc1((Добавление списка вопросов))
+    uc2((Выбирает количество билетов и вопросов))
+    uc3((Получает файл с билетами в PDF формате ))
+
+
+  actor1 --&gt; uc1
+  uc1 --&gt; uc2
+  uc2 --&gt; uc3
+</code></pre>
+<h2 id="последовательности">Последовательности</h2>
+<pre><code class="lang-mermaid">sequenceDiagram
+    participant Пользователь
+    participant Система
+
+    Пользователь-&gt;&gt;Система: Добавляет список вопросов
+    Пользователь-&gt;&gt;Система: Указывает количество вопросов в билете
+    Пользователь-&gt;&gt;Система: Указывает количество билетов
+    Система-&gt;&gt;Система: Генерирует билеты
+    Система-&gt;&gt;Пользователь: Выдает PDF‑файл с билетами
+</code></pre>
+<h2 id="регламент">Регламент</h2>
+<ul>
+<li><img src="docs/BranchCreation.html" alt="Создание ветки">;</li>
+<li><img src="docs/FileAndDirectoriesCreation.html" alt="Создание файлов и директорий">.</li>
+<li><img src="docs/TestCaseRegulations.html" alt="Создание тест-кейсов"></li>
+</ul>
+<h2 id="цель-проекта-разработка-генератора-экзаменационных-билетов">Цель проекта: Разработка генератора экзаменационных билетов.</h2>
+<p>Ключевые функции:</p>
+<ul>
+<li>Хранение вопросов и билетов в JSON-файле.</li>
+<li>Генерация билетов по запросу пользователя (количество вопросов варьируется с количеством билетов).</li>
+<li>Экспорт в PDF (используя библиотеку QuestPDF)</li>
+</ul>
+<h2 id="контракты-базовых-сущностей">Контракты базовых сущностей</h2>
+<pre><code class="lang-cs">namespace ExamPaper.Core.Interfaces
+{
+    public interface IQuestion
+    {
+   
+        Guid Id { get; }
+        string Text { get; }
+    }
+}
+</code></pre>
+<pre><code class="lang-cs">using System;
+using System.Collections.Generic;
+
+namespace ExamPaper.Core.Interfaces
+{
+  
+    public interface IExamPaper
+    {
+
+        Guid Id { get; }
+        string Title { get; }
+        IReadOnlyCollection&lt;IQuestion&gt; Questions { get; }
+
+    }
+}
+</code></pre>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/README.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

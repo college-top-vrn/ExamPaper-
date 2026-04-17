@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class QuestionRepository </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class QuestionRepository ">
+    
+    <meta name="description" content="Реализация провайдера вопросов для загрузки данных из файла в формате JSON.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository">
+
+
+
+  <h1 id="ExamPaper_Infrastructure_Repositories_QuestionRepository" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository" class="text-break">Class QuestionRepository</h1>
+  <div class="markdown level0 summary"><p>Реализация провайдера вопросов для загрузки данных из файла в формате JSON.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">QuestionRepository</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="ExamPaper.Core.Interfaces.IQuestionRepository.html">IQuestionRepository</a></div>
+    <div><a class="xref" href="ExamPaper.Core.Interfaces.IQuestionProvider.html">IQuestionProvider</a></div>
+    <div><a class="xref" href="ExamPaper.Core.Interfaces.IQuestionModifier.html">IQuestionModifier</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ExamPaper.html">ExamPaper</a>.<a class="xref" href="ExamPaper.Infrastructure.html">Infrastructure</a>.<a class="xref" href="ExamPaper.Infrastructure.Repositories.html">Repositories</a></h6>
+  <h6><strong>Assembly</strong>: ExamPaper.Infrastructure.dll</h6>
+  <h5 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class QuestionRepository : IQuestionRepository, IQuestionProvider, IQuestionModifier</code></pre>
+  </div>
+  <h5 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+<a class="xref" href="ExamPaper.Infrastructure.Repositories.QuestionRepository.html">QuestionRepository</a> предоставляет функциональность для работы с коллекцией вопросов,
+хранящихся в JSON-файле. Репозиторий поддерживает CRUD операции, загрузку и сохранение данных.
+</p>
+<p>
+Все изменения в коллекции вопросов накапливаются в памяти и сохраняются в файл только при вызове
+метода <a class="xref" href="ExamPaper.Infrastructure.Repositories.QuestionRepository.html#ExamPaper_Infrastructure_Repositories_QuestionRepository_SaveChanges">SaveChanges()</a>.
+</p>
+<p>
+<b>Пример использования:</b>
+<pre><code class="lang-csharp">var repository = new QuestionRepository("questions.json");
+<p>// Получение всех вопросов
+var allQuestions = repository.GetAllQuestions();</p>
+<p>// Добавление нового вопроса
+var newQuestion = new Question { Id = Guid.NewGuid(), Text = &quot;Что такое SOLID?&quot; };
+repository.AddQuestion(newQuestion);</p>
+<p>// Сохранение изменений
+repository.SaveChanges();</p></code></pre>
+
+</div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/college-top-vrn/ExamPaper-/new/develop/apiSpec/new?filename=ExamPaper_Infrastructure_Repositories_QuestionRepository__ctor_System_String_.md&amp;value=---%0Auid%3A%20ExamPaper.Infrastructure.Repositories.QuestionRepository.%23ctor(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L57">View Source</a>
+  </span>
+  <a id="ExamPaper_Infrastructure_Repositories_QuestionRepository__ctor_" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.#ctor*"></a>
+  <h4 id="ExamPaper_Infrastructure_Repositories_QuestionRepository__ctor_System_String_" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.#ctor(System.String)">QuestionRepository(string)</h4>
+  <div class="markdown level1 summary"><p>Инициализирует новый экземпляр класса <a class="xref" href="ExamPaper.Infrastructure.Repositories.QuestionRepository.html">QuestionRepository</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QuestionRepository(string filePath)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">filePath</span></td>
+        <td><p>Путь к JSON-файлу с вопросами.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExamPaper_Infrastructure_Repositories_QuestionRepository__ctor_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>При создании репозитория происходит автоматическая загрузка данных из указанного файла.
+Если файл не существует, инициализируется пустая коллекция.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Выбрасывается, если <code class="paramref">filePath</code> равен <code>null</code>, пустой строке или состоит только из пробелов.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/college-top-vrn/ExamPaper-/new/develop/apiSpec/new?filename=ExamPaper_Infrastructure_Repositories_QuestionRepository_AddQuestion_ExamPaper_Core_Interfaces_IQuestion_.md&amp;value=---%0Auid%3A%20ExamPaper.Infrastructure.Repositories.QuestionRepository.AddQuestion(ExamPaper.Core.Interfaces.IQuestion)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L137">View Source</a>
+  </span>
+  <a id="ExamPaper_Infrastructure_Repositories_QuestionRepository_AddQuestion_" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.AddQuestion*"></a>
+  <h4 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_AddQuestion_ExamPaper_Core_Interfaces_IQuestion_" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.AddQuestion(ExamPaper.Core.Interfaces.IQuestion)">AddQuestion(IQuestion)</h4>
+  <div class="markdown level1 summary"><p>Добавляет новый вопрос в репозиторий.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddQuestion(IQuestion question)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExamPaper.Core.Interfaces.IQuestion.html">IQuestion</a></td>
+        <td><span class="parametername">question</span></td>
+        <td><p>Вопрос для добавления.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_AddQuestion_ExamPaper_Core_Interfaces_IQuestion__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Вопрос добавляется только в память. Для сохранения изменений в файл необходимо вызвать
+метод <a class="xref" href="ExamPaper.Infrastructure.Repositories.QuestionRepository.html#ExamPaper_Infrastructure_Repositories_QuestionRepository_SaveChanges">SaveChanges()</a>.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Выбрасывается, если <code class="paramref">question</code> равен <code>null</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Выбрасывается, если в репозитории уже существует вопрос с таким же идентификатором (<a class="xref" href="ExamPaper.Core.Interfaces.IQuestion.html#ExamPaper_Core_Interfaces_IQuestion_Id">Id</a>).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/college-top-vrn/ExamPaper-/new/develop/apiSpec/new?filename=ExamPaper_Infrastructure_Repositories_QuestionRepository_GetAllQuestions.md&amp;value=---%0Auid%3A%20ExamPaper.Infrastructure.Repositories.QuestionRepository.GetAllQuestions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L121">View Source</a>
+  </span>
+  <a id="ExamPaper_Infrastructure_Repositories_QuestionRepository_GetAllQuestions_" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.GetAllQuestions*"></a>
+  <h4 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_GetAllQuestions" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.GetAllQuestions">GetAllQuestions()</h4>
+  <div class="markdown level1 summary"><p>Возвращает все доступные вопросы.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IQuestion&gt; GetAllQuestions()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ExamPaper.Core.Interfaces.IQuestion.html">IQuestion</a>&gt;</td>
+        <td><p>Доступная только для чтения коллекция вопросов (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList&lt;T&gt;</a>).
+Если вопросы отсутствуют, возвращает пустую коллекцию.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_GetAllQuestions_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Метод возвращает снимок текущего состояния коллекции. Изменения, возвращённой коллекции,
+не влияют на состояние репозитория.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/college-top-vrn/ExamPaper-/new/develop/apiSpec/new?filename=ExamPaper_Infrastructure_Repositories_QuestionRepository_GetQuestionById_System_Guid_.md&amp;value=---%0Auid%3A%20ExamPaper.Infrastructure.Repositories.QuestionRepository.GetQuestionById(System.Guid)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L206">View Source</a>
+  </span>
+  <a id="ExamPaper_Infrastructure_Repositories_QuestionRepository_GetQuestionById_" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.GetQuestionById*"></a>
+  <h4 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_GetQuestionById_System_Guid_" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.GetQuestionById(System.Guid)">GetQuestionById(Guid)</h4>
+  <div class="markdown level1 summary"><p>Возвращает вопрос по его уникальному идентификатору.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IQuestion? GetQuestionById(Guid id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>Уникальный идентификатор вопроса (Guid).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExamPaper.Core.Interfaces.IQuestion.html">IQuestion</a></td>
+        <td><p>Объект, реализующий <a class="xref" href="ExamPaper.Core.Interfaces.IQuestion.html">IQuestion</a>, если вопрос найден;
+<code>null</code>, если вопрос с указанным идентификатором отсутствует в репозитории.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_GetQuestionById_System_Guid__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Поиск выполняется за O(n) путём перебора коллекции.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/college-top-vrn/ExamPaper-/new/develop/apiSpec/new?filename=ExamPaper_Infrastructure_Repositories_QuestionRepository_RemoveQuestion_System_Guid_.md&amp;value=---%0Auid%3A%20ExamPaper.Infrastructure.Repositories.QuestionRepository.RemoveQuestion(System.Guid)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L160">View Source</a>
+  </span>
+  <a id="ExamPaper_Infrastructure_Repositories_QuestionRepository_RemoveQuestion_" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.RemoveQuestion*"></a>
+  <h4 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_RemoveQuestion_System_Guid_" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.RemoveQuestion(System.Guid)">RemoveQuestion(Guid)</h4>
+  <div class="markdown level1 summary"><p>Удаляет вопрос по указанному идентификатору.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveQuestion(Guid questionId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">questionId</span></td>
+        <td><p>Уникальный идентификатор вопроса (Guid).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_RemoveQuestion_System_Guid__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Если вопрос с указанным <code class="paramref">questionId</code> не найден, метод не выполняет никаких действий
+и не выбрасывает исключение.
+</p>
+<p>
+Вопрос удаляется только из памяти. Для сохранения изменений в файл необходимо вызвать
+метод <a class="xref" href="ExamPaper.Infrastructure.Repositories.QuestionRepository.html#ExamPaper_Infrastructure_Repositories_QuestionRepository_SaveChanges">SaveChanges()</a>.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/college-top-vrn/ExamPaper-/new/develop/apiSpec/new?filename=ExamPaper_Infrastructure_Repositories_QuestionRepository_SaveChanges.md&amp;value=---%0Auid%3A%20ExamPaper.Infrastructure.Repositories.QuestionRepository.SaveChanges%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L187">View Source</a>
+  </span>
+  <a id="ExamPaper_Infrastructure_Repositories_QuestionRepository_SaveChanges_" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.SaveChanges*"></a>
+  <h4 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_SaveChanges" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.SaveChanges">SaveChanges()</h4>
+  <div class="markdown level1 summary"><p>Сохраняет все изменения (добавления, удаления) в файл.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SaveChanges()</code></pre>
+  </div>
+  <h5 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_SaveChanges_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Сериализует текущую коллекцию вопросов в JSON-формат с отступами (pretty print) и
+записывает в файл, указанный при создании репозитория.
+</p>
+<p>
+Если файл не существует, он будет создан. Существующий файл будет перезаписан.
+</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
+        <td><p>Может быть выброшено при отсутствии прав на запись в файл или директорию.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></td>
+        <td><p>Может быть выброшено при ошибках ввода-вывода (например, диск заполнен, файл заблокирован).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="ExamPaper.Core.Interfaces.IQuestionRepository.html">IQuestionRepository</a>
+  </div>
+  <div>
+      <a class="xref" href="ExamPaper.Core.Interfaces.IQuestionProvider.html">IQuestionProvider</a>
+  </div>
+  <div>
+      <a class="xref" href="ExamPaper.Core.Interfaces.IQuestionModifier.html">IQuestionModifier</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/college-top-vrn/ExamPaper-/new/develop/apiSpec/new?filename=ExamPaper_Infrastructure_Repositories_QuestionRepository.md&amp;value=---%0Auid%3A%20ExamPaper.Infrastructure.Repositories.QuestionRepository%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L41" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
