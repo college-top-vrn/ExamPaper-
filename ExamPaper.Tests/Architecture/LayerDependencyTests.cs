@@ -14,7 +14,7 @@ public class LayerDependencyTests
     private const string ServiceNamespace = "ExamPaper.Service";
     private const string InfrastructureNamespace = "ExamPaper.Infrastructure";
 
-    
+
     /// <summary>
     /// Тест проверяет, что слой Core не зависит от Service и Infrastructure.
     /// </summary>
@@ -24,11 +24,11 @@ public class LayerDependencyTests
         var result = Types.InAssembly(typeof(ExamPaper.Core.Interfaces.IQuestion).Assembly)
             .ShouldNot()
             .HaveDependencyOnAny(ServiceNamespace, InfrastructureNamespace)
-            .GetResult(); 
-        
+            .GetResult();
+
         Assert.True(result.IsSuccessful, "Слой ядра не должен зависеть от слоя сервиса и инфраструктуры.");
     }
-    
+
     /// <summary>
     /// Тест проверяет, что слой Service не зависит от Infrastructure.
     /// </summary>
@@ -38,11 +38,11 @@ public class LayerDependencyTests
         var result = Types.InAssembly(typeof(ExamPaper.Service.Generator.ExamPaperGenerator).Assembly)
             .ShouldNot()
             .HaveDependencyOnAny(InfrastructureNamespace)
-            .GetResult(); 
-        
+            .GetResult();
+
         Assert.True(result.IsSuccessful, "Слой сервиса не должен иметь зависимость от слоя инфраструктуры.");
     }
-    
+
     /// <summary>
     /// Проверяет, что слой Infrastructure не зависит от слоя Service.
     /// </summary>
@@ -52,9 +52,9 @@ public class LayerDependencyTests
         var result = Types.InAssembly(typeof(ExamPaper.Infrastructure.Repositories.QuestionRepository).Assembly)
             .ShouldNot()
             .HaveDependencyOn(ServiceNamespace)
-            .GetResult(); 
-        
+            .GetResult();
+
         Assert.True(result.IsSuccessful, "Слой Infrastructure не должен иметь зависимостей от слоя Service.");
     }
-    
+
 }

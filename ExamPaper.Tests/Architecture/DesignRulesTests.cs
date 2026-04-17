@@ -78,7 +78,7 @@ public class DesignRulesTests
     }
 
 
-    
+
     /// <summary>
     /// Проверяет что все контаркты определены в Core
     /// </summary>
@@ -88,7 +88,7 @@ public class DesignRulesTests
         var coreAssembly = typeof(ExamPaper.Core.Models.Question).Assembly;
         var serviceAssembly = typeof(ExamPaper.Service.Generator.ExamPaperGenerator).Assembly;
         var infrastructureAssembly = typeof(ExamPaper.Infrastructure.Repositories.QuestionRepository).Assembly;
-        
+
         var result = Types.InAssemblies([coreAssembly, serviceAssembly, infrastructureAssembly])
             .That()
             .AreInterfaces()

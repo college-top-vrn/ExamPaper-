@@ -1,10 +1,10 @@
 ﻿namespace ExamPaper.Tests.Architecture;
 
-using System.Text.RegularExpressions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 using Xunit;
 
@@ -30,7 +30,7 @@ public class DirectoryNamingTests
         foreach (var projectPath in projects)
         {
             var projectName = Path.GetFileName(projectPath);
-            
+
             var allDirs = Directory.GetDirectories(projectPath, "*", SearchOption.AllDirectories);
 
             foreach (var dirPath in allDirs)
@@ -62,14 +62,14 @@ public class DirectoryNamingTests
         return currentDir?.FullName;
     }
 
-   
+
     private static bool IsSystemOrHiddenDirectory(string path)
     {
         var segments = path.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-        
-        return segments.Any(s => 
-            s.Equals("bin", StringComparison.OrdinalIgnoreCase) || 
-            s.Equals("obj", StringComparison.OrdinalIgnoreCase) || 
+
+        return segments.Any(s =>
+            s.Equals("bin", StringComparison.OrdinalIgnoreCase) ||
+            s.Equals("obj", StringComparison.OrdinalIgnoreCase) ||
             s.StartsWith("."));
     }
 }

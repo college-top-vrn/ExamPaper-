@@ -17,7 +17,7 @@ public class GenerationSettingsTests
         public void WithValidParameters_ShouldSetProperties(int totalTickets, int questionsPerTicket)
         {
             var settings = new GenerationSettings(totalTickets, questionsPerTicket);
-                
+
             Assert.Equal(totalTickets, settings.TotalTicketsCount);
             Assert.Equal(questionsPerTicket, settings.QuestionsPerTicketCount);
         }
@@ -28,9 +28,9 @@ public class GenerationSettingsTests
         [InlineData(-10, 5)]
         public void WithInvalidTotalTicketsCount_ShouldThrowArgumentException(int totalTickets, int questionsPerTicket)
         {
-            var exception = Assert.Throws<ArgumentException>(() => 
+            var exception = Assert.Throws<ArgumentException>(() =>
                 new GenerationSettings(totalTickets, questionsPerTicket));
-                
+
             Assert.Equal("totalTicketsCount", exception.ParamName);
         }
 
@@ -38,11 +38,12 @@ public class GenerationSettingsTests
         [InlineData(5, 0)]
         [InlineData(5, -1)]
         [InlineData(5, -100)]
-        public void WithInvalidQuestionsPerTicketCount_ShouldThrowArgumentException(int totalTickets, int questionsPerTicket)
+        public void WithInvalidQuestionsPerTicketCount_ShouldThrowArgumentException(int totalTickets,
+            int questionsPerTicket)
         {
-            var exception = Assert.Throws<ArgumentException>(() => 
+            var exception = Assert.Throws<ArgumentException>(() =>
                 new GenerationSettings(totalTickets, questionsPerTicket));
-                
+
             Assert.Equal("questionsPerTicketCount", exception.ParamName);
         }
     }
@@ -53,7 +54,7 @@ public class GenerationSettingsTests
         public void ShouldCreateInstanceWithDefaultValues()
         {
             var settings = new GenerationSettings();
-                
+
             Assert.Equal(0, settings.TotalTicketsCount);
             Assert.Equal(0, settings.QuestionsPerTicketCount);
         }
@@ -82,17 +83,17 @@ public class GenerationSettingsTests
         {
             // Используем пустой конструктор
             var settings = new GenerationSettings();
-                
+
             // Устанавливаем значения через рефлексию
             var type = settings.GetType();
-            var totalTicketsField = type.GetField("<TotalTicketsCount>k__BackingField", 
+            var totalTicketsField = type.GetField("<TotalTicketsCount>k__BackingField",
                 System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
-            var questionsField = type.GetField("<QuestionsPerTicketCount>k__BackingField", 
+            var questionsField = type.GetField("<QuestionsPerTicketCount>k__BackingField",
                 System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
-                
+
             totalTicketsField?.SetValue(settings, totalTickets);
             questionsField?.SetValue(settings, questionsPerTicket);
-                
+
             var isValid = settings.IsValid();
             Assert.Equal(expected, isValid);
         }
@@ -104,7 +105,8 @@ public class GenerationSettingsTests
         [InlineData(1, 1, "Билетов: 1, Вопросов на билет: 1")]
         [InlineData(10, 5, "Билетов: 10, Вопросов на билет: 5")]
         [InlineData(100, 20, "Билетов: 100, Вопросов на билет: 20")]
-        public void WithValidValues_ShouldReturnFormattedString(int totalTickets, int questionsPerTicket, string expected)
+        public void WithValidValues_ShouldReturnFormattedString(int totalTickets, int questionsPerTicket,
+            string expected)
         {
             var settings = new GenerationSettings(totalTickets, questionsPerTicket);
             var result = settings.ToString();
