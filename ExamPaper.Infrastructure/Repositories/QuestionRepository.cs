@@ -198,7 +198,10 @@ public sealed class QuestionRepository : IQuestionRepository
             }
 
             JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
-            List<Question>? deserialized = JsonSerializer.Deserialize<List<Question>>(text, options);
+            List<Question>? deserialized = JsonSerializer.Deserialize<List<Question>>(
+                text,
+                options
+            );
             return deserialized?.Cast<IQuestion>().ToList() ?? [];
         }
         catch (JsonException)

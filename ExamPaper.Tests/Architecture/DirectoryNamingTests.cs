@@ -32,7 +32,11 @@ public class DirectoryNamingTests
         {
             string projectName = Path.GetFileName(projectPath);
 
-            string[] allDirs = Directory.GetDirectories(projectPath, "*", SearchOption.AllDirectories);
+            string[] allDirs = Directory.GetDirectories(
+                projectPath,
+                "*",
+                SearchOption.AllDirectories
+            );
 
             foreach (string dirPath in allDirs)
             {
@@ -71,7 +75,10 @@ public class DirectoryNamingTests
 
     private static bool IsSystemOrHiddenDirectory(string path)
     {
-        string[]? segments = path.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+        string[]? segments = path.Split(
+            Path.DirectorySeparatorChar,
+            Path.AltDirectorySeparatorChar
+        );
 
         return segments.Any(s =>
             s.Equals("bin", StringComparison.OrdinalIgnoreCase)

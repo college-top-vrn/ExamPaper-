@@ -19,8 +19,13 @@ public sealed class ExamPaper : IExamPaper
     /// <param name="questions">Список вопросов, попавших в данный билет.</param>
     /// <exception cref="ArgumentNullException">Если параметры пусты.</exception>
     public ExamPaper(string title, IEnumerable<IQuestion> questions)
-        : this(Guid.CreateVersion7(), title, questions)
     {
+        ArgumentException.ThrowIfNullOrWhiteSpace(title);
+        ArgumentNullException.ThrowIfNull(questions);
+
+        Id = Guid.CreateVersion7();
+        Title = title;
+        Questions = new ReadOnlyCollection<IQuestion>(questions.ToList());
     }
 
     /// <summary>
@@ -34,10 +39,11 @@ public sealed class ExamPaper : IExamPaper
     {
         Id = id == Guid.Empty ? Guid.CreateVersion7() : id;
 
-        Title = title ?? throw new ArgumentNullException(nameof(title));
-        Questions = new ReadOnlyCollection<IQuestion>(
-            (questions ?? throw new ArgumentNullException(nameof(questions))).ToList()
-        );
+        ArgumentException.ThrowIfNullOrWhiteSpace(title);
+        ArgumentNullException.ThrowIfNull(questions);
+
+        Title = title;
+        Questions = questions.ToList().AsReadOnly();
     }
 
     /// <summary>

@@ -53,7 +53,10 @@ public class PdfExamExporterTests
     [InlineData("Билет 1", "Вопрос 1.1", "Вопрос 1.2")]
     [InlineData("Билет 2", "Вопрос 2.1", "Вопрос 2.2", "Вопрос 2.3")]
     [Theory]
-    public void Export_ValidExamPapers_ReturnsPdfWithCorrectContent(string title, params string[] questionTexts)
+    public void Export_ValidExamPapers_ReturnsPdfWithCorrectContent(
+        string title,
+        params string[] questionTexts
+    )
     {
         // Arrange
         Guid paperId = Guid.CreateVersion7();
