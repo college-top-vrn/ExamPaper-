@@ -1,12 +1,17 @@
-﻿using NetArchTest.Rules;
+﻿using ExamPaper.Core.Interfaces;
+using ExamPaper.Infrastructure.Repositories;
+using ExamPaper.Service.Generator;
+
+using NetArchTest.Rules;
+
 using Xunit;
 
 namespace ExamPaper.Tests.Architecture;
 
 /// <summary>
-/// Содержит архитектурные тесты для контроля соблюдения правил Слоистой Архитектуры
-/// Гарантирует, что граф зависимостей всегда направлен внутрь — к слою Core,
-/// и предотвращает протекание деталей реализации (инфраструктуры) в доменную и бизнес-логику.
+///     Содержит архитектурные тесты для контроля соблюдения правил Слоистой Архитектуры
+///     Гарантирует, что граф зависимостей всегда направлен внутрь — к слою Core,
+///     и предотвращает протекание деталей реализации (инфраструктуры) в доменную и бизнес-логику.
 /// </summary>
 public class LayerDependencyTests
 {
@@ -15,13 +20,13 @@ public class LayerDependencyTests
     private const string InfrastructureNamespace = "ExamPaper.Infrastructure";
 
     /// <summary>
-    /// Тест проверяет, что слой Core не зависит от Service и Infrastructure.
+    ///     Тест проверяет, что слой Core не зависит от Service и Infrastructure.
     /// </summary>
     [Fact]
     public void CoreLayer_ShouldNot_HaveDependencyOn_ServiceOrInfrastructure()
     {
-        var result = Types
-            .InAssembly(typeof(ExamPaper.Core.Interfaces.IQuestion).Assembly)
+        TestResult? result = Types
+            .InAssembly(typeof(IQuestion).Assembly)
             .ShouldNot()
             .HaveDependencyOnAny(ServiceNamespace, InfrastructureNamespace)
             .GetResult();
@@ -33,13 +38,13 @@ public class LayerDependencyTests
     }
 
     /// <summary>
-    /// Тест проверяет, что слой Service не зависит от Infrastructure.
+    ///     Тест проверяет, что слой Service не зависит от Infrastructure.
     /// </summary>
     [Fact]
     public void ServiceLayer_ShouldNot_HaveDependencyOn_Infrastructure()
     {
-        var result = Types
-            .InAssembly(typeof(ExamPaper.Service.Generator.ExamPaperGenerator).Assembly)
+        TestResult? result = Types
+            .InAssembly(typeof(ExamPaperGenerator).Assembly)
             .ShouldNot()
             .HaveDependencyOnAny(InfrastructureNamespace)
             .GetResult();
@@ -51,13 +56,13 @@ public class LayerDependencyTests
     }
 
     /// <summary>
-    /// Проверяет, что слой Infrastructure не зависит от слоя Service.
+    ///     Проверяет, что слой Infrastructure не зависит от слоя Service.
     /// </summary>
     [Fact]
     public void InfrastructureLayer_ShouldNot_HaveDependencyOn_Service()
     {
-        var result = Types
-            .InAssembly(typeof(ExamPaper.Infrastructure.Repositories.QuestionRepository).Assembly)
+        TestResult? result = Types
+            .InAssembly(typeof(QuestionRepository).Assembly)
             .ShouldNot()
             .HaveDependencyOn(ServiceNamespace)
             .GetResult();

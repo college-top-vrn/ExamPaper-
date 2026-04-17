@@ -1,15 +1,16 @@
-﻿namespace ExamPaper.Tests.Architecture;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+
 using Xunit;
 
+namespace ExamPaper.Tests.Architecture;
+
 /// <summary>
-/// Архитектурные тесты для проверки физической структуры проекта.
-/// Проверяет соответствие имен папок правилам: PascalCase, отсутствие пробелов и кириллицы.
+///     Архитектурные тесты для проверки физической структуры проекта.
+///     Проверяет соответствие имен папок правилам: PascalCase, отсутствие пробелов и кириллицы.
 /// </summary>
 public class DirectoryNamingTests
 {
@@ -18,29 +19,29 @@ public class DirectoryNamingTests
     [Fact]
     public void Directories_Should_Follow_Naming_Conventions()
     {
-        var solutionRoot = GetSolutionRoot();
+        string? solutionRoot = GetSolutionRoot();
         Assert.True(solutionRoot != null, "Не удалось найти корень решения (файл .sln).");
 
-        var errors = new List<string>();
+        List<string> errors = new();
 
-        var projects = Directory
+        IEnumerable<string> projects = Directory
             .GetDirectories(solutionRoot, "ExamPaper*", SearchOption.TopDirectoryOnly)
             .Where(d => Directory.GetFiles(d, "*.csproj").Any());
 
-        foreach (var projectPath in projects)
+        foreach (string projectPath in projects)
         {
-            var projectName = Path.GetFileName(projectPath);
+            string projectName = Path.GetFileName(projectPath);
 
-            var allDirs = Directory.GetDirectories(projectPath, "*", SearchOption.AllDirectories);
+            string[] allDirs = Directory.GetDirectories(projectPath, "*", SearchOption.AllDirectories);
 
-            foreach (var dirPath in allDirs)
+            foreach (string dirPath in allDirs)
             {
                 if (IsSystemOrHiddenDirectory(dirPath))
                 {
                     continue;
                 }
 
-                var dirName = Path.GetFileName(dirPath);
+                string dirName = Path.GetFileName(dirPath);
 
                 if (!ValidFolderNameRegex.IsMatch(dirName))
                 {
@@ -59,17 +60,18 @@ public class DirectoryNamingTests
 
     private static string? GetSolutionRoot()
     {
-        var currentDir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+        DirectoryInfo? currentDir = new(AppDomain.CurrentDomain.BaseDirectory);
         while (currentDir != null && !currentDir.GetFiles("*.sln").Any())
         {
             currentDir = currentDir.Parent;
         }
+
         return currentDir?.FullName;
     }
 
     private static bool IsSystemOrHiddenDirectory(string path)
     {
-        var segments = path.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+        string[]? segments = path.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
 
         return segments.Any(s =>
             s.Equals("bin", StringComparison.OrdinalIgnoreCase)

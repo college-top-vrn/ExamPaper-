@@ -3,17 +3,17 @@ using System;
 namespace ExamPaper.Core.Interfaces;
 
 /// <summary>
-/// Интерфейс экзаменационного вопроса.
+///     Интерфейс экзаменационного вопроса.
 /// </summary>
 public interface IQuestion
 {
     /// <summary>
-    /// Уникальный Guid идентификатор вопроса.
+    ///     Уникальный Guid идентификатор вопроса.
     /// </summary>
     Guid Id { get; init; }
 
     /// <summary>
-    /// Текст вопроса.
+    ///     Текст вопроса.
     /// </summary>
     string Text { get; init; }
 }
