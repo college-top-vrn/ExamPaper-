@@ -33,5 +33,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           destination_dir: ${{ github.ref == 'refs/heads/develop' && 'dev' || '' }}
-permissions:
-  contents: write
