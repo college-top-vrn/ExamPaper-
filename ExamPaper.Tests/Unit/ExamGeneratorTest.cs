@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using ExamPaper.Core.Generation;
 using ExamPaper.Core.Interfaces;
 using ExamPaper.Core.Models;
 using ExamPaper.Service.Generator;
+
 using Xunit;
 
 namespace ExamPaper.Tests.Unit;
@@ -247,14 +249,14 @@ public class ExamPaperGeneratorTests
             {
                 var firstTicketQuestions = firstGeneration[i].Questions.Select(q => q.Id).ToList();
                 var secondTicketQuestions = secondGeneration[i].Questions.Select(q => q.Id).ToList();
-                
+
                 if (!firstTicketQuestions.SequenceEqual(secondTicketQuestions))
                 {
                     hasDifferences = true;
                     break;
                 }
             }
-            
+
             Assert.True(hasDifferences, "Generations should differ due to randomness");
         }
 
@@ -272,7 +274,7 @@ public class ExamPaperGeneratorTests
             var tickets = _generator.Generate(questions, settings).ToList();
             var allQuestionIds = tickets.SelectMany(t => t.Questions.Select(q => q.Id)).ToList();
             var uniqueQuestionIds = allQuestionIds.Distinct().ToList();
-            
+
             // Assert
             Assert.True(uniqueQuestionIds.Count < allQuestionIds.Count,
                 "Questions should repeat across different tickets when question pool is limited");
@@ -369,7 +371,7 @@ public class ExamPaperGeneratorTests
             // Assert
             var uniqueIds = tickets.Select(t => t.Id).Distinct();
             var uniqueNames = tickets.Select<IExamPaper, object>(t => t.Title).Distinct();
-            
+
             Assert.Equal(tickets.Count, uniqueIds.Count());
             Assert.Equal(tickets.Count, uniqueNames.Count());
         }
