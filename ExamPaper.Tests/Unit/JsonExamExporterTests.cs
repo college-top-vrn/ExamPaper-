@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 
 using ExamPaper.Core.Interfaces;
 using ExamPaper.Infrastructure.Exporter;
@@ -64,16 +65,22 @@ public class JsonExamExporterTests
 
         // Act
         byte[] result = Exporter.Export(papers);
-        string json = Encoding.UTF8.GetString(result);
+        using var jsonDoc = JsonDocument.Parse(result);
+        var root = jsonDoc.RootElement;
+        var paperElement = root[0];
+        var questionsElement = paperElement.GetProperty("questions");
 
         // Assert
         Assert.NotNull(result);
         Assert.NotEmpty(result);
-        Assert.Contains(paperId.ToString(), json);
-        Assert.Contains(title, json);
-        foreach (string text in questionTexts)
+        Assert.Equal(paperId.ToString(), paperElement.GetProperty("id").GetString());
+        Assert.Equal(title, paperElement.GetProperty("title").GetString());
+        Assert.Equal(questionTexts.Length, questionsElement.GetArrayLength());
+        int index = 0;
+        foreach (var question in questionsElement.EnumerateArray())
         {
-            Assert.Contains(text, json);
+            Assert.Equal(questionTexts[index], question.GetProperty("text").GetString());
+            index++;
         }
     }
 
