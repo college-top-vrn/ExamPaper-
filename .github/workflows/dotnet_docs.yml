@@ -2,7 +2,7 @@
 on:
   push:
     branches: [develop]
-  workflow_dispatch
+  workflow_dispatch:
     
 jobs:
   publish-docs:
