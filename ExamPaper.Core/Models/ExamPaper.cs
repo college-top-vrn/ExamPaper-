@@ -27,7 +27,6 @@ public sealed class ExamPaper : IExamPaper
     /// </summary>
     public IReadOnlyCollection<IQuestion> Questions { get; init; }
 
-
     /// <summary>
     /// Конструктор для создания билета с автоматической генерацией Id (Version 7).
     /// </summary>
@@ -35,10 +34,7 @@ public sealed class ExamPaper : IExamPaper
     /// <param name="questions">Список вопросов, попавших в данный билет.</param>
     /// <exception cref="ArgumentNullException">Если параметры пусты.</exception>
     public ExamPaper(string title, IEnumerable<IQuestion> questions)
-        : this(Guid.CreateVersion7(), title, questions)
-    {
-    }
-
+        : this(Guid.CreateVersion7(), title, questions) { }
 
     /// <summary>
     /// Конструктор для создания экзаменационного билета с заданным Id.

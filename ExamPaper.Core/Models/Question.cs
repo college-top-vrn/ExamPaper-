@@ -1,8 +1,7 @@
-using ExamPaper.Core.Interfaces;
 using System;
+using ExamPaper.Core.Interfaces;
 
 namespace ExamPaper.Core.Models;
-
 
 /// <summary>
 /// Класс для хранения экзаменационного вопроса
