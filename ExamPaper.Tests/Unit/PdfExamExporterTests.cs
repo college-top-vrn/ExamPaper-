@@ -30,7 +30,7 @@ public class PdfExamExporterTests
     /// <returns>Объект с интерфейсом билета.</returns>
     private static IExamPaper CreateTestPaper(Guid id, string title, params string[] questionTexts)
     {
-        List<IQuestion> questions = questionTexts.Select((text, index) =>
+        List<IQuestion> questions = questionTexts.Select(text =>
         {
             Mock<IQuestion> mockQuestion = new();
             mockQuestion.SetupGet(q => q.Id).Returns(Guid.NewGuid());
@@ -57,7 +57,7 @@ public class PdfExamExporterTests
     {
         // Arrange
         Guid paperId = Guid.CreateVersion7();
-        List<IExamPaper> papers = new() { CreateTestPaper(paperId, title, questionTexts) };
+        List<IExamPaper> papers = [CreateTestPaper(paperId, title, questionTexts)];
 
         // Act
         byte[] result = Exporter.Export(papers);
@@ -65,14 +65,14 @@ public class PdfExamExporterTests
         char[] header = pdf.Take(5).ToArray();
 
         // Assert
-        using (PdfDocument pdfDocument = PdfDocument.Open(result))
+        Assert.Equal("%PDF-", header);
+        using PdfDocument pdfDocument = PdfDocument.Open(result);
+        string allText = string.Join(" ", pdfDocument.GetPages().Select(p => p.Text));
+        Assert.Contains(paperId.ToString(), allText);
+        Assert.Contains(title, allText);
+        foreach (string questionText in questionTexts)
         {
-            // Собираем текст со всех страниц
-            string allText = string.Join(" ", pdfDocument.GetPages().Select(p => p.Text));
-
-            Assert.Contains(title, allText);
-            Assert.Contains(questionTexts[0], allText);
-            Assert.Contains(questionTexts[1], allText);
+            Assert.Contains(questionText, allText);
         }
     }
 
@@ -83,7 +83,7 @@ public class PdfExamExporterTests
     public void Export_EmptyExamPapers_ThrowsException()
     {
         // Arrange
-        List<IExamPaper> emptyPapers = new();
+        IExamPaper[] emptyPapers = [];
 
         // Act & Assert
         Assert.ThrowsAny<Exception>(() => Exporter.Export(emptyPapers));
