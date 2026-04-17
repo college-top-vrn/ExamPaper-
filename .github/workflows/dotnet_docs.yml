@@ -1,4 +1,4 @@
-﻿name: Deploy Docs
+﻿name: dotnet docs
 on:
   push:
     branches: [develop]
@@ -7,11 +7,11 @@ jobs:
   publish-docs:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+    - name: Check out code
+      uses: actions/checkout@v6
       
-    - name: Dotnet Setup
-      uses: actions/setup-dotnet@v4
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: 10.0.x
     
