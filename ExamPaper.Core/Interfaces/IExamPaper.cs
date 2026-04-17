@@ -1,20 +1,20 @@
-namespace ExamPaper.Core.Interfaces;
-
 using System;
 using System.Collections.Generic;
 
+namespace ExamPaper.Core.Interfaces;
+
 /// <summary>
-/// Интерфейс экзаменационного билета
+///     Интерфейс экзаменационного билета
 /// </summary>
 public interface IExamPaper
 {
     /// <summary>
-    /// Уникальный Guid идентификатор билета.
+    ///     Уникальный Guid идентификатор билета.
     /// </summary>
     Guid Id { get; init; }
 
     /// <summary>
-    /// Название билета.
+    ///     Название билета.
     /// </summary>
     string Title { get; init; }
 

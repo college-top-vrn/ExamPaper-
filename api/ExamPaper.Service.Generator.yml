@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: ExamPaper.Service.Generator
+  commentId: N:ExamPaper.Service.Generator
+  id: ExamPaper.Service.Generator
+  children:
+  - ExamPaper.Service.Generator.ExamPaperGenerator
+  langs:
+  - csharp
+  - vb
+  name: ExamPaper.Service.Generator
+  nameWithType: ExamPaper.Service.Generator
+  fullName: ExamPaper.Service.Generator
+  type: Namespace
+  assemblies:
+  - ExamPaper.Service
+references:
+- uid: ExamPaper.Service.Generator.ExamPaperGenerator
+  commentId: T:ExamPaper.Service.Generator.ExamPaperGenerator
+  href: ExamPaper.Service.Generator.ExamPaperGenerator.html
+  name: ExamPaperGenerator
+  nameWithType: ExamPaperGenerator
+  fullName: ExamPaper.Service.Generator.ExamPaperGenerator

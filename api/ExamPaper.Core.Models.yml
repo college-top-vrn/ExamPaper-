@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: ExamPaper.Core.Models
+  commentId: N:ExamPaper.Core.Models
+  id: ExamPaper.Core.Models
+  children:
+  - ExamPaper.Core.Models.ExamPaper
+  - ExamPaper.Core.Models.GenerationSettings
+  - ExamPaper.Core.Models.Question
+  langs:
+  - csharp
+  - vb
+  name: ExamPaper.Core.Models
+  nameWithType: ExamPaper.Core.Models
+  fullName: ExamPaper.Core.Models
+  type: Namespace
+  assemblies:
+  - ExamPaper.Core
+references:
+- uid: ExamPaper.Core.Models.ExamPaper
+  commentId: T:ExamPaper.Core.Models.ExamPaper
+  href: ExamPaper.Core.Models.ExamPaper.html
+  name: ExamPaper
+  nameWithType: ExamPaper
+  fullName: ExamPaper.Core.Models.ExamPaper
+- uid: ExamPaper.Core.Models.GenerationSettings
+  commentId: T:ExamPaper.Core.Models.GenerationSettings
+  href: ExamPaper.Core.Models.GenerationSettings.html
+  name: GenerationSettings
+  nameWithType: GenerationSettings
+  fullName: ExamPaper.Core.Models.GenerationSettings
+- uid: ExamPaper.Core.Models.Question
+  commentId: T:ExamPaper.Core.Models.Question
+  href: ExamPaper.Core.Models.Question.html
+  name: Question
+  nameWithType: Question
+  fullName: ExamPaper.Core.Models.Question

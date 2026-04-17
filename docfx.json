@@ -1,4 +1,5 @@
-﻿{
+{
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
   "metadata": [
     {
       "src": [
@@ -14,42 +15,37 @@
           ]
         }
       ],
-      "dest": "api",
-      "disableGitFeatures": false,
-      "disableDefaultFilter": false
+      "dest": "api"
     }
   ],
   "build": {
     "content": [
       {
         "files": [
-          "api/**.yml",
-          "api/index.md"
-        ]
-      },
-      {
-        "files": [
-          "docs/**/*.md",
-          "README.md"
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "_site/**"
         ]
       }
     ],
     "resource": [
       {
         "files": [
-          "docs/assets/**"
+          "images/**"
         ]
       }
     ],
-    "dest": "_site",
-    "globalMetadataFiles": [],
-    "fileMetadataFiles": [],
+    "output": "_site",
     "template": [
-      "default"
+      "default",
+      "modern"
     ],
-    "postProcessors": [],
-    "keepFileLink": false,
-    "cleanupCacheHistory": false,
-    "disableGitFeatures": false
+    "globalMetadata": {
+      "_appName": "ExamPaper",
+      "_appTitle": "ExamPaper",
+      "_enableSearch": true,
+      "pdf": true
+    }
   }
 }

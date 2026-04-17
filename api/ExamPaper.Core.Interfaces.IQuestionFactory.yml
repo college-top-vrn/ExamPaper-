@@ -1,0 +1,144 @@
+### YamlMime:ManagedReference
+items:
+- uid: ExamPaper.Core.Interfaces.IQuestionFactory
+  commentId: T:ExamPaper.Core.Interfaces.IQuestionFactory
+  id: IQuestionFactory
+  parent: ExamPaper.Core.Interfaces
+  children:
+  - ExamPaper.Core.Interfaces.IQuestionFactory.CreateQuestion(System.Guid,System.String)
+  langs:
+  - csharp
+  - vb
+  name: IQuestionFactory
+  nameWithType: IQuestionFactory
+  fullName: ExamPaper.Core.Interfaces.IQuestionFactory
+  type: Interface
+  source:
+    remote:
+      path: ExamPaper.Core/Interfaces/IQuestionFactory.cs
+      branch: develop
+      repo: https://github.com/college-top-vrn/ExamPaper-.git
+    id: IQuestionFactory
+    path: ExamPaper.Core/Interfaces/IQuestionFactory.cs
+    startLine: 7
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Interfaces
+  summary: Интерфейс фабрики создания вопросов QuestionFactory
+  example: []
+  syntax:
+    content: public interface IQuestionFactory
+    content.vb: Public Interface IQuestionFactory
+  derivedClasses:
+  - ExamPaper.Service.Factories.QuestionFactory
+- uid: ExamPaper.Core.Interfaces.IQuestionFactory.CreateQuestion(System.Guid,System.String)
+  commentId: M:ExamPaper.Core.Interfaces.IQuestionFactory.CreateQuestion(System.Guid,System.String)
+  id: CreateQuestion(System.Guid,System.String)
+  parent: ExamPaper.Core.Interfaces.IQuestionFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateQuestion(Guid, string)
+  nameWithType: IQuestionFactory.CreateQuestion(Guid, string)
+  fullName: ExamPaper.Core.Interfaces.IQuestionFactory.CreateQuestion(System.Guid, string)
+  type: Method
+  source:
+    remote:
+      path: ExamPaper.Core/Interfaces/IQuestionFactory.cs
+      branch: develop
+      repo: https://github.com/college-top-vrn/ExamPaper-.git
+    id: CreateQuestion
+    path: ExamPaper.Core/Interfaces/IQuestionFactory.cs
+    startLine: 15
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Interfaces
+  summary: метод создания вопросов
+  example: []
+  syntax:
+    content: IQuestion CreateQuestion(Guid id, string text)
+    parameters:
+    - id: id
+      type: System.Guid
+      description: id вопроса
+    - id: text
+      type: System.String
+      description: текст вопроса
+    return:
+      type: ExamPaper.Core.Interfaces.IQuestion
+      description: ''
+    content.vb: Function CreateQuestion(id As Guid, text As String) As IQuestion
+  overload: ExamPaper.Core.Interfaces.IQuestionFactory.CreateQuestion*
+  nameWithType.vb: IQuestionFactory.CreateQuestion(Guid, String)
+  fullName.vb: ExamPaper.Core.Interfaces.IQuestionFactory.CreateQuestion(System.Guid, String)
+  name.vb: CreateQuestion(Guid, String)
+references:
+- uid: ExamPaper.Core.Interfaces
+  commentId: N:ExamPaper.Core.Interfaces
+  href: ExamPaper.html
+  name: ExamPaper.Core.Interfaces
+  nameWithType: ExamPaper.Core.Interfaces
+  fullName: ExamPaper.Core.Interfaces
+  spec.csharp:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+  spec.vb:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+- uid: ExamPaper.Core.Interfaces.IQuestionFactory.CreateQuestion*
+  commentId: Overload:ExamPaper.Core.Interfaces.IQuestionFactory.CreateQuestion
+  href: ExamPaper.Core.Interfaces.IQuestionFactory.html#ExamPaper_Core_Interfaces_IQuestionFactory_CreateQuestion_System_Guid_System_String_
+  name: CreateQuestion
+  nameWithType: IQuestionFactory.CreateQuestion
+  fullName: ExamPaper.Core.Interfaces.IQuestionFactory.CreateQuestion
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ExamPaper.Core.Interfaces.IQuestion
+  commentId: T:ExamPaper.Core.Interfaces.IQuestion
+  parent: ExamPaper.Core.Interfaces
+  href: ExamPaper.Core.Interfaces.IQuestion.html
+  name: IQuestion
+  nameWithType: IQuestion
+  fullName: ExamPaper.Core.Interfaces.IQuestion
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: ExamPaper.Infrastructure.Repositories
+  commentId: N:ExamPaper.Infrastructure.Repositories
+  id: ExamPaper.Infrastructure.Repositories
+  children:
+  - ExamPaper.Infrastructure.Repositories.QuestionRepository
+  langs:
+  - csharp
+  - vb
+  name: ExamPaper.Infrastructure.Repositories
+  nameWithType: ExamPaper.Infrastructure.Repositories
+  fullName: ExamPaper.Infrastructure.Repositories
+  type: Namespace
+  assemblies:
+  - ExamPaper.Infrastructure
+references:
+- uid: ExamPaper.Infrastructure.Repositories.QuestionRepository
+  commentId: T:ExamPaper.Infrastructure.Repositories.QuestionRepository
+  href: ExamPaper.Infrastructure.Repositories.QuestionRepository.html
+  name: QuestionRepository
+  nameWithType: QuestionRepository
+  fullName: ExamPaper.Infrastructure.Repositories.QuestionRepository

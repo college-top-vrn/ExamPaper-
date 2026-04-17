@@ -4,12 +4,12 @@ using System.Collections.Generic;
 namespace ExamPaper.Core.Interfaces;
 
 /// <summary>
-/// интервейс фбрики ExamPaper
+///     интервейс фбрики ExamPaper
 /// </summary>
 public interface IExamPaperFactory
 {
     /// <summary>
-    /// метод для создания билета
+    ///     метод для создания билета
     /// </summary>
     /// <param name="id">id билета</param>
     /// <param name="title">имя билета</param>
