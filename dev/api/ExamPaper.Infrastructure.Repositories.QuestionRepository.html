@@ -154,16 +154,16 @@ Class QuestionRepository  <a class="header-action link-secondary" title="View so
 
   <h2 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-<a class="xref" href="ExamPaper.Infrastructure.Repositories.QuestionRepository.html">QuestionRepository</a> предоставляет функциональность для работы с коллекцией вопросов,
-хранящихся в JSON-файле. Репозиторий поддерживает CRUD операции, загрузку и сохранение данных.
+    <a class="xref" href="ExamPaper.Infrastructure.Repositories.QuestionRepository.html">QuestionRepository</a> предоставляет функциональность для работы с коллекцией вопросов,
+    хранящихся в JSON-файле. Репозиторий поддерживает CRUD операции, загрузку и сохранение данных.
 </p>
 <p>
-Все изменения в коллекции вопросов накапливаются в памяти и сохраняются в файл только при вызове
-метода <a class="xref" href="ExamPaper.Infrastructure.Repositories.QuestionRepository.html#ExamPaper_Infrastructure_Repositories_QuestionRepository_SaveChanges">SaveChanges()</a>.
+    Все изменения в коллекции вопросов накапливаются в памяти и сохраняются в файл только при вызове
+    метода <a class="xref" href="ExamPaper.Infrastructure.Repositories.QuestionRepository.html#ExamPaper_Infrastructure_Repositories_QuestionRepository_SaveChanges">SaveChanges()</a>.
 </p>
 <p>
-<b>Пример использования:</b>
-<pre><code class="lang-csharp">var repository = new QuestionRepository("questions.json");
+    <b>Пример использования:</b>
+    <pre><code class="lang-csharp">var repository = new QuestionRepository("questions.json");
 <p>// Получение всех вопросов
 var allQuestions = repository.GetAllQuestions();</p>
 <p>// Добавление нового вопроса
@@ -230,7 +230,7 @@ repository.SaveChanges();</p></code></pre>
 
   <h3 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_AddQuestion_ExamPaper_Core_Interfaces_IQuestion_" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.AddQuestion(ExamPaper.Core.Interfaces.IQuestion)">
   AddQuestion(IQuestion)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L93"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Добавляет новый вопрос в репозиторий.</p>
@@ -276,7 +276,7 @@ repository.SaveChanges();</p></code></pre>
 
   <h3 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_GetAllQuestions" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.GetAllQuestions">
   GetAllQuestions()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L74"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Возвращает все доступные вопросы.</p>
@@ -314,7 +314,7 @@ repository.SaveChanges();</p></code></pre>
 
   <h3 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_GetQuestionById_System_Guid_" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.GetQuestionById(System.Guid)">
   GetQuestionById(Guid)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L168"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Возвращает вопрос по его уникальному идентификатору.</p>
@@ -357,7 +357,7 @@ repository.SaveChanges();</p></code></pre>
 
   <h3 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_RemoveQuestion_System_Guid_" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.RemoveQuestion(System.Guid)">
   RemoveQuestion(Guid)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L122"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Удаляет вопрос по указанному идентификатору.</p>
@@ -384,12 +384,12 @@ repository.SaveChanges();</p></code></pre>
 
   <h4 class="section" id="ExamPaper_Infrastructure_Repositories_QuestionRepository_RemoveQuestion_System_Guid__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-Если вопрос с указанным <code class="paramref">questionId</code> не найден, метод не выполняет никаких действий
-и не выбрасывает исключение.
+    Если вопрос с указанным <code class="paramref">questionId</code> не найден, метод не выполняет никаких действий
+    и не выбрасывает исключение.
 </p>
 <p>
-Вопрос удаляется только из памяти. Для сохранения изменений в файл необходимо вызвать
-метод <a class="xref" href="ExamPaper.Infrastructure.Repositories.QuestionRepository.html#ExamPaper_Infrastructure_Repositories_QuestionRepository_SaveChanges">SaveChanges()</a>.
+    Вопрос удаляется только из памяти. Для сохранения изменений в файл необходимо вызвать
+    метод <a class="xref" href="ExamPaper.Infrastructure.Repositories.QuestionRepository.html#ExamPaper_Infrastructure_Repositories_QuestionRepository_SaveChanges">SaveChanges()</a>.
 </p>
 </div>
 
@@ -400,7 +400,7 @@ repository.SaveChanges();</p></code></pre>
 
   <h3 id="ExamPaper_Infrastructure_Repositories_QuestionRepository_SaveChanges" data-uid="ExamPaper.Infrastructure.Repositories.QuestionRepository.SaveChanges">
   SaveChanges()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs/#L149"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Сохраняет все изменения (добавления, удаления) в файл.</p>
@@ -421,11 +421,11 @@ repository.SaveChanges();</p></code></pre>
 
   <h4 class="section" id="ExamPaper_Infrastructure_Repositories_QuestionRepository_SaveChanges_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-Сериализует текущую коллекцию вопросов в JSON-формат с отступами (pretty print) и
-записывает в файл, указанный при создании репозитория.
+    Сериализует текущую коллекцию вопросов в JSON-формат с отступами (pretty print) и
+    записывает в файл, указанный при создании репозитория.
 </p>
 <p>
-Если файл не существует, он будет создан. Существующий файл будет перезаписан.
+    Если файл не существует, он будет создан. Существующий файл будет перезаписан.
 </p>
 </div>
 

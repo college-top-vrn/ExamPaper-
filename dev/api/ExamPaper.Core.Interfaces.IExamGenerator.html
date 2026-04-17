@@ -129,7 +129,7 @@ Interface IExamGenerator  <a class="header-action link-secondary" title="View so
 
   <h3 id="ExamPaper_Core_Interfaces_IExamGenerator_Generate_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IQuestion__ExamPaper_Core_Generation_IGenerationSettings_" data-uid="ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Generation.IGenerationSettings)">
   Generate(IEnumerable&lt;IQuestion&gt;, IGenerationSettings)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Core/Interfaces/IExamGenerator.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Core/Interfaces/IExamGenerator.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Формирует коллекцию экзаменационных билетов на основе предоставленного пула вопросов и заданных правил.</p>
@@ -167,10 +167,12 @@ Interface IExamGenerator  <a class="header-action link-secondary" title="View so
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p>Выбрасывается, если <code class="paramref">availableQuestions</code> или <code class="paramref">settings</code> имеют значение null.</p>
+    <dd><p>Выбрасывается, если <code class="paramref">availableQuestions</code> или
+<code class="paramref">settings</code> имеют значение null.</p>
 </dd>
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
-    <dd><p>Выбрасывается, если количество доступных вопросов недостаточно для выполнения условий генерации.</p>
+    <dd><p>Выбрасывается, если количество доступных вопросов недостаточно для
+выполнения условий генерации.</p>
 </dd>
   </dl>
 
