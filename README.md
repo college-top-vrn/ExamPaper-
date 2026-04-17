@@ -32,7 +32,7 @@ sequenceDiagram
 
 ## Регламент
 - ![Создание ветки](docs/BranchCreation.md);
-- ![Создание файлов и директорий](docs/FileAndDirectoriesCreation.md);
+- ![Создание файлов и директорий](docs/FileAndDirectoriesCreation.md).
 
 ## Цель проекта: Разработка генератора экзаменационных билетов.
 
