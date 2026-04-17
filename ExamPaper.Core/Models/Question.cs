@@ -1,8 +1,7 @@
+using System;
 using ExamPaper.Core.Interfaces;
 
 namespace ExamPaper.Core.Models;
-
-using System;
 
 /// <summary>
 /// Класс для хранения экзаменационного вопроса
@@ -20,20 +19,26 @@ public sealed class Question : IQuestion
     public string Text { get; init; }
 
     /// <summary>
-    /// Конструктор для создания экзаменационного вопроса с параметрами.
+    /// Конструктор для создания экзаменационного вопроса с автоматической генерацией Id (Version 7).
+    /// </summary>
+    /// <param name="text">Текст вопроса.</param>
+    /// <exception cref="ArgumentException">Если текст пуст.</exception>
+    public Question(string text)
+        : this(Guid.CreateVersion7(), text) { }
+
+    /// <summary>
+    /// Конструктор для создания экзаменационного вопроса с заданным Id.
     /// </summary>
     /// <param name="id">Уникальный Guid идентификатор вопроса.</param>
     /// <param name="text">Текст вопроса.</param>
-    /// <exception cref="ArgumentException">Если один из параметров пуст.</exception>
+    /// <exception cref="ArgumentException">Если текст пуст.</exception>
     public Question(Guid id, string text)
     {
-        if (id == Guid.Empty)
-            throw new ArgumentException("Id вопроса не может быть пустым.", nameof(id));
+        Id = id == Guid.Empty ? Guid.CreateVersion7() : id;
 
         if (string.IsNullOrWhiteSpace(text))
             throw new ArgumentException("Текст вопроса не может быть пустым.", nameof(text));
 
-        Id = id;
         Text = text.Trim();
     }
 
