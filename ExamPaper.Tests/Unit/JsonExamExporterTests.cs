@@ -28,13 +28,15 @@ public class JsonExamExporterTests
     /// <returns>Объект с интерфейсом билета.</returns>
     private static IExamPaper CreateTestPaper(Guid id, string title, params string[] questionTexts)
     {
-        List<IQuestion> questions = questionTexts.Select(text =>
-        {
-            Mock<IQuestion> mockQuestion = new();
-            mockQuestion.SetupGet(q => q.Id).Returns(Guid.CreateVersion7());
-            mockQuestion.SetupGet(q => q.Text).Returns(text);
-            return mockQuestion.Object;
-        }).ToList();
+        List<IQuestion> questions = questionTexts
+            .Select(text =>
+            {
+                Mock<IQuestion> mockQuestion = new();
+                mockQuestion.SetupGet(q => q.Id).Returns(Guid.CreateVersion7());
+                mockQuestion.SetupGet(q => q.Text).Returns(text);
+                return mockQuestion.Object;
+            })
+            .ToList();
 
         Mock<IExamPaper> mockPaper = new();
         mockPaper.SetupGet(p => p.Id).Returns(id);
@@ -51,7 +53,10 @@ public class JsonExamExporterTests
     [InlineData("Билет JSON", "Вопрос A", "Вопрос B")]
     [InlineData("Билет JSON2", "Вопрос A2", "Вопрос B2")]
     [Theory]
-    public void Export_ValidExamPapers_ReturnsJsonWithCorrectContent(string title, params string[] questionTexts)
+    public void Export_ValidExamPapers_ReturnsJsonWithCorrectContent(
+        string title,
+        params string[] questionTexts
+    )
     {
         // Arrange
         Guid paperId = Guid.CreateVersion7();

@@ -16,11 +16,9 @@ namespace ExamPaper.Tests.Architecture;
 /// </summary>
 public class DesignRulesTests
 {
-    private readonly Assembly _coreAssembly =
-        typeof(Question).Assembly;
+    private readonly Assembly _coreAssembly = typeof(Question).Assembly;
 
-    private readonly Assembly _infrastructureAssembly =
-        typeof(QuestionRepository).Assembly;
+    private readonly Assembly _infrastructureAssembly = typeof(QuestionRepository).Assembly;
 
     /// <summary>
     ///     Проверяет, что все классы доменных моделей (Domain Models) в слое Core
@@ -103,8 +101,7 @@ public class DesignRulesTests
     {
         Assembly coreAssembly = typeof(Question).Assembly;
         Assembly serviceAssembly = typeof(ExamPaperGenerator).Assembly;
-        Assembly infrastructureAssembly =
-            typeof(QuestionRepository).Assembly;
+        Assembly infrastructureAssembly = typeof(QuestionRepository).Assembly;
 
         TestResult? result = Types
             .InAssemblies([coreAssembly, serviceAssembly, infrastructureAssembly])

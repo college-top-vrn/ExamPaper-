@@ -16,14 +16,11 @@ namespace ExamPaper.Tests.Architecture;
 /// </summary>
 public class NamingConventionTests
 {
-    private readonly Assembly _coreAssembly =
-        typeof(Question).Assembly;
+    private readonly Assembly _coreAssembly = typeof(Question).Assembly;
 
-    private readonly Assembly _infrastructureAssembly =
-        typeof(QuestionRepository).Assembly;
+    private readonly Assembly _infrastructureAssembly = typeof(QuestionRepository).Assembly;
 
-    private readonly Assembly _serviceAssembly =
-        typeof(ExamPaperGenerator).Assembly;
+    private readonly Assembly _serviceAssembly = typeof(ExamPaperGenerator).Assembly;
 
     /// <summary>
     ///     Проверяет, что абсолютно все интерфейсы в проекте (Core, Service, Infrastructure)

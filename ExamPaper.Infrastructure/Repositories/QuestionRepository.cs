@@ -25,14 +25,14 @@ namespace ExamPaper.Infrastructure.Repositories;
 ///         <b>Пример использования:</b>
 ///         <code>
 /// var repository = new QuestionRepository("questions.json");
-/// 
+///
 /// // Получение всех вопросов
 /// var allQuestions = repository.GetAllQuestions();
-/// 
+///
 /// // Добавление нового вопроса
 /// var newQuestion = new Question { Id = Guid.NewGuid(), Text = "Что такое SOLID?" };
 /// repository.AddQuestion(newQuestion);
-/// 
+///
 /// // Сохранение изменений
 /// repository.SaveChanges();
 /// </code>
@@ -198,7 +198,10 @@ public sealed class QuestionRepository : IQuestionRepository
             }
 
             JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
-            List<Question>? deserialized = JsonSerializer.Deserialize<List<Question>>(text, options);
+            List<Question>? deserialized = JsonSerializer.Deserialize<List<Question>>(
+                text,
+                options
+            );
             return deserialized?.Cast<IQuestion>().ToList() ?? [];
         }
         catch (JsonException)

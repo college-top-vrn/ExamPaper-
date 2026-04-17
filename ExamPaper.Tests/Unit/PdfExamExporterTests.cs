@@ -30,13 +30,16 @@ public class PdfExamExporterTests
     /// <returns>Объект с интерфейсом билета.</returns>
     private static IExamPaper CreateTestPaper(Guid id, string title, params string[] questionTexts)
     {
-        List<IQuestion> questions = questionTexts.Select((text, index) =>
-        {
-            Mock<IQuestion> mockQuestion = new();
-            mockQuestion.SetupGet(q => q.Id).Returns(Guid.NewGuid());
-            mockQuestion.SetupGet(q => q.Text).Returns(text);
-            return mockQuestion.Object;
-        }).ToList();
+        List<IQuestion> questions = questionTexts
+            .Select((text, index) =>
+                {
+                    Mock<IQuestion> mockQuestion = new();
+                    mockQuestion.SetupGet(q => q.Id).Returns(Guid.NewGuid());
+                    mockQuestion.SetupGet(q => q.Text).Returns(text);
+                    return mockQuestion.Object;
+                }
+            )
+            .ToList();
 
         Mock<IExamPaper> mockPaper = new();
         mockPaper.SetupGet(p => p.Id).Returns(id);
@@ -53,7 +56,10 @@ public class PdfExamExporterTests
     [InlineData("Билет 1", "Вопрос 1.1", "Вопрос 1.2")]
     [InlineData("Билет 2", "Вопрос 2.1", "Вопрос 2.2", "Вопрос 2.3")]
     [Theory]
-    public void Export_ValidExamPapers_ReturnsPdfWithCorrectContent(string title, params string[] questionTexts)
+    public void Export_ValidExamPapers_ReturnsPdfWithCorrectContent(
+        string title,
+        params string[] questionTexts
+    )
     {
         // Arrange
         Guid paperId = Guid.CreateVersion7();

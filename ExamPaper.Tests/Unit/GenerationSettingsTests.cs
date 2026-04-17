@@ -8,26 +8,34 @@ using Xunit;
 namespace ExamPaper.Tests.Unit;
 
 /// <summary>
-/// Набор тестов для проверки класса <see cref="GenerationSettings"/>.
+///     Набор тестов для проверки класса <see cref="GenerationSettings" />.
 /// </summary>
 /// <remarks>
-/// Тесты покрывают следующие аспекты:
-/// <list type="bullet">
-/// <item><description>Конструкторы (валидные и невалидные параметры)</description></item>
-/// <item><description>Пустой конструктор для десериализации</description></item>
-/// <item><description>Метод валидации <see cref="GenerationSettings.IsValid"/></description></item>
-/// <item><description>Метод строкового представления <see cref="GenerationSettings.ToString"/></description></item>
-/// </list>
+///     Тесты покрывают следующие аспекты:
+///     <list type="bullet">
+///         <item>
+///             <description>Конструкторы (валидные и невалидные параметры)</description>
+///         </item>
+///         <item>
+///             <description>Пустой конструктор для десериализации</description>
+///         </item>
+///         <item>
+///             <description>Метод валидации <see cref="GenerationSettings.IsValid" /></description>
+///         </item>
+///         <item>
+///             <description>Метод строкового представления <see cref="GenerationSettings.ToString" /></description>
+///         </item>
+///     </list>
 /// </remarks>
 public class GenerationSettingsTests
 {
     /// <summary>
-    /// Тесты конструктора <see cref="GenerationSettings"/>.
+    ///     Тесты конструктора <see cref="GenerationSettings" />.
     /// </summary>
     public class ConstructorTests
     {
         /// <summary>
-        /// Проверяет, что конструктор с корректными параметрами правильно устанавливает свойства.
+        ///     Проверяет, что конструктор с корректными параметрами правильно устанавливает свойства.
         /// </summary>
         /// <param name="totalTickets">Общее количество билетов (положительное число).</param>
         /// <param name="questionsPerTicket">Количество вопросов на билет (положительное число).</param>
@@ -41,7 +49,7 @@ public class GenerationSettingsTests
         )
         {
             // Act
-            var settings = new GenerationSettings(totalTickets, questionsPerTicket);
+            GenerationSettings settings = new(totalTickets, questionsPerTicket);
 
             // Assert
             Assert.Equal(totalTickets, settings.TotalTicketsCount);
@@ -49,8 +57,8 @@ public class GenerationSettingsTests
         }
 
         /// <summary>
-        /// Проверяет, что конструктор выбрасывает <see cref="ArgumentException"/> 
-        /// при передаче невалидного общего количества билетов.
+        ///     Проверяет, что конструктор выбрасывает <see cref="ArgumentException" />
+        ///     при передаче невалидного общего количества билетов.
         /// </summary>
         /// <param name="totalTickets">Невалидное количество билетов (0 или отрицательное).</param>
         /// <param name="questionsPerTicket">Валидное количество вопросов на билет.</param>
@@ -64,7 +72,7 @@ public class GenerationSettingsTests
         )
         {
             // Act & Assert
-            var exception = Assert.Throws<ArgumentException>(() =>
+            ArgumentException exception = Assert.Throws<ArgumentException>(() =>
                 new GenerationSettings(totalTickets, questionsPerTicket)
             );
 
@@ -72,8 +80,8 @@ public class GenerationSettingsTests
         }
 
         /// <summary>
-        /// Проверяет, что конструктор выбрасывает <see cref="ArgumentException"/> 
-        /// при передаче невалидного количества вопросов на билет.
+        ///     Проверяет, что конструктор выбрасывает <see cref="ArgumentException" />
+        ///     при передаче невалидного количества вопросов на билет.
         /// </summary>
         /// <param name="totalTickets">Валидное количество билетов.</param>
         /// <param name="questionsPerTicket">Невалидное количество вопросов (0 или отрицательное).</param>
@@ -87,7 +95,7 @@ public class GenerationSettingsTests
         )
         {
             // Act & Assert
-            var exception = Assert.Throws<ArgumentException>(() =>
+            ArgumentException exception = Assert.Throws<ArgumentException>(() =>
                 new GenerationSettings(totalTickets, questionsPerTicket)
             );
 
@@ -96,18 +104,18 @@ public class GenerationSettingsTests
     }
 
     /// <summary>
-    /// Тесты пустого конструктора для десериализации.
+    ///     Тесты пустого конструктора для десериализации.
     /// </summary>
     public class DefaultConstructorTests
     {
         /// <summary>
-        /// Проверяет, что пустой конструктор создаёт экземпляр со значениями по умолчанию (0).
+        ///     Проверяет, что пустой конструктор создаёт экземпляр со значениями по умолчанию (0).
         /// </summary>
         [Fact]
         public void ShouldCreateInstanceWithDefaultValues()
         {
             // Act
-            var settings = new GenerationSettings();
+            GenerationSettings settings = new();
 
             // Assert
             Assert.Equal(0, settings.TotalTicketsCount);
@@ -116,13 +124,13 @@ public class GenerationSettingsTests
     }
 
     /// <summary>
-    /// Тесты метода <see cref="GenerationSettings.IsValid"/>.
+    ///     Тесты метода <see cref="GenerationSettings.IsValid" />.
     /// </summary>
     public class IsValidMethodTests
     {
         /// <summary>
-        /// Проверяет, что <see cref="GenerationSettings.IsValid"/> возвращает <c>true</c> 
-        /// для валидных настроек, созданных через конструктор с параметрами.
+        ///     Проверяет, что <see cref="GenerationSettings.IsValid" /> возвращает <c>true</c>
+        ///     для валидных настроек, созданных через конструктор с параметрами.
         /// </summary>
         /// <param name="totalTickets">Общее количество билетов (положительное).</param>
         /// <param name="questionsPerTicket">Количество вопросов на билет (положительное).</param>
@@ -138,25 +146,25 @@ public class GenerationSettingsTests
         )
         {
             // Arrange
-            var settings = new GenerationSettings(totalTickets, questionsPerTicket);
+            GenerationSettings settings = new(totalTickets, questionsPerTicket);
 
             // Act
-            var isValid = settings.IsValid();
+            bool isValid = settings.IsValid();
 
             // Assert
             Assert.Equal(expected, isValid);
         }
 
         /// <summary>
-        /// Проверяет, что <see cref="GenerationSettings.IsValid"/> возвращает <c>false</c> 
-        /// для невалидных настроек (используется рефлексия для установки значений).
+        ///     Проверяет, что <see cref="GenerationSettings.IsValid" /> возвращает <c>false</c>
+        ///     для невалидных настроек (используется рефлексия для установки значений).
         /// </summary>
         /// <param name="totalTickets">Невалидное количество билетов.</param>
         /// <param name="questionsPerTicket">Невалидное количество вопросов.</param>
         /// <param name="expected">Ожидаемый результат (всегда false).</param>
         /// <remarks>
-        /// Тест использует рефлексию для установки private полей, так как 
-        /// невалидные значения нельзя передать через публичный конструктор.
+        ///     Тест использует рефлексию для установки private полей, так как
+        ///     невалидные значения нельзя передать через публичный конструктор.
         /// </remarks>
         [Theory]
         [InlineData(0, 5, false)]
@@ -169,15 +177,15 @@ public class GenerationSettingsTests
         )
         {
             // Arrange
-            var settings = new GenerationSettings();
+            GenerationSettings settings = new();
 
             // Устанавливаем значения через рефлексию
-            var type = settings.GetType();
-            var totalTicketsField = type.GetField(
+            Type type = settings.GetType();
+            FieldInfo? totalTicketsField = type.GetField(
                 "<TotalTicketsCount>k__BackingField",
                 BindingFlags.Instance | BindingFlags.NonPublic
             );
-            var questionsField = type.GetField(
+            FieldInfo? questionsField = type.GetField(
                 "<QuestionsPerTicketCount>k__BackingField",
                 BindingFlags.Instance | BindingFlags.NonPublic
             );
@@ -186,7 +194,7 @@ public class GenerationSettingsTests
             questionsField?.SetValue(settings, questionsPerTicket);
 
             // Act
-            var isValid = settings.IsValid();
+            bool isValid = settings.IsValid();
 
             // Assert
             Assert.Equal(expected, isValid);
@@ -194,13 +202,13 @@ public class GenerationSettingsTests
     }
 
     /// <summary>
-    /// Тесты метода <see cref="GenerationSettings.ToString"/>.
+    ///     Тесты метода <see cref="GenerationSettings.ToString" />.
     /// </summary>
     public class ToStringMethodTests
     {
         /// <summary>
-        /// Проверяет, что <see cref="GenerationSettings.ToString"/> возвращает 
-        /// корректно отформатированную строку для валидных настроек.
+        ///     Проверяет, что <see cref="GenerationSettings.ToString" /> возвращает
+        ///     корректно отформатированную строку для валидных настроек.
         /// </summary>
         /// <param name="totalTickets">Общее количество билетов.</param>
         /// <param name="questionsPerTicket">Количество вопросов на билет.</param>
@@ -216,27 +224,27 @@ public class GenerationSettingsTests
         )
         {
             // Arrange
-            var settings = new GenerationSettings(totalTickets, questionsPerTicket);
+            GenerationSettings settings = new(totalTickets, questionsPerTicket);
 
             // Act
-            var result = settings.ToString();
+            string result = settings.ToString();
 
             // Assert
             Assert.Equal(expected, result);
         }
 
         /// <summary>
-        /// Проверяет, что <see cref="GenerationSettings.ToString"/> возвращает 
-        /// строку с нулевыми значениями для экземпляра, созданного через пустой конструктор.
+        ///     Проверяет, что <see cref="GenerationSettings.ToString" /> возвращает
+        ///     строку с нулевыми значениями для экземпляра, созданного через пустой конструктор.
         /// </summary>
         [Fact]
         public void WithDefaultValues_ShouldReturnFormattedStringWithZeros()
         {
             // Arrange
-            var settings = new GenerationSettings();
+            GenerationSettings settings = new();
 
             // Act
-            var result = settings.ToString();
+            string result = settings.ToString();
 
             // Assert
             Assert.Equal("Билетов: 0, Вопросов на билет: 0", result);
