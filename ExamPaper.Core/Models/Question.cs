@@ -1,6 +1,5 @@
 using System;
 using System.Text.Json.Serialization;
-
 using ExamPaper.Core.Interfaces;
 
 namespace ExamPaper.Core.Models;
@@ -26,9 +25,7 @@ public sealed class Question : IQuestion
     /// <param name="text">Текст вопроса.</param>
     /// <exception cref="ArgumentException">Если текст пуст.</exception>
     public Question(string text)
-        : this(Guid.CreateVersion7(), text)
-    {
-    }
+        : this(Guid.CreateVersion7(), text) { }
 
     /// <summary>
     /// Конструктор для создания экзаменационного вопроса с заданным Id.
