@@ -20,7 +20,7 @@ namespace ExamPaper.Tests.Unit;
 public class PdfExamExporterTests
 {
     private static readonly PdfExamExporter Exporter = new();
-    
+
     /// <summary>
     /// Вспомогательный метод для создания билета.
     /// </summary>
@@ -44,7 +44,7 @@ public class PdfExamExporterTests
         mockPaper.SetupGet(p => p.Questions).Returns(questions.AsReadOnly());
         return mockPaper.Object;
     }
-    
+
     /// <summary>
     /// Позитивный параметризованный тест на удачный экспорт PDF с верным контентом из списка билетов.
     /// </summary>
@@ -57,10 +57,7 @@ public class PdfExamExporterTests
     {
         // Arrange
         var paperId = Guid.CreateVersion7();
-        var papers = new List<IExamPaper>
-        {
-            CreateTestPaper(paperId, title, questionTexts),
-        };
+        var papers = new List<IExamPaper> { CreateTestPaper(paperId, title, questionTexts), };
 
         // Act
         byte[] result = Exporter.Export(papers);
@@ -72,13 +69,13 @@ public class PdfExamExporterTests
         {
             // Собираем текст со всех страниц
             var allText = string.Join(" ", pdfDocument.GetPages().Select(p => p.Text));
-                
+
             Assert.Contains(title, allText);
             Assert.Contains(questionTexts[0], allText);
             Assert.Contains(questionTexts[1], allText);
         }
     }
-    
+
     /// <summary>
     /// Негативный тест на неудачный экспорт PDF из пустого списка билетов.
     /// </summary>

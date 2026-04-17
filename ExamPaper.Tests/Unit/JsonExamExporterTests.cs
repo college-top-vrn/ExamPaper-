@@ -18,7 +18,7 @@ namespace ExamPaper.Tests.Unit;
 public class JsonExamExporterTests
 {
     private static readonly JsonExamExporter Exporter = new();
-    
+
     /// <summary>
     /// Вспомогательный метод для создания билета.
     /// </summary>
@@ -42,7 +42,7 @@ public class JsonExamExporterTests
         mockPaper.SetupGet(p => p.Questions).Returns(questions.AsReadOnly());
         return mockPaper.Object;
     }
-    
+
     /// <summary>
     /// Позитивный параметризованный тест на удачный экспорт JSON с верным контентом из списка билетов.
     /// </summary>
@@ -55,10 +55,7 @@ public class JsonExamExporterTests
     {
         // Arrange
         var paperId = Guid.CreateVersion7();
-        var papers = new List<IExamPaper>
-        {
-            CreateTestPaper(paperId, title, questionTexts),
-        };
+        var papers = new List<IExamPaper> { CreateTestPaper(paperId, title, questionTexts), };
 
         // Act
         byte[] result = Exporter.Export(papers);
@@ -74,7 +71,7 @@ public class JsonExamExporterTests
             Assert.Contains(text, json);
         }
     }
-    
+
     /// <summary>
     /// Негативный тест на неудачный экспорт JSON из билета с неверным геттером.
     /// </summary>
@@ -88,7 +85,7 @@ public class JsonExamExporterTests
         mockPaper.SetupGet(p => p.Questions).Returns(new List<IQuestion>().AsReadOnly());
 
         var papers = new List<IExamPaper> { mockPaper.Object };
-        
+
         // Act & Assert
         Assert.ThrowsAny<Exception>(() => Exporter.Export(papers));
     }
