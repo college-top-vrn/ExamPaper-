@@ -7,7 +7,5 @@
 
   <ItemGroup>
     <Folder Include="Integration\" />
-    <Folder Include="Mock\" />
-    <Folder Include="Unit\" />
   </ItemGroup>
 </Project>
