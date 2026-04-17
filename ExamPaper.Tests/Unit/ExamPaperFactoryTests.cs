@@ -81,7 +81,7 @@ public class ExamPaperFactoryTests
         Guid id = Guid.NewGuid();
         List<IQuestion> questions = [];
 
-        Assert.ThrowsAny<ArgumentNullException>(() =>
+        Assert.ThrowsAny<ArgumentException>(() =>
             _factory.CreateExamPaper(id, invalidTitle, questions)
         );
     }
