@@ -69,7 +69,7 @@ public class ExamPaperFactoryTests
     #region Негативные тесты
 
     /// <summary>
-    ///     Проверяет, что метод выбрасывает <see cref="ArgumentException" /> (или производные),
+    ///     Проверяет, что метод выбрасывает <see cref="ArgumentNullException" /> (или производные),
     ///     если заголовок билета является пустым или равен null.
     /// </summary>
     /// <param name="invalidTitle">Некорректное значение заголовка, передаваемое из InlineData.</param>
@@ -79,9 +79,9 @@ public class ExamPaperFactoryTests
     public void CreateExamPaper_InvalidTitle_ShouldThrowArgumentException(string? invalidTitle)
     {
         Guid id = Guid.NewGuid();
-        List<IQuestion> questions = new();
+        List<IQuestion> questions = [];
 
-        Assert.ThrowsAny<ArgumentException>(() =>
+        Assert.ThrowsAny<ArgumentNullException>(() =>
             _factory.CreateExamPaper(id, invalidTitle, questions)
         );
     }
