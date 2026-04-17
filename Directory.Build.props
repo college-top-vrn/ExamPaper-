@@ -4,7 +4,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <AnalysisLevel>latest</AnalysisLevel>
-
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <QuestPDFVersion>2026.2.4</QuestPDFVersion>
     <XUnitVersion>2.9.3</XUnitVersion>
     <XUnitRunnerVersion>3.1.4</XUnitRunnerVersion>
