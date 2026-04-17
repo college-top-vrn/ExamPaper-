@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <ProjectReference Include="..\ExamPaper.Core\ExamPaper.Core.csproj"/>
+    <ProjectReference Include="..\ExamPaper.Core\ExamPaper.Core.csproj" />
     <ProjectReference Include="..\ExamPaper.Infrastructure\ExamPaper.Infrastructure.csproj" />
-    <ProjectReference Include="..\ExamPaper.Service\ExamPaper.Service.csproj"/>
+    <ProjectReference Include="..\ExamPaper.Service\ExamPaper.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Integration\"/>
-    <Folder Include="Mock\"/>
-    <Folder Include="Unit\"/>
+    <Folder Include="Integration\" />
+    <Folder Include="Mock\" />
+    <Folder Include="Unit\" />
   </ItemGroup>
 </Project>
