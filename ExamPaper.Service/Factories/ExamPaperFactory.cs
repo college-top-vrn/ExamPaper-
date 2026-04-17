@@ -6,17 +6,19 @@ using ExamPaper.Core.Interfaces;
 namespace ExamPaper.Service.Factories;
 
 /// <summary>
-/// класс фабрики ExamPaperFactory
+///     класс фабрики ExamPaperFactory
 /// </summary>
 public class ExamPaperFactory : IExamPaperFactory
 {
     /// <summary>
-    /// метод фабрики для создания объекта ExamPaper где создается новй объекст ExamPaper
+    ///     метод фабрики для создания объекта ExamPaper где создается новй объекст ExamPaper
     /// </summary>
     /// <param name="id">id билета</param>
     /// <param name="title">имя билета</param>
     /// <param name="questions">список вопросов из которого берутся вопросы для сздания билета</param>
     /// <returns></returns>
-    public IExamPaper CreateExamPaper(Guid id, string title, IEnumerable<IQuestion> questions) =>
-        new Core.Models.ExamPaper(id, title, questions);
+    public IExamPaper CreateExamPaper(Guid id, string title, IEnumerable<IQuestion> questions)
+    {
+        return new Core.Models.ExamPaper(id, title, questions);
+    }
 }

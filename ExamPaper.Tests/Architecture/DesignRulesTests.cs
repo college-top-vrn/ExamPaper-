@@ -1,30 +1,36 @@
-﻿using NetArchTest.Rules;
+﻿using System.Reflection;
+
+using ExamPaper.Core.Models;
+using ExamPaper.Infrastructure.Repositories;
+using ExamPaper.Service.Generator;
+
+using NetArchTest.Rules;
 
 using Xunit;
 
 namespace ExamPaper.Tests.Architecture;
 
 /// <summary>
-/// Содержит архитектурные тесты для проверки соблюдения правил проектирования,
-///  правильного использования модификаторов доступа и защиты инкапсуляции.
+///     Содержит архитектурные тесты для проверки соблюдения правил проектирования,
+///     правильного использования модификаторов доступа и защиты инкапсуляции.
 /// </summary>
 public class DesignRulesTests
 {
-    private readonly System.Reflection.Assembly _coreAssembly =
-        typeof(ExamPaper.Core.Models.Question).Assembly;
+    private readonly Assembly _coreAssembly =
+        typeof(Question).Assembly;
 
-    private readonly System.Reflection.Assembly _infrastructureAssembly =
-        typeof(ExamPaper.Infrastructure.Repositories.QuestionRepository).Assembly;
+    private readonly Assembly _infrastructureAssembly =
+        typeof(QuestionRepository).Assembly;
 
     /// <summary>
-    /// Проверяет, что все классы доменных моделей (Domain Models) в слое Core
-    /// помечены модификатором 'sealed'. Это предотвращает непредсказуемое наследование
-    /// и изменение базового поведения фундаментальных сущностей проекта.
+    ///     Проверяет, что все классы доменных моделей (Domain Models) в слое Core
+    ///     помечены модификатором 'sealed'. Это предотвращает непредсказуемое наследование
+    ///     и изменение базового поведения фундаментальных сущностей проекта.
     /// </summary>
     [Fact]
     public void CoreModels_Should_BeSealed()
     {
-        var result = Types
+        TestResult? result = Types
             .InAssembly(_coreAssembly)
             .That()
             .ResideInNamespace("ExamPaper.Core.Models")
@@ -43,15 +49,15 @@ public class DesignRulesTests
     }
 
     /// <summary>
-    /// Проверяет, что классы конкретных реализаций в слое Infrastructure
-    /// (такие как репозитории и экспортеры) являются 'sealed'.
-    /// Инфраструктурные классы предназначены для выполнения конкретной работы,
-    /// а не для того, чтобы служить базовыми классами для других.
+    ///     Проверяет, что классы конкретных реализаций в слое Infrastructure
+    ///     (такие как репозитории и экспортеры) являются 'sealed'.
+    ///     Инфраструктурные классы предназначены для выполнения конкретной работы,
+    ///     а не для того, чтобы служить базовыми классами для других.
     /// </summary>
     [Fact]
     public void InfrastructureImplementations_Should_BeSealed()
     {
-        var result = Types
+        TestResult? result = Types
             .InAssembly(_infrastructureAssembly)
             .That()
             .AreClasses()
@@ -68,14 +74,14 @@ public class DesignRulesTests
     }
 
     /// <summary>
-    /// Проверяет отсутствие статических классов в слое Core.
-    /// Использование статического состояния в доменной логике нарушает принципы ООП
-    /// и затрудняет тестирование. Вместо них следует использовать интерфейсы и Иньекцию зависимотей.
+    ///     Проверяет отсутствие статических классов в слое Core.
+    ///     Использование статического состояния в доменной логике нарушает принципы ООП
+    ///     и затрудняет тестирование. Вместо них следует использовать интерфейсы и Иньекцию зависимотей.
     /// </summary>
     [Fact]
     public void Classes_In_Core_ShouldNot_Be_Static()
     {
-        var result = Types
+        TestResult? result = Types
             .InAssembly(_coreAssembly)
             .That()
             .AreClasses()
@@ -90,17 +96,17 @@ public class DesignRulesTests
     }
 
     /// <summary>
-    /// Проверяет что все контаркты определены в Core
+    ///     Проверяет что все контаркты определены в Core
     /// </summary>
     [Fact]
     public void AllInterfaces_Should_Reside_In_Core()
     {
-        var coreAssembly = typeof(ExamPaper.Core.Models.Question).Assembly;
-        var serviceAssembly = typeof(ExamPaper.Service.Generator.ExamPaperGenerator).Assembly;
-        var infrastructureAssembly =
-            typeof(ExamPaper.Infrastructure.Repositories.QuestionRepository).Assembly;
+        Assembly coreAssembly = typeof(Question).Assembly;
+        Assembly serviceAssembly = typeof(ExamPaperGenerator).Assembly;
+        Assembly infrastructureAssembly =
+            typeof(QuestionRepository).Assembly;
 
-        var result = Types
+        TestResult? result = Types
             .InAssemblies([coreAssembly, serviceAssembly, infrastructureAssembly])
             .That()
             .AreInterfaces()
