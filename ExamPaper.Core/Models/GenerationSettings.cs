@@ -1,5 +1,4 @@
 using System;
-
 using ExamPaper.Core.Generation;
 
 namespace ExamPaper.Core.Models;
@@ -28,11 +27,15 @@ public sealed class GenerationSettings : IGenerationSettings
     public GenerationSettings(int totalTicketsCount, int questionsPerTicketCount)
     {
         if (totalTicketsCount <= 0)
-            throw new ArgumentException("Общее количество билетов должно быть положительным",
-                nameof(totalTicketsCount));
+            throw new ArgumentException(
+                "Общее количество билетов должно быть положительным",
+                nameof(totalTicketsCount)
+            );
         if (questionsPerTicketCount <= 0)
-            throw new ArgumentException("Количество вопросов на билет должно быть положительным",
-                nameof(questionsPerTicketCount));
+            throw new ArgumentException(
+                "Количество вопросов на билет должно быть положительным",
+                nameof(questionsPerTicketCount)
+            );
         TotalTicketsCount = totalTicketsCount;
         QuestionsPerTicketCount = questionsPerTicketCount;
     }
@@ -53,6 +56,6 @@ public sealed class GenerationSettings : IGenerationSettings
     /// <returns>
     /// Строка с информацией о настройках билета.
     /// </returns>
-    public override string ToString()
-        => $"Билетов: {TotalTicketsCount}, Вопросов на билет: {QuestionsPerTicketCount}";
+    public override string ToString() =>
+        $"Билетов: {TotalTicketsCount}, Вопросов на билет: {QuestionsPerTicketCount}";
 }

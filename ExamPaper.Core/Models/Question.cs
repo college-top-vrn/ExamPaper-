@@ -1,4 +1,5 @@
 using ExamPaper.Core.Interfaces;
+
 namespace ExamPaper.Core.Models;
 
 using System;
@@ -12,10 +13,12 @@ public sealed class Question : IQuestion
     /// Уникальный Guid идентификатор вопроса.
     /// </summary>
     public Guid Id { get; init; }
+
     /// <summary>
     /// Текст вопроса.
     /// </summary>
     public string Text { get; init; }
+
     /// <summary>
     /// Конструктор для создания экзаменационного вопроса с параметрами.
     /// </summary>

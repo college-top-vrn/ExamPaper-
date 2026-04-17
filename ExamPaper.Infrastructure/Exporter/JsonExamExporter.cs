@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
-
 using ExamPaper.Core.Interfaces;
 
 namespace ExamPaper.Infrastructure.Exporter;
@@ -14,7 +13,7 @@ public sealed class JsonExamExporter : IExamExporter
     private static readonly JsonSerializerOptions SerializerOptions = new()
     {
         WriteIndented = true,
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
     };
 
     /// <summary>

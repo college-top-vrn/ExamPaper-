@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using ExamPaper.Core.Generation;
 using ExamPaper.Core.Interfaces;
 
@@ -24,7 +23,10 @@ public class ExamPaperGenerator : IExamGenerator
     /// </remarks>
     /// <exception cref="ArgumentNullException">Выбрасывается, если <paramref name="availableQuestions"/> или <paramref name="settings"/> равны null.</exception>
     /// <exception cref="InvalidOperationException">Выбрасывается, если количество доступных вопросов меньше, чем <see cref="IGenerationSettings.QuestionsPerTicketCount"/>.</exception>
-    public IEnumerable<IExamPaper> Generate(IEnumerable<IQuestion> availableQuestions, IGenerationSettings settings)
+    public IEnumerable<IExamPaper> Generate(
+        IEnumerable<IQuestion> availableQuestions,
+        IGenerationSettings settings
+    )
     {
         if (availableQuestions == null)
             throw new ArgumentNullException(nameof(availableQuestions));
@@ -33,16 +35,19 @@ public class ExamPaperGenerator : IExamGenerator
         var questions = availableQuestions.ToList();
         if (questions.Count < settings.QuestionsPerTicketCount)
             throw new InvalidOperationException(
-                $"Недостаточно вопросов для генерации билета. " +
-                $"Доступно: {questions.Count}, требуется: {settings.QuestionsPerTicketCount}");
+                $"Недостаточно вопросов для генерации билета. "
+                    + $"Доступно: {questions.Count}, требуется: {settings.QuestionsPerTicketCount}"
+            );
         var random = new Random();
-        return Enumerable.Range(1, settings.TotalTicketsCount)
+        return Enumerable
+            .Range(1, settings.TotalTicketsCount)
             .Select(ticketNum => new Core.Models.ExamPaper(
                 id: Guid.NewGuid(),
                 title: $"Билет №{ticketNum}",
                 questions: questions
                     .OrderBy(_ => random.Next())
                     .Take(settings.QuestionsPerTicketCount)
-                    .ToList()));
+                    .ToList()
+            ));
     }
 }

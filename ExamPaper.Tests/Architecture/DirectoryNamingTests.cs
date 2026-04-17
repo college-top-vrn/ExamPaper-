@@ -1,11 +1,10 @@
 ﻿namespace ExamPaper.Tests.Architecture;
 
-using System.Text.RegularExpressions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
+using System.Text.RegularExpressions;
 using Xunit;
 
 /// <summary>
@@ -24,13 +23,14 @@ public class DirectoryNamingTests
 
         var errors = new List<string>();
 
-        var projects = Directory.GetDirectories(solutionRoot, "ExamPaper*", SearchOption.TopDirectoryOnly)
+        var projects = Directory
+            .GetDirectories(solutionRoot, "ExamPaper*", SearchOption.TopDirectoryOnly)
             .Where(d => Directory.GetFiles(d, "*.csproj").Any());
 
         foreach (var projectPath in projects)
         {
             var projectName = Path.GetFileName(projectPath);
-            
+
             var allDirs = Directory.GetDirectories(projectPath, "*", SearchOption.AllDirectories);
 
             foreach (var dirPath in allDirs)
@@ -44,12 +44,17 @@ public class DirectoryNamingTests
 
                 if (!ValidFolderNameRegex.IsMatch(dirName))
                 {
-                    errors.Add($"Проект {projectName}: папка '{dirName}' нарушает правила (должна быть на латинице, в PascalCase и без пробелов).");
+                    errors.Add(
+                        $"Проект {projectName}: папка '{dirName}' нарушает правила (должна быть на латинице, в PascalCase и без пробелов)."
+                    );
                 }
             }
         }
 
-        Assert.True(errors.Count == 0, "Обнаружены нарушения правил именования директорий:\n" + string.Join("\n", errors));
+        Assert.True(
+            errors.Count == 0,
+            "Обнаружены нарушения правил именования директорий:\n" + string.Join("\n", errors)
+        );
     }
 
     private static string? GetSolutionRoot()
@@ -62,14 +67,14 @@ public class DirectoryNamingTests
         return currentDir?.FullName;
     }
 
-   
     private static bool IsSystemOrHiddenDirectory(string path)
     {
         var segments = path.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-        
-        return segments.Any(s => 
-            s.Equals("bin", StringComparison.OrdinalIgnoreCase) || 
-            s.Equals("obj", StringComparison.OrdinalIgnoreCase) || 
-            s.StartsWith("."));
+
+        return segments.Any(s =>
+            s.Equals("bin", StringComparison.OrdinalIgnoreCase)
+            || s.Equals("obj", StringComparison.OrdinalIgnoreCase)
+            || s.StartsWith(".")
+        );
     }
 }
