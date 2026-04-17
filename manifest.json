@@ -3,6 +3,14 @@
   "xrefmap": "xrefmap.yml",
   "files": [
     {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "README.md",
       "output": {
@@ -391,70 +399,106 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/BranchCreation.md",
+      "source_relative_path": "docs/getting-started.md",
       "output": {
         ".html": {
-          "relative_path": "docs/BranchCreation.html"
+          "relative_path": "docs/getting-started.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/ClassPlanning.md",
+      "source_relative_path": "docs/introduction.md",
       "output": {
         ".html": {
-          "relative_path": "docs/ClassPlanning.html"
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/FileAndDirectoriesCreation.md",
+      "source_relative_path": "index.md",
       "output": {
         ".html": {
-          "relative_path": "docs/FileAndDirectoriesCreation.html"
+          "relative_path": "index.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/TestCaseRegulations.md",
+      "source_relative_path": "rules/BranchCreation.md",
       "output": {
         ".html": {
-          "relative_path": "docs/TestCaseRegulations.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "docs/assets/diagram_component.SVG",
-      "output": {
-        "resource": {
-          "relative_path": "docs/assets/diagram_component.SVG"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "docs/assets/test.md",
-      "output": {
-        "resource": {
-          "relative_path": "docs/assets/test.md"
+          "relative_path": "rules/BranchCreation.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/assets/test.md",
+      "source_relative_path": "rules/ClassPlanning.md",
       "output": {
         ".html": {
-          "relative_path": "docs/assets/test.html"
+          "relative_path": "rules/ClassPlanning.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "rules/FileAndDirectoriesCreation.md",
+      "output": {
+        ".html": {
+          "relative_path": "rules/FileAndDirectoriesCreation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "rules/TestCaseRegulations.md",
+      "output": {
+        ".html": {
+          "relative_path": "rules/TestCaseRegulations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "rules/assets/test.md",
+      "output": {
+        ".html": {
+          "relative_path": "rules/assets/test.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
       "version": ""
