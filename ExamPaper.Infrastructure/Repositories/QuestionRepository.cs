@@ -25,14 +25,14 @@ namespace ExamPaper.Infrastructure.Repositories;
 ///         <b>Пример использования:</b>
 ///         <code>
 /// var repository = new QuestionRepository("questions.json");
-///
+/// 
 /// // Получение всех вопросов
 /// var allQuestions = repository.GetAllQuestions();
-///
+/// 
 /// // Добавление нового вопроса
 /// var newQuestion = new Question { Id = Guid.NewGuid(), Text = "Что такое SOLID?" };
 /// repository.AddQuestion(newQuestion);
-///
+/// 
 /// // Сохранение изменений
 /// repository.SaveChanges();
 /// </code>

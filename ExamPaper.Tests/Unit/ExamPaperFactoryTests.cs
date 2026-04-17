@@ -49,10 +49,8 @@ public class ExamPaperFactoryTests
         // Arrange
         Guid expectedId = Guid.NewGuid();
         string expectedTitle = "Паттерны проектирования на C#";
-        List<IQuestion> questions = new()
-        {
-            new Question("Что такое Singleton?"), new Question("Опишите паттерн Factory Method.")
-        };
+        List<IQuestion> questions =
+            [new Question("Что такое Singleton?"), new Question("Опишите паттерн Factory Method.")];
 
         IExamPaper result = _factory.CreateExamPaper(expectedId, expectedTitle, questions);
 
@@ -78,7 +76,7 @@ public class ExamPaperFactoryTests
     [Theory]
     [InlineData(null)]
     [InlineData("")]
-    public void CreateExamPaper_InvalidTitle_ShouldThrowArgumentException(string invalidTitle)
+    public void CreateExamPaper_InvalidTitle_ShouldThrowArgumentException(string? invalidTitle)
     {
         Guid id = Guid.NewGuid();
         List<IQuestion> questions = new();

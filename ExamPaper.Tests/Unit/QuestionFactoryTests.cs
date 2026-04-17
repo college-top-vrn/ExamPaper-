@@ -34,7 +34,7 @@ public class QuestionFactoryTests
     [InlineData(null)]
     [InlineData("")]
     [InlineData("   ")]
-    public void CreateQuestion_InvalidText_ShouldThrowArgumentException(string invalidText)
+    public void CreateQuestion_InvalidText_ShouldThrowArgumentException(string? invalidText)
     {
         Guid id = Guid.CreateVersion7();
 
