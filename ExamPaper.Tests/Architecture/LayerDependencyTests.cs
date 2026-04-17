@@ -1,5 +1,7 @@
 ﻿using NetArchTest.Rules;
 
+using Xunit;
+
 namespace ExamPaper.Tests.Architecture;
 /// <summary>
 /// Содержит архитектурные тесты для контроля соблюдения правил Слоистой Архитектуры
