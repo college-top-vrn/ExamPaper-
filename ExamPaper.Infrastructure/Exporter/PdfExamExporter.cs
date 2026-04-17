@@ -4,6 +4,7 @@ using System.Linq;
 
 using ExamPaper.Core.Interfaces;
 
+using QuestPDF;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
@@ -11,29 +12,29 @@ using QuestPDF.Infrastructure;
 namespace ExamPaper.Infrastructure.Exporter;
 
 /// <summary>
-/// Класс-стратегия для экспорта экзаменационных билетов в PDF.
+///     Класс-стратегия для экспорта экзаменационных билетов в PDF.
 /// </summary>
 public sealed class PdfExamExporter : IExamExporter
 {
     /// <summary>
-    /// Метод для экспорта списка билетов в PDF, закодированный в байтах,
-    /// с использованием QuestPDF.
+    ///     Метод для экспорта списка билетов в PDF, закодированный в байтах,
+    ///     с использованием QuestPDF.
     /// </summary>
     /// <param name="examPapers">Список билетов.</param>
     /// <returns>Массив байтов PDF.</returns>
     /// <exception cref="ArgumentException">Если список билетов пуст.</exception>
     public byte[] Export(IEnumerable<IExamPaper> examPapers)
     {
-        QuestPDF.Settings.License = LicenseType.Community;
+        Settings.License = LicenseType.Community;
 
-        var papers = examPapers.ToList();
+        List<IExamPaper> papers = examPapers.ToList();
 
         if (papers.Count == 0)
         {
             throw new ArgumentException("No exam papers have been provided.");
         }
 
-        var document = Document.Create(container =>
+        Document document = Document.Create(container =>
         {
             container.Page(page =>
             {
@@ -50,7 +51,7 @@ public sealed class PdfExamExporter : IExamExporter
                 page.Content()
                     .Column(column =>
                     {
-                        foreach (var paper in papers)
+                        foreach (IExamPaper paper in papers)
                         {
                             column
                                 .Item()
@@ -78,7 +79,7 @@ public sealed class PdfExamExporter : IExamExporter
                                         .Column(questionsColumn =>
                                         {
                                             int index = 1;
-                                            foreach (var question in paper.Questions)
+                                            foreach (IQuestion question in paper.Questions)
                                             {
                                                 questionsColumn
                                                     .Item()
@@ -95,11 +96,13 @@ public sealed class PdfExamExporter : IExamExporter
 
                             // Разделитель между билетами
                             if (paper != papers.Last())
+                            {
                                 column
                                     .Item()
                                     .PaddingVertical(5)
                                     .LineHorizontal(1)
                                     .LineColor(Colors.Grey.Lighten2);
+                            }
                         }
                     });
 

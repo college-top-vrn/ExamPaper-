@@ -13,14 +13,14 @@ using Xunit;
 namespace ExamPaper.Tests.Unit;
 
 /// <summary>
-/// Класс для Unit тестов JSON экспортера <see cref="JsonExamExporter"/>.
+///     Класс для Unit тестов JSON экспортера <see cref="JsonExamExporter" />.
 /// </summary>
 public class JsonExamExporterTests
 {
     private static readonly JsonExamExporter Exporter = new();
 
     /// <summary>
-    /// Вспомогательный метод для создания билета.
+    ///     Вспомогательный метод для создания билета.
     /// </summary>
     /// <param name="id">Id билета.</param>
     /// <param name="title">Название билета.</param>
@@ -28,15 +28,15 @@ public class JsonExamExporterTests
     /// <returns>Объект с интерфейсом билета.</returns>
     private static IExamPaper CreateTestPaper(Guid id, string title, params string[] questionTexts)
     {
-        var questions = questionTexts.Select(text =>
+        List<IQuestion> questions = questionTexts.Select(text =>
         {
-            var mockQuestion = new Mock<IQuestion>();
+            Mock<IQuestion> mockQuestion = new();
             mockQuestion.SetupGet(q => q.Id).Returns(Guid.CreateVersion7());
             mockQuestion.SetupGet(q => q.Text).Returns(text);
             return mockQuestion.Object;
         }).ToList();
 
-        var mockPaper = new Mock<IExamPaper>();
+        Mock<IExamPaper> mockPaper = new();
         mockPaper.SetupGet(p => p.Id).Returns(id);
         mockPaper.SetupGet(p => p.Title).Returns(title);
         mockPaper.SetupGet(p => p.Questions).Returns(questions.AsReadOnly());
@@ -44,7 +44,7 @@ public class JsonExamExporterTests
     }
 
     /// <summary>
-    /// Позитивный параметризованный тест на удачный экспорт JSON с верным контентом из списка билетов.
+    ///     Позитивный параметризованный тест на удачный экспорт JSON с верным контентом из списка билетов.
     /// </summary>
     /// <param name="title">Название билета.</param>
     /// <param name="questionTexts">Текста вопросов билета.</param>
@@ -54,8 +54,8 @@ public class JsonExamExporterTests
     public void Export_ValidExamPapers_ReturnsJsonWithCorrectContent(string title, params string[] questionTexts)
     {
         // Arrange
-        var paperId = Guid.CreateVersion7();
-        var papers = new List<IExamPaper> { CreateTestPaper(paperId, title, questionTexts), };
+        Guid paperId = Guid.CreateVersion7();
+        List<IExamPaper> papers = new() { CreateTestPaper(paperId, title, questionTexts) };
 
         // Act
         byte[] result = Exporter.Export(papers);
@@ -73,18 +73,18 @@ public class JsonExamExporterTests
     }
 
     /// <summary>
-    /// Негативный тест на неудачный экспорт JSON из билета с неверным геттером.
+    ///     Негативный тест на неудачный экспорт JSON из билета с неверным геттером.
     /// </summary>
     [Fact]
     public void Export_ExamPaperWithFaultyGetter_ThrowsException()
     {
         // Arrange
-        var mockPaper = new Mock<IExamPaper>();
+        Mock<IExamPaper> mockPaper = new();
         mockPaper.SetupGet(p => p.Id).Returns(Guid.NewGuid());
         mockPaper.SetupGet(p => p.Title).Throws(new InvalidOperationException("Test exception"));
         mockPaper.SetupGet(p => p.Questions).Returns(new List<IQuestion>().AsReadOnly());
 
-        var papers = new List<IExamPaper> { mockPaper.Object };
+        List<IExamPaper> papers = new() { mockPaper.Object };
 
         // Act & Assert
         Assert.ThrowsAny<Exception>(() => Exporter.Export(papers));

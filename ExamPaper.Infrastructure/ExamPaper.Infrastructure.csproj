@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <PackageReference Include="QuestPDF" Version="$(QuestPDFVersion)" />
+    <PackageReference Include="QuestPDF" Version="$(QuestPDFVersion)"/>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ExamPaper.Core\ExamPaper.Core.csproj" />
+    <ProjectReference Include="..\ExamPaper.Core\ExamPaper.Core.csproj"/>
   </ItemGroup>
 </Project>
