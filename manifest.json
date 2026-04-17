@@ -440,21 +440,21 @@
       "version": ""
     },
     {
-      "type": "Resource",
-      "source_relative_path": "docs/assets/test.md",
-      "output": {
-        "resource": {
-          "relative_path": "docs/assets/test.md"
-        }
-      },
-      "version": ""
-    },
-    {
       "type": "Conceptual",
       "source_relative_path": "docs/assets/test.md",
       "output": {
         ".html": {
           "relative_path": "docs/assets/test.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docs/assets/test.md",
+      "output": {
+        "resource": {
+          "relative_path": "docs/assets/test.md"
         }
       },
       "version": ""
