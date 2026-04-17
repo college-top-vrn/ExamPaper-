@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-
 using ExamPaper.Core.Generation;
 
 namespace ExamPaper.Core.Interfaces;
@@ -21,5 +20,8 @@ public interface IExamGenerator
     /// <returns>Коллекция объектов, реализующих <see cref="IExamPaper"/>, готовых к дальнейшей обработке или экспорту.</returns>
     /// <exception cref="System.ArgumentNullException">Выбрасывается, если <paramref name="availableQuestions"/> или <paramref name="settings"/> имеют значение null.</exception>
     /// <exception cref="System.InvalidOperationException">Выбрасывается, если количество доступных вопросов недостаточно для выполнения условий генерации.</exception>
-    IEnumerable<IExamPaper> Generate(IEnumerable<IQuestion> availableQuestions, IGenerationSettings settings);
+    IEnumerable<IExamPaper> Generate(
+        IEnumerable<IQuestion> availableQuestions,
+        IGenerationSettings settings
+    );
 }

@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using ExamPaper.Core.Interfaces;
-
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
@@ -44,9 +42,7 @@ public sealed class PdfExamExporter : IExamExporter
                 page.DefaultTextStyle(x => x.FontSize(12));
 
                 // Верхний колонтитул страницы
-                page.Header()
-                    .Text("Экзаменационные билеты")
-                    .SemiBold().FontSize(20);
+                page.Header().Text("Экзаменационные билеты").SemiBold().FontSize(20);
 
                 // Основной контент страницы
                 page.Content()
@@ -54,36 +50,54 @@ public sealed class PdfExamExporter : IExamExporter
                     {
                         foreach (var paper in papers)
                         {
-                            column.Item().PaddingVertical(10).Column(paperColumn =>
-                            {
-                                // Заголовок билета
-                                paperColumn.Item().Row(row =>
+                            column
+                                .Item()
+                                .PaddingVertical(10)
+                                .Column(paperColumn =>
                                 {
-                                    row.RelativeItem().Text($"Билет: {paper.Title}")
-                                        .Bold().FontSize(16);
-                                    row.ConstantItem(100).Text($"ID: {paper.Id.ToString()}")
-                                        .FontSize(9);
-                                });
-
-                                // Вопросы
-                                paperColumn.Item().PaddingLeft(15).Column(questionsColumn =>
-                                {
-                                    int index = 1;
-                                    foreach (var question in paper.Questions)
-                                    {
-                                        questionsColumn.Item().PaddingTop(5).Text(t =>
+                                    // Заголовок билета
+                                    paperColumn
+                                        .Item()
+                                        .Row(row =>
                                         {
-                                            t.Span($"{index}. ").Bold();
-                                            t.Span(question.Text);
+                                            row.RelativeItem()
+                                                .Text($"Билет: {paper.Title}")
+                                                .Bold()
+                                                .FontSize(16);
+                                            row.ConstantItem(100)
+                                                .Text($"ID: {paper.Id.ToString()}")
+                                                .FontSize(9);
                                         });
-                                        index++;
-                                    }
+
+                                    // Вопросы
+                                    paperColumn
+                                        .Item()
+                                        .PaddingLeft(15)
+                                        .Column(questionsColumn =>
+                                        {
+                                            int index = 1;
+                                            foreach (var question in paper.Questions)
+                                            {
+                                                questionsColumn
+                                                    .Item()
+                                                    .PaddingTop(5)
+                                                    .Text(t =>
+                                                    {
+                                                        t.Span($"{index}. ").Bold();
+                                                        t.Span(question.Text);
+                                                    });
+                                                index++;
+                                            }
+                                        });
                                 });
-                            });
 
                             // Разделитель между билетами
                             if (paper != papers.Last())
-                                column.Item().PaddingVertical(5).LineHorizontal(1).LineColor(Colors.Grey.Lighten2);
+                                column
+                                    .Item()
+                                    .PaddingVertical(5)
+                                    .LineHorizontal(1)
+                                    .LineColor(Colors.Grey.Lighten2);
                         }
                     });
 
