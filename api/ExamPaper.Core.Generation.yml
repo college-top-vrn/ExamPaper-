@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: ExamPaper.Core.Generation
+  commentId: N:ExamPaper.Core.Generation
+  id: ExamPaper.Core.Generation
+  children:
+  - ExamPaper.Core.Generation.IGenerationSettings
+  langs:
+  - csharp
+  - vb
+  name: ExamPaper.Core.Generation
+  nameWithType: ExamPaper.Core.Generation
+  fullName: ExamPaper.Core.Generation
+  type: Namespace
+  assemblies:
+  - ExamPaper.Core
+references:
+- uid: ExamPaper.Core.Generation.IGenerationSettings
+  commentId: T:ExamPaper.Core.Generation.IGenerationSettings
+  parent: ExamPaper.Core.Generation
+  href: ExamPaper.Core.Generation.IGenerationSettings.html
+  name: IGenerationSettings
+  nameWithType: IGenerationSettings
+  fullName: ExamPaper.Core.Generation.IGenerationSettings
+- uid: ExamPaper.Core.Generation
+  commentId: N:ExamPaper.Core.Generation
+  href: ExamPaper.html
+  name: ExamPaper.Core.Generation
+  nameWithType: ExamPaper.Core.Generation
+  fullName: ExamPaper.Core.Generation
+  spec.csharp:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Generation
+    name: Generation
+    href: ExamPaper.Core.Generation.html
+  spec.vb:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Generation
+    name: Generation
+    href: ExamPaper.Core.Generation.html

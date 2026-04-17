@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: ExamPaper.Service.Factories
+  commentId: N:ExamPaper.Service.Factories
+  id: ExamPaper.Service.Factories
+  children:
+  - ExamPaper.Service.Factories.ExamPaperFactory
+  - ExamPaper.Service.Factories.QuestionFactory
+  langs:
+  - csharp
+  - vb
+  name: ExamPaper.Service.Factories
+  nameWithType: ExamPaper.Service.Factories
+  fullName: ExamPaper.Service.Factories
+  type: Namespace
+  assemblies:
+  - ExamPaper.Service
+references:
+- uid: ExamPaper.Service.Factories.ExamPaperFactory
+  commentId: T:ExamPaper.Service.Factories.ExamPaperFactory
+  href: ExamPaper.Service.Factories.ExamPaperFactory.html
+  name: ExamPaperFactory
+  nameWithType: ExamPaperFactory
+  fullName: ExamPaper.Service.Factories.ExamPaperFactory
+- uid: ExamPaper.Service.Factories.QuestionFactory
+  commentId: T:ExamPaper.Service.Factories.QuestionFactory
+  href: ExamPaper.Service.Factories.QuestionFactory.html
+  name: QuestionFactory
+  nameWithType: QuestionFactory
+  fullName: ExamPaper.Service.Factories.QuestionFactory

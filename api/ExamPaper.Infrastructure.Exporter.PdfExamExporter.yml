@@ -1,0 +1,547 @@
+### YamlMime:ManagedReference
+items:
+- uid: ExamPaper.Infrastructure.Exporter.PdfExamExporter
+  commentId: T:ExamPaper.Infrastructure.Exporter.PdfExamExporter
+  id: PdfExamExporter
+  parent: ExamPaper.Infrastructure.Exporter
+  children:
+  - ExamPaper.Infrastructure.Exporter.PdfExamExporter.Export(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper})
+  langs:
+  - csharp
+  - vb
+  name: PdfExamExporter
+  nameWithType: PdfExamExporter
+  fullName: ExamPaper.Infrastructure.Exporter.PdfExamExporter
+  type: Class
+  source:
+    remote:
+      path: ExamPaper.Infrastructure/Exporter/PdfExamExporter.cs
+      branch: develop
+      repo: https://github.com/college-top-vrn/ExamPaper-.git
+    id: PdfExamExporter
+    path: ExamPaper.Infrastructure/Exporter/PdfExamExporter.cs
+    startLine: 15
+  assemblies:
+  - ExamPaper.Infrastructure
+  namespace: ExamPaper.Infrastructure.Exporter
+  summary: Класс-стратегия для экспорта экзаменационных билетов в PDF.
+  example: []
+  syntax:
+    content: 'public sealed class PdfExamExporter : IExamExporter'
+    content.vb: Public NotInheritable Class PdfExamExporter Implements IExamExporter
+  inheritance:
+  - System.Object
+  implements:
+  - ExamPaper.Core.Interfaces.IExamExporter
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ExamPaper.Infrastructure.Exporter.PdfExamExporter.Export(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper})
+  commentId: M:ExamPaper.Infrastructure.Exporter.PdfExamExporter.Export(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper})
+  id: Export(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper})
+  parent: ExamPaper.Infrastructure.Exporter.PdfExamExporter
+  langs:
+  - csharp
+  - vb
+  name: Export(IEnumerable<IExamPaper>)
+  nameWithType: PdfExamExporter.Export(IEnumerable<IExamPaper>)
+  fullName: ExamPaper.Infrastructure.Exporter.PdfExamExporter.Export(System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IExamPaper>)
+  type: Method
+  source:
+    remote:
+      path: ExamPaper.Infrastructure/Exporter/PdfExamExporter.cs
+      branch: develop
+      repo: https://github.com/college-top-vrn/ExamPaper-.git
+    id: Export
+    path: ExamPaper.Infrastructure/Exporter/PdfExamExporter.cs
+    startLine: 24
+  assemblies:
+  - ExamPaper.Infrastructure
+  namespace: ExamPaper.Infrastructure.Exporter
+  summary: >-
+    Метод для экспорта списка билетов в PDF, закодированный в байтах,
+
+    с использованием QuestPDF.
+  example: []
+  syntax:
+    content: public byte[] Export(IEnumerable<IExamPaper> examPapers)
+    parameters:
+    - id: examPapers
+      type: System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper}
+      description: Список билетов.
+    return:
+      type: System.Byte[]
+      description: Массив байтов PDF.
+    content.vb: Public Function Export(examPapers As IEnumerable(Of IExamPaper)) As Byte()
+  overload: ExamPaper.Infrastructure.Exporter.PdfExamExporter.Export*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Если список билетов пуст.
+  implements:
+  - ExamPaper.Core.Interfaces.IExamExporter.Export(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper})
+  nameWithType.vb: PdfExamExporter.Export(IEnumerable(Of IExamPaper))
+  fullName.vb: ExamPaper.Infrastructure.Exporter.PdfExamExporter.Export(System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IExamPaper))
+  name.vb: Export(IEnumerable(Of IExamPaper))
+references:
+- uid: ExamPaper.Infrastructure.Exporter
+  commentId: N:ExamPaper.Infrastructure.Exporter
+  href: ExamPaper.html
+  name: ExamPaper.Infrastructure.Exporter
+  nameWithType: ExamPaper.Infrastructure.Exporter
+  fullName: ExamPaper.Infrastructure.Exporter
+  spec.csharp:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Infrastructure
+    name: Infrastructure
+    href: ExamPaper.Infrastructure.html
+  - name: .
+  - uid: ExamPaper.Infrastructure.Exporter
+    name: Exporter
+    href: ExamPaper.Infrastructure.Exporter.html
+  spec.vb:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Infrastructure
+    name: Infrastructure
+    href: ExamPaper.Infrastructure.html
+  - name: .
+  - uid: ExamPaper.Infrastructure.Exporter
+    name: Exporter
+    href: ExamPaper.Infrastructure.Exporter.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ExamPaper.Core.Interfaces.IExamExporter
+  commentId: T:ExamPaper.Core.Interfaces.IExamExporter
+  parent: ExamPaper.Core.Interfaces
+  href: ExamPaper.Core.Interfaces.IExamExporter.html
+  name: IExamExporter
+  nameWithType: IExamExporter
+  fullName: ExamPaper.Core.Interfaces.IExamExporter
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ExamPaper.Core.Interfaces
+  commentId: N:ExamPaper.Core.Interfaces
+  href: ExamPaper.html
+  name: ExamPaper.Core.Interfaces
+  nameWithType: ExamPaper.Core.Interfaces
+  fullName: ExamPaper.Core.Interfaces
+  spec.csharp:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+  spec.vb:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: ExamPaper.Infrastructure.Exporter.PdfExamExporter.Export*
+  commentId: Overload:ExamPaper.Infrastructure.Exporter.PdfExamExporter.Export
+  href: ExamPaper.Infrastructure.Exporter.PdfExamExporter.html#ExamPaper_Infrastructure_Exporter_PdfExamExporter_Export_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IExamPaper__
+  name: Export
+  nameWithType: PdfExamExporter.Export
+  fullName: ExamPaper.Infrastructure.Exporter.PdfExamExporter.Export
+- uid: ExamPaper.Core.Interfaces.IExamExporter.Export(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper})
+  commentId: M:ExamPaper.Core.Interfaces.IExamExporter.Export(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper})
+  parent: ExamPaper.Core.Interfaces.IExamExporter
+  isExternal: true
+  href: ExamPaper.Core.Interfaces.IExamExporter.html#ExamPaper_Core_Interfaces_IExamExporter_Export_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IExamPaper__
+  name: Export(IEnumerable<IExamPaper>)
+  nameWithType: IExamExporter.Export(IEnumerable<IExamPaper>)
+  fullName: ExamPaper.Core.Interfaces.IExamExporter.Export(System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IExamPaper>)
+  nameWithType.vb: IExamExporter.Export(IEnumerable(Of IExamPaper))
+  fullName.vb: ExamPaper.Core.Interfaces.IExamExporter.Export(System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IExamPaper))
+  name.vb: Export(IEnumerable(Of IExamPaper))
+  spec.csharp:
+  - uid: ExamPaper.Core.Interfaces.IExamExporter.Export(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper})
+    name: Export
+    href: ExamPaper.Core.Interfaces.IExamExporter.html#ExamPaper_Core_Interfaces_IExamExporter_Export_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IExamPaper__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ExamPaper.Core.Interfaces.IExamPaper
+    name: IExamPaper
+    href: ExamPaper.Core.Interfaces.IExamPaper.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ExamPaper.Core.Interfaces.IExamExporter.Export(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper})
+    name: Export
+    href: ExamPaper.Core.Interfaces.IExamExporter.html#ExamPaper_Core_Interfaces_IExamExporter_Export_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IExamPaper__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ExamPaper.Core.Interfaces.IExamPaper
+    name: IExamPaper
+    href: ExamPaper.Core.Interfaces.IExamPaper.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper}
+  commentId: T:System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<IExamPaper>
+  nameWithType: IEnumerable<IExamPaper>
+  fullName: System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IExamPaper>
+  nameWithType.vb: IEnumerable(Of IExamPaper)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IExamPaper)
+  name.vb: IEnumerable(Of IExamPaper)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ExamPaper.Core.Interfaces.IExamPaper
+    name: IExamPaper
+    href: ExamPaper.Core.Interfaces.IExamPaper.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ExamPaper.Core.Interfaces.IExamPaper
+    name: IExamPaper
+    href: ExamPaper.Core.Interfaces.IExamPaper.html
+  - name: )
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

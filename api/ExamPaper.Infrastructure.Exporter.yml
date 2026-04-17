@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: ExamPaper.Infrastructure.Exporter
+  commentId: N:ExamPaper.Infrastructure.Exporter
+  id: ExamPaper.Infrastructure.Exporter
+  children:
+  - ExamPaper.Infrastructure.Exporter.JsonExamExporter
+  - ExamPaper.Infrastructure.Exporter.PdfExamExporter
+  langs:
+  - csharp
+  - vb
+  name: ExamPaper.Infrastructure.Exporter
+  nameWithType: ExamPaper.Infrastructure.Exporter
+  fullName: ExamPaper.Infrastructure.Exporter
+  type: Namespace
+  assemblies:
+  - ExamPaper.Infrastructure
+references:
+- uid: ExamPaper.Infrastructure.Exporter.JsonExamExporter
+  commentId: T:ExamPaper.Infrastructure.Exporter.JsonExamExporter
+  href: ExamPaper.Infrastructure.Exporter.JsonExamExporter.html
+  name: JsonExamExporter
+  nameWithType: JsonExamExporter
+  fullName: ExamPaper.Infrastructure.Exporter.JsonExamExporter
+- uid: ExamPaper.Infrastructure.Exporter.PdfExamExporter
+  commentId: T:ExamPaper.Infrastructure.Exporter.PdfExamExporter
+  href: ExamPaper.Infrastructure.Exporter.PdfExamExporter.html
+  name: PdfExamExporter
+  nameWithType: PdfExamExporter
+  fullName: ExamPaper.Infrastructure.Exporter.PdfExamExporter

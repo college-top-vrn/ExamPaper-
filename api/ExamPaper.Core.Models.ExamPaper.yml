@@ -1,0 +1,746 @@
+### YamlMime:ManagedReference
+items:
+- uid: ExamPaper.Core.Models.ExamPaper
+  commentId: T:ExamPaper.Core.Models.ExamPaper
+  id: ExamPaper
+  parent: ExamPaper.Core.Models
+  children:
+  - ExamPaper.Core.Models.ExamPaper.#ctor(System.Guid,System.String,System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion})
+  - ExamPaper.Core.Models.ExamPaper.#ctor(System.String,System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion})
+  - ExamPaper.Core.Models.ExamPaper.Id
+  - ExamPaper.Core.Models.ExamPaper.Questions
+  - ExamPaper.Core.Models.ExamPaper.Title
+  langs:
+  - csharp
+  - vb
+  name: ExamPaper
+  nameWithType: ExamPaper
+  fullName: ExamPaper.Core.Models.ExamPaper
+  type: Class
+  source:
+    remote:
+      path: ExamPaper.Core/Models/ExamPaper.cs
+      branch: develop
+      repo: https://github.com/college-top-vrn/ExamPaper-.git
+    id: ExamPaper
+    path: ExamPaper.Core/Models/ExamPaper.cs
+    startLine: 12
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Models
+  summary: Класс для хранения экзаменационного билета.
+  example: []
+  syntax:
+    content: 'public sealed class ExamPaper : IExamPaper'
+    content.vb: Public NotInheritable Class ExamPaper Implements IExamPaper
+  inheritance:
+  - System.Object
+  implements:
+  - ExamPaper.Core.Interfaces.IExamPaper
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ExamPaper.Core.Models.ExamPaper.Id
+  commentId: P:ExamPaper.Core.Models.ExamPaper.Id
+  id: Id
+  parent: ExamPaper.Core.Models.ExamPaper
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: ExamPaper.Id
+  fullName: ExamPaper.Core.Models.ExamPaper.Id
+  type: Property
+  source:
+    remote:
+      path: ExamPaper.Core/Models/ExamPaper.cs
+      branch: develop
+      repo: https://github.com/college-top-vrn/ExamPaper-.git
+    id: Id
+    path: ExamPaper.Core/Models/ExamPaper.cs
+    startLine: 17
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Models
+  summary: Уникальный Guid идентификатор билета.
+  example: []
+  syntax:
+    content: public Guid Id { get; init; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: ExamPaper.Core.Models.ExamPaper.Id*
+  implements:
+  - ExamPaper.Core.Interfaces.IExamPaper.Id
+- uid: ExamPaper.Core.Models.ExamPaper.Title
+  commentId: P:ExamPaper.Core.Models.ExamPaper.Title
+  id: Title
+  parent: ExamPaper.Core.Models.ExamPaper
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: ExamPaper.Title
+  fullName: ExamPaper.Core.Models.ExamPaper.Title
+  type: Property
+  source:
+    remote:
+      path: ExamPaper.Core/Models/ExamPaper.cs
+      branch: develop
+      repo: https://github.com/college-top-vrn/ExamPaper-.git
+    id: Title
+    path: ExamPaper.Core/Models/ExamPaper.cs
+    startLine: 22
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Models
+  summary: Название билета.
+  example: []
+  syntax:
+    content: public string Title { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Title As String
+  overload: ExamPaper.Core.Models.ExamPaper.Title*
+  implements:
+  - ExamPaper.Core.Interfaces.IExamPaper.Title
+- uid: ExamPaper.Core.Models.ExamPaper.Questions
+  commentId: P:ExamPaper.Core.Models.ExamPaper.Questions
+  id: Questions
+  parent: ExamPaper.Core.Models.ExamPaper
+  langs:
+  - csharp
+  - vb
+  name: Questions
+  nameWithType: ExamPaper.Questions
+  fullName: ExamPaper.Core.Models.ExamPaper.Questions
+  type: Property
+  source:
+    remote:
+      path: ExamPaper.Core/Models/ExamPaper.cs
+      branch: develop
+      repo: https://github.com/college-top-vrn/ExamPaper-.git
+    id: Questions
+    path: ExamPaper.Core/Models/ExamPaper.cs
+    startLine: 27
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Models
+  summary: Список вопросов, попавших в данный билет.
+  example: []
+  syntax:
+    content: public IReadOnlyCollection<IQuestion> Questions { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{ExamPaper.Core.Interfaces.IQuestion}
+    content.vb: Public Property Questions As IReadOnlyCollection(Of IQuestion)
+  overload: ExamPaper.Core.Models.ExamPaper.Questions*
+  implements:
+  - ExamPaper.Core.Interfaces.IExamPaper.Questions
+- uid: ExamPaper.Core.Models.ExamPaper.#ctor(System.String,System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion})
+  commentId: M:ExamPaper.Core.Models.ExamPaper.#ctor(System.String,System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion})
+  id: '#ctor(System.String,System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion})'
+  parent: ExamPaper.Core.Models.ExamPaper
+  langs:
+  - csharp
+  - vb
+  name: ExamPaper(string, IEnumerable<IQuestion>)
+  nameWithType: ExamPaper.ExamPaper(string, IEnumerable<IQuestion>)
+  fullName: ExamPaper.Core.Models.ExamPaper.ExamPaper(string, System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IQuestion>)
+  type: Constructor
+  source:
+    remote:
+      path: ExamPaper.Core/Models/ExamPaper.cs
+      branch: develop
+      repo: https://github.com/college-top-vrn/ExamPaper-.git
+    id: .ctor
+    path: ExamPaper.Core/Models/ExamPaper.cs
+    startLine: 35
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Models
+  summary: Конструктор для создания билета с автоматической генерацией Id (Version 7).
+  example: []
+  syntax:
+    content: public ExamPaper(string title, IEnumerable<IQuestion> questions)
+    parameters:
+    - id: title
+      type: System.String
+      description: Название билета.
+    - id: questions
+      type: System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion}
+      description: Список вопросов, попавших в данный билет.
+    content.vb: Public Sub New(title As String, questions As IEnumerable(Of IQuestion))
+  overload: ExamPaper.Core.Models.ExamPaper.#ctor*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Если параметры пусты.
+  nameWithType.vb: ExamPaper.New(String, IEnumerable(Of IQuestion))
+  fullName.vb: ExamPaper.Core.Models.ExamPaper.New(String, System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IQuestion))
+  name.vb: New(String, IEnumerable(Of IQuestion))
+- uid: ExamPaper.Core.Models.ExamPaper.#ctor(System.Guid,System.String,System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion})
+  commentId: M:ExamPaper.Core.Models.ExamPaper.#ctor(System.Guid,System.String,System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion})
+  id: '#ctor(System.Guid,System.String,System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion})'
+  parent: ExamPaper.Core.Models.ExamPaper
+  langs:
+  - csharp
+  - vb
+  name: ExamPaper(Guid, string, IEnumerable<IQuestion>)
+  nameWithType: ExamPaper.ExamPaper(Guid, string, IEnumerable<IQuestion>)
+  fullName: ExamPaper.Core.Models.ExamPaper.ExamPaper(System.Guid, string, System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IQuestion>)
+  type: Constructor
+  source:
+    remote:
+      path: ExamPaper.Core/Models/ExamPaper.cs
+      branch: develop
+      repo: https://github.com/college-top-vrn/ExamPaper-.git
+    id: .ctor
+    path: ExamPaper.Core/Models/ExamPaper.cs
+    startLine: 45
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Models
+  summary: Конструктор для создания экзаменационного билета с заданным Id.
+  example: []
+  syntax:
+    content: public ExamPaper(Guid id, string title, IEnumerable<IQuestion> questions)
+    parameters:
+    - id: id
+      type: System.Guid
+      description: Уникальный Guid идентификатор билета.
+    - id: title
+      type: System.String
+      description: Название билета.
+    - id: questions
+      type: System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion}
+      description: Список вопросов, попавших в данный билет.
+    content.vb: Public Sub New(id As Guid, title As String, questions As IEnumerable(Of IQuestion))
+  overload: ExamPaper.Core.Models.ExamPaper.#ctor*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Если список вопросов пуст.
+  nameWithType.vb: ExamPaper.New(Guid, String, IEnumerable(Of IQuestion))
+  fullName.vb: ExamPaper.Core.Models.ExamPaper.New(System.Guid, String, System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IQuestion))
+  name.vb: New(Guid, String, IEnumerable(Of IQuestion))
+references:
+- uid: ExamPaper.Core.Models
+  commentId: N:ExamPaper.Core.Models
+  href: ExamPaper.html
+  name: ExamPaper.Core.Models
+  nameWithType: ExamPaper.Core.Models
+  fullName: ExamPaper.Core.Models
+  spec.csharp:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Models
+    name: Models
+    href: ExamPaper.Core.Models.html
+  spec.vb:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Models
+    name: Models
+    href: ExamPaper.Core.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ExamPaper.Core.Interfaces.IExamPaper
+  commentId: T:ExamPaper.Core.Interfaces.IExamPaper
+  parent: ExamPaper.Core.Interfaces
+  href: ExamPaper.Core.Interfaces.IExamPaper.html
+  name: IExamPaper
+  nameWithType: IExamPaper
+  fullName: ExamPaper.Core.Interfaces.IExamPaper
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ExamPaper.Core.Interfaces
+  commentId: N:ExamPaper.Core.Interfaces
+  href: ExamPaper.html
+  name: ExamPaper.Core.Interfaces
+  nameWithType: ExamPaper.Core.Interfaces
+  fullName: ExamPaper.Core.Interfaces
+  spec.csharp:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+  spec.vb:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+- uid: ExamPaper.Core.Models.ExamPaper.Id*
+  commentId: Overload:ExamPaper.Core.Models.ExamPaper.Id
+  href: ExamPaper.Core.Models.ExamPaper.html#ExamPaper_Core_Models_ExamPaper_Id
+  name: Id
+  nameWithType: ExamPaper.Id
+  fullName: ExamPaper.Core.Models.ExamPaper.Id
+- uid: ExamPaper.Core.Interfaces.IExamPaper.Id
+  commentId: P:ExamPaper.Core.Interfaces.IExamPaper.Id
+  parent: ExamPaper.Core.Interfaces.IExamPaper
+  href: ExamPaper.Core.Interfaces.IExamPaper.html#ExamPaper_Core_Interfaces_IExamPaper_Id
+  name: Id
+  nameWithType: IExamPaper.Id
+  fullName: ExamPaper.Core.Interfaces.IExamPaper.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: ExamPaper.Core.Models.ExamPaper.Title*
+  commentId: Overload:ExamPaper.Core.Models.ExamPaper.Title
+  href: ExamPaper.Core.Models.ExamPaper.html#ExamPaper_Core_Models_ExamPaper_Title
+  name: Title
+  nameWithType: ExamPaper.Title
+  fullName: ExamPaper.Core.Models.ExamPaper.Title
+- uid: ExamPaper.Core.Interfaces.IExamPaper.Title
+  commentId: P:ExamPaper.Core.Interfaces.IExamPaper.Title
+  parent: ExamPaper.Core.Interfaces.IExamPaper
+  href: ExamPaper.Core.Interfaces.IExamPaper.html#ExamPaper_Core_Interfaces_IExamPaper_Title
+  name: Title
+  nameWithType: IExamPaper.Title
+  fullName: ExamPaper.Core.Interfaces.IExamPaper.Title
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ExamPaper.Core.Models.ExamPaper.Questions*
+  commentId: Overload:ExamPaper.Core.Models.ExamPaper.Questions
+  href: ExamPaper.Core.Models.ExamPaper.html#ExamPaper_Core_Models_ExamPaper_Questions
+  name: Questions
+  nameWithType: ExamPaper.Questions
+  fullName: ExamPaper.Core.Models.ExamPaper.Questions
+- uid: ExamPaper.Core.Interfaces.IExamPaper.Questions
+  commentId: P:ExamPaper.Core.Interfaces.IExamPaper.Questions
+  parent: ExamPaper.Core.Interfaces.IExamPaper
+  href: ExamPaper.Core.Interfaces.IExamPaper.html#ExamPaper_Core_Interfaces_IExamPaper_Questions
+  name: Questions
+  nameWithType: IExamPaper.Questions
+  fullName: ExamPaper.Core.Interfaces.IExamPaper.Questions
+- uid: System.Collections.Generic.IReadOnlyCollection{ExamPaper.Core.Interfaces.IQuestion}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{ExamPaper.Core.Interfaces.IQuestion}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<IQuestion>
+  nameWithType: IReadOnlyCollection<IQuestion>
+  fullName: System.Collections.Generic.IReadOnlyCollection<ExamPaper.Core.Interfaces.IQuestion>
+  nameWithType.vb: IReadOnlyCollection(Of IQuestion)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of ExamPaper.Core.Interfaces.IQuestion)
+  name.vb: IReadOnlyCollection(Of IQuestion)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: ExamPaper.Core.Interfaces.IQuestion
+    name: IQuestion
+    href: ExamPaper.Core.Interfaces.IQuestion.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ExamPaper.Core.Interfaces.IQuestion
+    name: IQuestion
+    href: ExamPaper.Core.Interfaces.IQuestion.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyCollection`1
+  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: System.Collections.Generic.IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: ExamPaper.Core.Models.ExamPaper.#ctor*
+  commentId: Overload:ExamPaper.Core.Models.ExamPaper.#ctor
+  href: ExamPaper.Core.Models.ExamPaper.html#ExamPaper_Core_Models_ExamPaper__ctor_System_String_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IQuestion__
+  name: ExamPaper
+  nameWithType: ExamPaper.ExamPaper
+  fullName: ExamPaper.Core.Models.ExamPaper.ExamPaper
+  nameWithType.vb: ExamPaper.New
+  fullName.vb: ExamPaper.Core.Models.ExamPaper.New
+  name.vb: New
+- uid: System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion}
+  commentId: T:System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<IQuestion>
+  nameWithType: IEnumerable<IQuestion>
+  fullName: System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IQuestion>
+  nameWithType.vb: IEnumerable(Of IQuestion)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IQuestion)
+  name.vb: IEnumerable(Of IQuestion)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ExamPaper.Core.Interfaces.IQuestion
+    name: IQuestion
+    href: ExamPaper.Core.Interfaces.IQuestion.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ExamPaper.Core.Interfaces.IQuestion
+    name: IQuestion
+    href: ExamPaper.Core.Interfaces.IQuestion.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
