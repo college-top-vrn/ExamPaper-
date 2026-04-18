@@ -1,4 +1,6 @@
 ﻿using ArchUnitNET.Domain;
+using ArchUnitNET.Fluent.Syntax.Elements.Types.Classes;
+using ArchUnitNET.Fluent.Syntax.Elements.Types.Interfaces;
 using ArchUnitNET.Loader;
 using ArchUnitNET.xUnit;
 
@@ -111,17 +113,17 @@ public class DesignRulesTests
 
     /// <summary>
     ///     Универсальное правило зависимостей контрактов.
-    ///     Проверяет, что ни один класс за пределами слоя Core не зависит от интерфейсов, 
+    ///     Проверяет, что ни один класс за пределами слоя Core не зависит от интерфейсов,
     ///     которые объявлены за пределами слоя Core.
     /// </summary>
     [Fact]
     public void ExternalLayers_Should_Only_Depend_On_Core_Interfaces()
     {
-        var nonCoreClasses = Classes().That()
+        GivenClassesConjunctionWithDescription? nonCoreClasses = Classes().That()
             .ResideInNamespaceMatching(@"^(?!ExamPaper\.Core).*$")
             .As("Classes outside Core");
 
-        var nonCoreInterfaces = Interfaces().That()
+        GivenInterfacesConjunction? nonCoreInterfaces = Interfaces().That()
             .ResideInNamespaceMatching(@"^(?!ExamPaper\.Core).*$")
             .As("Interfaces outside Core");
 

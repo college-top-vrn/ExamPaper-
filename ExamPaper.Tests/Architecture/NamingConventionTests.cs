@@ -1,6 +1,10 @@
 ﻿using ArchUnitNET.Loader;
 using ArchUnitNET.xUnit;
 
+using ExamPaper.Core.Models;
+using ExamPaper.Infrastructure.Repositories;
+using ExamPaper.Service.Generator;
+
 using Xunit;
 
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
@@ -15,9 +19,9 @@ public class NamingConventionTests
 {
     private static readonly ArchUnitNET.Domain.Architecture Architecture = new ArchLoader()
         .LoadAssemblies(
-            typeof(Core.Models.Question).Assembly,
-            typeof(Infrastructure.Repositories.QuestionRepository).Assembly,
-            typeof(Service.Generator.ExamPaperGenerator).Assembly,
+            typeof(Question).Assembly,
+            typeof(QuestionRepository).Assembly,
+            typeof(ExamPaperGenerator).Assembly,
             typeof(NamingConventionTests).Assembly
         )
         .Build();
@@ -30,7 +34,7 @@ public class NamingConventionTests
     public void AllInterfaces_Should_StartWith_I()
     {
         Interfaces()
-            .Should().HaveNameMatching("^I.*") 
+            .Should().HaveNameMatching("^I.*")
             .Because(
                 "все интерфейсы в проекте на C# должны начинаться с заглавной буквы 'I' по общепринятым стандартам")
             .Check(Architecture);
@@ -77,8 +81,8 @@ public class NamingConventionTests
             .Because("компоненты, выгружающие данные, должны идентифицироваться суффиксом 'Exporter'")
             .Check(Architecture);
     }
-    
-    
+
+
     /// <summary>
     ///     Проверяет, что все классы в тестовой сборке имеют суффикс 'Tests'.
     /// </summary>
@@ -90,7 +94,8 @@ public class NamingConventionTests
             .And().AreNotAbstract()
             .And().AreNotNested()
             .Should().HaveNameMatching(".*Tests$")
-            .Because("согласно стандартам проекта, все тестовые классы должны заканчиваться на 'Tests' (во множественном числе)")
+            .Because(
+                "согласно стандартам проекта, все тестовые классы должны заканчиваться на 'Tests' (во множественном числе)")
             .Check(Architecture);
     }
 }
