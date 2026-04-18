@@ -3,8 +3,7 @@ using ArchUnitNET.Loader;
 using ArchUnitNET.xUnit;
 
 using ExamPaper.Core.Interfaces;
-using ExamPaper.Core.Models;
-using ExamPaper.Infrastructure.Exporter;
+
 using ExamPaper.Infrastructure.Repositories;
 using ExamPaper.Service.Generator;
 
@@ -54,12 +53,12 @@ namespace ExamPaper.Tests.Architecture;
             var externalLayers = Types()
                 .That().Are(ServiceLayer)
                 .Or().Are(InfrastructureLayer)
-                .As("Service and Infrastructure Layers");
+                .As("service and Infrastructure Layers");
 
             Types()
                 .That().Are(CoreLayer)
                 .Should().NotDependOnAny(externalLayers)
-                .Because("Слой ядра (домен) должен быть полностью независимым от внешних сервисов и инфраструктуры.")
+                .Because("cлой ядра (домен) должен быть полностью независимым от внешних сервисов и инфраструктуры.")
                 .Check(Architecture);
         }
 
@@ -72,7 +71,7 @@ namespace ExamPaper.Tests.Architecture;
             Types()
                 .That().Are(ServiceLayer)
                 .Should().NotDependOnAny(InfrastructureLayer)
-                .Because("Слой сервисов не должен напрямую взаимодействовать с деталями реализации инфраструктуры.")
+                .Because("cлой сервисов не должен напрямую взаимодействовать с деталями реализации инфраструктуры.")
                 .Check(Architecture);
         }
 
@@ -85,7 +84,7 @@ namespace ExamPaper.Tests.Architecture;
             Types()
                 .That().Are(InfrastructureLayer)
                 .Should().NotDependOnAny(ServiceLayer)
-                .Because("Слой Infrastructure отвечает только за реализацию контрактов ядра и не должен зависеть от бизнес-логики сервисов.")
+                .Because("cлой Infrastructure отвечает только за реализацию контрактов ядра и не должен зависеть от бизнес-логики сервисов.")
                 .Check(Architecture);
         }
     }
