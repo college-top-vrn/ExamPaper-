@@ -6,6 +6,7 @@ using System.Text.Json;
 
 using ExamPaper.Core.Interfaces;
 using ExamPaper.Core.Models;
+using ExamPaper.Infrastructure.Exporter;
 
 namespace ExamPaper.Infrastructure.Repositories;
 
