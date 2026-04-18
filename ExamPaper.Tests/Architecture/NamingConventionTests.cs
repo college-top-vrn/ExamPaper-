@@ -13,12 +13,12 @@ namespace ExamPaper.Tests.Architecture;
 /// </summary>
 public class NamingConventionTests
 {
-    // 1. Статическая загрузка сборок (один раз на все тесты для скорости)
     private static readonly ArchUnitNET.Domain.Architecture Architecture = new ArchLoader()
         .LoadAssemblies(
             typeof(Core.Models.Question).Assembly,
             typeof(Infrastructure.Repositories.QuestionRepository).Assembly,
-            typeof(Service.Generator.ExamPaperGenerator).Assembly
+            typeof(Service.Generator.ExamPaperGenerator).Assembly,
+            typeof(NamingConventionTests).Assembly
         )
         .Build();
 
@@ -75,6 +75,22 @@ public class NamingConventionTests
             .That().ResideInNamespaceMatching(@"^ExamPaper\.Infrastructure\.Exporter(\..*)?$")
             .Should().HaveNameMatching(".*Exporter$")
             .Because("компоненты, выгружающие данные, должны идентифицироваться суффиксом 'Exporter'")
+            .Check(Architecture);
+    }
+    
+    
+    /// <summary>
+    ///     Проверяет, что все классы в тестовой сборке имеют суффикс 'Tests'.
+    /// </summary>
+    [Fact]
+    public void AllTestClasses_Should_Have_TestsSuffix()
+    {
+        Classes()
+            .That().ResideInAssembly(typeof(NamingConventionTests).Assembly)
+            .And().AreNotAbstract()
+            .And().AreNotNested()
+            .Should().HaveNameMatching(".*Tests$")
+            .Because("согласно стандартам проекта, все тестовые классы должны заканчиваться на 'Tests' (во множественном числе)")
             .Check(Architecture);
     }
 }
