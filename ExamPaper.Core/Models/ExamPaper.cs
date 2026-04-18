@@ -61,3 +61,4 @@ public sealed class ExamPaper : IExamPaper
     /// </summary>
     public IReadOnlyCollection<IQuestion> Questions { get; init; }
 }
+

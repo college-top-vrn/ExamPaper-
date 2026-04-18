@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 
-using ExamPaper.Core.Generation;
-
 namespace ExamPaper.Core.Interfaces;
 
 /// <summary>

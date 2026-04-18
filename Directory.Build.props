@@ -7,6 +7,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <QuestPDFVersion>2026.2.4</QuestPDFVersion>
     <XUnitVersion>2.9.3</XUnitVersion>
+    <ArchUnitNetVersion>0.13.3</ArchUnitNetVersion>
     <XUnitRunnerVersion>3.1.4</XUnitRunnerVersion>
     <TestSdkVersion>17.14.1</TestSdkVersion>
   </PropertyGroup>
@@ -22,8 +23,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="NetArchTest.Rules" Version="1.3.2"/>
     <PackageReference Include="Moq" Version="4.20.72"/>
     <PackageReference Include="PdfPig" Version="0.1.14"/>
+    <PackageReference Include="TngTech.ArchUnitNET.xUnit" Version="0.13.3"/>
   </ItemGroup>
 </Project>
