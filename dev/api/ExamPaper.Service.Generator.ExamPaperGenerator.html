@@ -89,7 +89,7 @@
 
 
   <h1 id="ExamPaper_Service_Generator_ExamPaperGenerator" data-uid="ExamPaper.Service.Generator.ExamPaperGenerator" class="text-break">
-Class ExamPaperGenerator  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Service/Generator/ExamPaperGenerator.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class ExamPaperGenerator  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Service/Generator/ExamPaperGenerator.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -161,9 +161,9 @@ Class ExamPaperGenerator  <a class="header-action link-secondary" title="View so
 
   <a id="ExamPaper_Service_Generator_ExamPaperGenerator_Generate_" data-uid="ExamPaper.Service.Generator.ExamPaperGenerator.Generate*"></a>
 
-  <h3 id="ExamPaper_Service_Generator_ExamPaperGenerator_Generate_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IQuestion__ExamPaper_Core_Generation_IGenerationSettings_" data-uid="ExamPaper.Service.Generator.ExamPaperGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Generation.IGenerationSettings)">
+  <h3 id="ExamPaper_Service_Generator_ExamPaperGenerator_Generate_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IQuestion__ExamPaper_Core_Interfaces_IGenerationSettings_" data-uid="ExamPaper.Service.Generator.ExamPaperGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Interfaces.IGenerationSettings)">
   Generate(IEnumerable&lt;IQuestion&gt;, IGenerationSettings)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Service/Generator/ExamPaperGenerator.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Service/Generator/ExamPaperGenerator.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Генерирует коллекцию экзаменационных билетов на основе доступных вопросов и настроек генерации.</p>
@@ -179,7 +179,7 @@ Class ExamPaperGenerator  <a class="header-action link-secondary" title="View so
     <dt><code>availableQuestions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ExamPaper.Core.Interfaces.IQuestion.html">IQuestion</a>&gt;</dt>
     <dd><p>Коллекция доступных вопросов для составления билетов.</p>
 </dd>
-    <dt><code>settings</code> <a class="xref" href="ExamPaper.Core.Generation.IGenerationSettings.html">IGenerationSettings</a></dt>
+    <dt><code>settings</code> <a class="xref" href="ExamPaper.Core.Interfaces.IGenerationSettings.html">IGenerationSettings</a></dt>
     <dd><p>Настройки генерации, определяющие количество билетов и вопросов в каждом билете.</p>
 </dd>
   </dl>
@@ -197,7 +197,7 @@ Class ExamPaperGenerator  <a class="header-action link-secondary" title="View so
 
 
 
-  <h4 class="section" id="ExamPaper_Service_Generator_ExamPaperGenerator_Generate_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IQuestion__ExamPaper_Core_Generation_IGenerationSettings__remarks">Remarks</h4>
+  <h4 class="section" id="ExamPaper_Service_Generator_ExamPaperGenerator_Generate_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IQuestion__ExamPaper_Core_Interfaces_IGenerationSettings__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Вопросы для каждого билета выбираются случайным образом без повторений в пределах одного билета.
 Один и тот же вопрос может встречаться в разных билетах.</p>
 </div>
@@ -210,7 +210,7 @@ Class ExamPaperGenerator  <a class="header-action link-secondary" title="View so
 </dd>
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
     <dd><p>Выбрасывается, если количество доступных вопросов меньше, чем
-<a class="xref" href="ExamPaper.Core.Generation.IGenerationSettings.html#ExamPaper_Core_Generation_IGenerationSettings_QuestionsPerTicketCount">QuestionsPerTicketCount</a>.</p>
+<a class="xref" href="ExamPaper.Core.Interfaces.IGenerationSettings.html#ExamPaper_Core_Interfaces_IGenerationSettings_QuestionsPerTicketCount">QuestionsPerTicketCount</a>.</p>
 </dd>
   </dl>
 
@@ -220,7 +220,7 @@ Class ExamPaperGenerator  <a class="header-action link-secondary" title="View so
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Service/Generator/ExamPaperGenerator.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Service/Generator/ExamPaperGenerator.cs/#L12" class="edit-link">Edit this page</a>
         </div>
 
 

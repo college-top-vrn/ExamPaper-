@@ -73,13 +73,13 @@ references:
   commentId: T:ExamPaper.Core.Interfaces.IExamGenerator
   fullName: ExamPaper.Core.Interfaces.IExamGenerator
   nameWithType: IExamGenerator
-- uid: ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Generation.IGenerationSettings)
+- uid: ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Interfaces.IGenerationSettings)
   name: Generate(IEnumerable<IQuestion>, IGenerationSettings)
-  href: api/ExamPaper.Core.Interfaces.IExamGenerator.html#ExamPaper_Core_Interfaces_IExamGenerator_Generate_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IQuestion__ExamPaper_Core_Generation_IGenerationSettings_
-  commentId: M:ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Generation.IGenerationSettings)
+  href: api/ExamPaper.Core.Interfaces.IExamGenerator.html#ExamPaper_Core_Interfaces_IExamGenerator_Generate_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IQuestion__ExamPaper_Core_Interfaces_IGenerationSettings_
+  commentId: M:ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Interfaces.IGenerationSettings)
   name.vb: Generate(IEnumerable(Of IQuestion), IGenerationSettings)
-  fullName: ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IQuestion>, ExamPaper.Core.Generation.IGenerationSettings)
-  fullName.vb: ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IQuestion), ExamPaper.Core.Generation.IGenerationSettings)
+  fullName: ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IQuestion>, ExamPaper.Core.Interfaces.IGenerationSettings)
+  fullName.vb: ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IQuestion), ExamPaper.Core.Interfaces.IGenerationSettings)
   nameWithType: IExamGenerator.Generate(IEnumerable<IQuestion>, IGenerationSettings)
   nameWithType.vb: IExamGenerator.Generate(IEnumerable(Of IQuestion), IGenerationSettings)
 - uid: ExamPaper.Core.Interfaces.IExamGenerator.Generate*
@@ -156,6 +156,38 @@ references:
   isSpec: "True"
   fullName: ExamPaper.Core.Interfaces.IExamPaperFactory.CreateExamPaper
   nameWithType: IExamPaperFactory.CreateExamPaper
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings
+  name: IGenerationSettings
+  href: api/ExamPaper.Core.Interfaces.IGenerationSettings.html
+  commentId: T:ExamPaper.Core.Interfaces.IGenerationSettings
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings
+  nameWithType: IGenerationSettings
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings.QuestionsPerTicketCount
+  name: QuestionsPerTicketCount
+  href: api/ExamPaper.Core.Interfaces.IGenerationSettings.html#ExamPaper_Core_Interfaces_IGenerationSettings_QuestionsPerTicketCount
+  commentId: P:ExamPaper.Core.Interfaces.IGenerationSettings.QuestionsPerTicketCount
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings.QuestionsPerTicketCount
+  nameWithType: IGenerationSettings.QuestionsPerTicketCount
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings.QuestionsPerTicketCount*
+  name: QuestionsPerTicketCount
+  href: api/ExamPaper.Core.Interfaces.IGenerationSettings.html#ExamPaper_Core_Interfaces_IGenerationSettings_QuestionsPerTicketCount_
+  commentId: Overload:ExamPaper.Core.Interfaces.IGenerationSettings.QuestionsPerTicketCount
+  isSpec: "True"
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings.QuestionsPerTicketCount
+  nameWithType: IGenerationSettings.QuestionsPerTicketCount
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings.TotalTicketsCount
+  name: TotalTicketsCount
+  href: api/ExamPaper.Core.Interfaces.IGenerationSettings.html#ExamPaper_Core_Interfaces_IGenerationSettings_TotalTicketsCount
+  commentId: P:ExamPaper.Core.Interfaces.IGenerationSettings.TotalTicketsCount
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings.TotalTicketsCount
+  nameWithType: IGenerationSettings.TotalTicketsCount
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings.TotalTicketsCount*
+  name: TotalTicketsCount
+  href: api/ExamPaper.Core.Interfaces.IGenerationSettings.html#ExamPaper_Core_Interfaces_IGenerationSettings_TotalTicketsCount_
+  commentId: Overload:ExamPaper.Core.Interfaces.IGenerationSettings.TotalTicketsCount
+  isSpec: "True"
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings.TotalTicketsCount
+  nameWithType: IGenerationSettings.TotalTicketsCount
 - uid: ExamPaper.Core.Interfaces.IQuestion
   name: IQuestion
   href: api/ExamPaper.Core.Interfaces.IQuestion.html
@@ -755,13 +787,13 @@ references:
   commentId: T:ExamPaper.Service.Generator.ExamPaperGenerator
   fullName: ExamPaper.Service.Generator.ExamPaperGenerator
   nameWithType: ExamPaperGenerator
-- uid: ExamPaper.Service.Generator.ExamPaperGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Generation.IGenerationSettings)
+- uid: ExamPaper.Service.Generator.ExamPaperGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Interfaces.IGenerationSettings)
   name: Generate(IEnumerable<IQuestion>, IGenerationSettings)
-  href: api/ExamPaper.Service.Generator.ExamPaperGenerator.html#ExamPaper_Service_Generator_ExamPaperGenerator_Generate_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IQuestion__ExamPaper_Core_Generation_IGenerationSettings_
-  commentId: M:ExamPaper.Service.Generator.ExamPaperGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Generation.IGenerationSettings)
+  href: api/ExamPaper.Service.Generator.ExamPaperGenerator.html#ExamPaper_Service_Generator_ExamPaperGenerator_Generate_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IQuestion__ExamPaper_Core_Interfaces_IGenerationSettings_
+  commentId: M:ExamPaper.Service.Generator.ExamPaperGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Interfaces.IGenerationSettings)
   name.vb: Generate(IEnumerable(Of IQuestion), IGenerationSettings)
-  fullName: ExamPaper.Service.Generator.ExamPaperGenerator.Generate(System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IQuestion>, ExamPaper.Core.Generation.IGenerationSettings)
-  fullName.vb: ExamPaper.Service.Generator.ExamPaperGenerator.Generate(System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IQuestion), ExamPaper.Core.Generation.IGenerationSettings)
+  fullName: ExamPaper.Service.Generator.ExamPaperGenerator.Generate(System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IQuestion>, ExamPaper.Core.Interfaces.IGenerationSettings)
+  fullName.vb: ExamPaper.Service.Generator.ExamPaperGenerator.Generate(System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IQuestion), ExamPaper.Core.Interfaces.IGenerationSettings)
   nameWithType: ExamPaperGenerator.Generate(IEnumerable<IQuestion>, IGenerationSettings)
   nameWithType.vb: ExamPaperGenerator.Generate(IEnumerable(Of IQuestion), IGenerationSettings)
 - uid: ExamPaper.Service.Generator.ExamPaperGenerator.Generate*
