@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
 
 using ExamPaper.Core.Interfaces;
@@ -29,13 +28,15 @@ public class JsonExamExporterTests
     /// <returns>Объект с интерфейсом билета.</returns>
     private static IExamPaper CreateTestPaper(Guid id, string title, params string[] questionTexts)
     {
-        List<IQuestion> questions = questionTexts.Select(text =>
-        {
-            Mock<IQuestion> mockQuestion = new();
-            mockQuestion.SetupGet(q => q.Id).Returns(Guid.CreateVersion7());
-            mockQuestion.SetupGet(q => q.Text).Returns(text);
-            return mockQuestion.Object;
-        }).ToList();
+        List<IQuestion> questions = questionTexts
+            .Select(text =>
+            {
+                Mock<IQuestion> mockQuestion = new();
+                mockQuestion.SetupGet(q => q.Id).Returns(Guid.CreateVersion7());
+                mockQuestion.SetupGet(q => q.Text).Returns(text);
+                return mockQuestion.Object;
+            })
+            .ToList();
 
         Mock<IExamPaper> mockPaper = new();
         mockPaper.SetupGet(p => p.Id).Returns(id);
@@ -52,7 +53,10 @@ public class JsonExamExporterTests
     [InlineData("Билет JSON", "Вопрос A", "Вопрос B")]
     [InlineData("Билет JSON2", "Вопрос A2", "Вопрос B2")]
     [Theory]
-    public void Export_ValidExamPapers_ReturnsJsonWithCorrectContent(string title, params string[] questionTexts)
+    public void Export_ValidExamPapers_ReturnsJsonWithCorrectContent(
+        string title,
+        params string[] questionTexts
+    )
     {
         // Arrange
         Guid paperId = Guid.CreateVersion7();
@@ -60,10 +64,10 @@ public class JsonExamExporterTests
 
         // Act
         byte[] result = Exporter.Export(papers);
-        using var jsonDoc = JsonDocument.Parse(result);
-        var root = jsonDoc.RootElement;
-        var paperElement = root[0];
-        var questionsElement = paperElement.GetProperty("questions");
+        using JsonDocument jsonDoc = JsonDocument.Parse(result);
+        JsonElement root = jsonDoc.RootElement;
+        JsonElement paperElement = root[0];
+        JsonElement questionsElement = paperElement.GetProperty("questions");
 
         // Assert
         Assert.NotNull(result);
@@ -72,7 +76,7 @@ public class JsonExamExporterTests
         Assert.Equal(title, paperElement.GetProperty("title").GetString());
         Assert.Equal(questionTexts.Length, questionsElement.GetArrayLength());
         int index = 0;
-        foreach (var question in questionsElement.EnumerateArray())
+        foreach (JsonElement question in questionsElement.EnumerateArray())
         {
             Assert.Equal(questionTexts[index], question.GetProperty("text").GetString());
             index++;

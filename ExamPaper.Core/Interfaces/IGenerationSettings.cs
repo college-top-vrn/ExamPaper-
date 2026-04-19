@@ -1,4 +1,4 @@
-namespace ExamPaper.Core.Generation;
+namespace ExamPaper.Core.Interfaces;
 
 /// <summary>
 ///     Контракт для хранения параметров генерации билетов.

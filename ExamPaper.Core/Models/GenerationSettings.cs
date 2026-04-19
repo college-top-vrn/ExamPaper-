@@ -1,6 +1,6 @@
 using System;
 
-using ExamPaper.Core.Generation;
+using ExamPaper.Core.Interfaces;
 
 namespace ExamPaper.Core.Models;
 
