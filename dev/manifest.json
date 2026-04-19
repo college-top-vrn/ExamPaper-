@@ -74,7 +74,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ExamPaper.Core.Interfaces.IExamGenerator",
-      "Summary": "<p sourcefile=\"api/ExamPaper.Core.Interfaces.IExamGenerator.yml\" sourcestartlinenumber=\"1\">Определяет контракт для службы автоматизированной генерации экзаменационных билетов.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -382,7 +382,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ExamPaper.Service.Generator.ExamPaperGenerator",
-      "Summary": "<p sourcefile=\"api/ExamPaper.Service.Generator.ExamPaperGenerator.yml\" sourcestartlinenumber=\"1\">Генератор экзаменационных билетов, создающий набор билетов со случайными вопросами.</p>\n"
+      "Summary": "<p sourcefile=\"api/ExamPaper.Service.Generator.ExamPaperGenerator.yml\" sourcestartlinenumber=\"1\">Сервисный класс, оркестрирующая процесс генерации билетов.</p>\n"
     },
     {
       "type": "ManagedReference",
