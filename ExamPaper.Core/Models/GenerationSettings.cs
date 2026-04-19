@@ -45,12 +45,12 @@ public sealed class GenerationSettings : IGenerationSettings
     /// <summary>
     ///     Общее количество билетов.
     /// </summary>
-    public int TotalTicketsCount { get; }
+    public int TotalTicketsCount { get; init; }
 
     /// <summary>
     ///     Количество вопросов в одном билете.
     /// </summary>
-    public int QuestionsPerTicketCount { get; }
+    public int QuestionsPerTicketCount { get; init; }
 
     public string TicketNameTemplate { get; set; } = "Билет №{0}";
 
