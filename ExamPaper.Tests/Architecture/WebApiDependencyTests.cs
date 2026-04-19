@@ -16,6 +16,4 @@ namespace ExamPaper.Tests.Architecture;
 
 public class WebApiDependencyTests
 {
-    
-    
 }

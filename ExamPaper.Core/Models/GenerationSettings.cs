@@ -52,6 +52,8 @@ public sealed class GenerationSettings : IGenerationSettings
     /// </summary>
     public int QuestionsPerTicketCount { get; }
 
+    public string TicketNameTemplate { get; set; } = "Билет №{0}";
+
     /// <summary>
     ///     Вспомогательный метод для валидации настроек.
     /// </summary>

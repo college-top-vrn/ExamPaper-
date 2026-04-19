@@ -6,63 +6,69 @@ using ExamPaper.Core.Interfaces;
 
 namespace ExamPaper.Service.Generator;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using ExamPaper.Core.Interfaces;
+
 /// <summary>
-///     Генератор экзаменационных билетов, создающий набор билетов со случайными вопросами.
+///     Сервисный класс, оркестрирующая процесс генерации билетов.
 /// </summary>
 public class ExamPaperGenerator : IExamGenerator
 {
-    /// <summary>
-    ///     Генерирует коллекцию экзаменационных билетов на основе доступных вопросов и настроек генерации.
-    /// </summary>
-    /// <param name="availableQuestions">Коллекция доступных вопросов для составления билетов.</param>
-    /// <param name="settings">Настройки генерации, определяющие количество билетов и вопросов в каждом билете.</param>
-    /// <returns>Коллекция сгенерированных экзаменационных билетов.</returns>
-    /// <remarks>
-    ///     Вопросы для каждого билета выбираются случайным образом без повторений в пределах одного билета.
-    ///     Один и тот же вопрос может встречаться в разных билетах.
-    /// </remarks>
-    /// <exception cref="ArgumentNullException">
-    ///     Выбрасывается, если <paramref name="availableQuestions" /> или
-    ///     <paramref name="settings" /> равны null.
-    /// </exception>
-    /// <exception cref="InvalidOperationException">
-    ///     Выбрасывается, если количество доступных вопросов меньше, чем
-    ///     <see cref="IGenerationSettings.QuestionsPerTicketCount" />.
-    /// </exception>
-    public IEnumerable<IExamPaper> Generate(
-        IEnumerable<IQuestion> availableQuestions,
-        IGenerationSettings settings
-    )
-    {
-        if (availableQuestions == null)
-        {
-            throw new ArgumentNullException(nameof(availableQuestions));
-        }
+    private readonly IQuestionProvider _questionProvider;
+    private readonly IExamPaperFactory _examPaperFactory;
 
+    /// <summary>
+    ///     Инициализирует генератор для чтения данных и создания объектов.
+    /// </summary>
+    public ExamPaperGenerator(
+        IQuestionProvider questionProvider,
+        IExamPaperFactory examPaperFactory)
+    {
+        _questionProvider = questionProvider ?? throw new ArgumentNullException(nameof(questionProvider));
+        _examPaperFactory = examPaperFactory ?? throw new ArgumentNullException(nameof(examPaperFactory));
+    }
+
+    public IEnumerable<IExamPaper> Generate(IGenerationSettings settings)
+    {
         if (settings == null)
         {
             throw new ArgumentNullException(nameof(settings));
         }
 
-        List<IQuestion> questions = availableQuestions.ToList();
-        if (questions.Count < settings.QuestionsPerTicketCount)
+        List<IQuestion> availableQuestions = _questionProvider.GetAllQuestions().ToList();
+
+        if (availableQuestions.Count < settings.QuestionsPerTicketCount)
         {
             throw new InvalidOperationException(
-                $"Недостаточно вопросов для генерации билета. "
-                + $"Доступно: {questions.Count}, требуется: {settings.QuestionsPerTicketCount}"
+                $"Недостаточно вопросов для генерации билета. " +
+                $"Доступно: {availableQuestions.Count}, требуется: {settings.QuestionsPerTicketCount}"
             );
         }
 
         Random random = new();
+
         return Enumerable
             .Range(1, settings.TotalTicketsCount)
-            .Select(ticketNum => new Core.Models.ExamPaper(
-                Guid.NewGuid(),
-                $"Билет №{ticketNum}",
-                questions
+            .Select(ticketNum =>
+            {
+                var selectedQuestions = availableQuestions
                     .OrderBy(_ => random.Next())
                     .Take(settings.QuestionsPerTicketCount)
-                    .ToList()
-            ));
+                    .ToList();
+
+                string ticketTitle = string.Format(
+                    settings.TicketNameTemplate ?? "Билет №{0}",
+                    ticketNum
+                );
+
+                return _examPaperFactory.CreateExamPaper(
+                    Guid.NewGuid(),
+                    ticketTitle,
+                    selectedQuestions
+                );
+            });
     }
 }
