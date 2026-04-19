@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 
 using ExamPaper.Core.Interfaces;
@@ -71,6 +70,36 @@ app.MapPost("/api/exam/generate", (GenerationSettings settings, IExamGenerator g
         return Results.Ok(tickets);
     }
     catch (InvalidOperationException ex)
+    {
+        return Results.BadRequest(new { error = ex.Message });
+    }
+});
+
+app.MapPost("/api/exam/export/pdf", (
+    [FromKeyedServices("pdf")] PdfExamExporter exporter, IExamGenerator generator, GenerationSettings settings) =>
+{
+    try
+    {
+        var tickets = generator.Generate(settings);
+        byte[] file = exporter.Export(tickets);
+        return Results.File(file, "exporter/pdf", "Blank.pdf");
+    }
+    catch (Exception ex)
+    {
+        return Results.BadRequest(new { error = ex.Message });
+    }
+});
+
+app.MapPost("/api/exam/export/json", (
+    [FromKeyedServices("json")] JsonExamExporter exporter, IExamGenerator generator, GenerationSettings settings) =>
+{
+    try
+    {
+        var tickets = generator.Generate(settings);
+        byte[] file = exporter.Export(tickets);
+        return Results.File(file, "exporter/json", "Blank.json");
+    }
+    catch (Exception ex)
     {
         return Results.BadRequest(new { error = ex.Message });
     }
