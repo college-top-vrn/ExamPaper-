@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamPaper.Infrastructure", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamPaper.Tests", "ExamPaper.Tests\ExamPaper.Tests.csproj", "{2A90C457-3849-42B1-8C3A-4E14E91A2268}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamPaper.Api", "ExamPaper.Api\ExamPaper.Api.csproj", "{C9C7807A-6B23-4726-A246-84EB5A8ACA6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamPaper.Api.IntegrationTests", "ExamPaper.Api.IntegrationTests\ExamPaper.Api.IntegrationTests.csproj", "{4CC62BBC-50F8-45C7-B3CA-4FF55A4AF1A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{2A90C457-3849-42B1-8C3A-4E14E91A2268}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A90C457-3849-42B1-8C3A-4E14E91A2268}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A90C457-3849-42B1-8C3A-4E14E91A2268}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C7807A-6B23-4726-A246-84EB5A8ACA6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C7807A-6B23-4726-A246-84EB5A8ACA6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C7807A-6B23-4726-A246-84EB5A8ACA6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C7807A-6B23-4726-A246-84EB5A8ACA6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CC62BBC-50F8-45C7-B3CA-4FF55A4AF1A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CC62BBC-50F8-45C7-B3CA-4FF55A4AF1A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CC62BBC-50F8-45C7-B3CA-4FF55A4AF1A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CC62BBC-50F8-45C7-B3CA-4FF55A4AF1A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
