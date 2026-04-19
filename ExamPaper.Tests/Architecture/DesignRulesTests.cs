@@ -1,12 +1,16 @@
-﻿using System.Reflection;
+﻿using ArchUnitNET.Domain;
+using ArchUnitNET.Fluent.Syntax.Elements.Types.Classes;
+using ArchUnitNET.Fluent.Syntax.Elements.Types.Interfaces;
+using ArchUnitNET.Loader;
+using ArchUnitNET.xUnit;
 
 using ExamPaper.Core.Models;
 using ExamPaper.Infrastructure.Repositories;
 using ExamPaper.Service.Generator;
 
-using NetArchTest.Rules;
-
 using Xunit;
+
+using static ArchUnitNET.Fluent.ArchRuleDefinition;
 
 namespace ExamPaper.Tests.Architecture;
 
@@ -16,35 +20,44 @@ namespace ExamPaper.Tests.Architecture;
 /// </summary>
 public class DesignRulesTests
 {
-    private readonly Assembly _coreAssembly = typeof(Question).Assembly;
+    private static readonly ArchUnitNET.Domain.Architecture Architecture = new ArchLoader()
+        .LoadAssemblies(
+            typeof(Question).Assembly,
+            typeof(QuestionRepository).Assembly,
+            typeof(ExamPaperGenerator).Assembly
+        ).Build();
 
-    private readonly Assembly _infrastructureAssembly = typeof(QuestionRepository).Assembly;
+    private static readonly IObjectProvider<IType> CoreLayer = Types()
+        .That()
+        .ResideInAssembly(typeof(Question).Assembly).And().ResideInNamespaceMatching(@"^ExamPaper\.Core(\..*)?$")
+        .As("Core Layer");
+
+    private static readonly IObjectProvider<IType> InfrastructureLayer = Types()
+        .That()
+        .ResideInAssembly(typeof(QuestionRepository).Assembly).And()
+        .ResideInNamespaceMatching(@"^ExamPaper\.Infrastructure(\..*)?$")
+        .As("Infrastructure Layer");
 
     /// <summary>
-    ///     Проверяет, что все классы доменных моделей (Domain Models) в слое Core
+    ///     Проверяет, что все классы доменных моделей в слое Core
     ///     помечены модификатором 'sealed'. Это предотвращает непредсказуемое наследование
     ///     и изменение базового поведения фундаментальных сущностей проекта.
     /// </summary>
     [Fact]
     public void CoreModels_Should_BeSealed()
     {
-        TestResult? result = Types
-            .InAssembly(_coreAssembly)
-            .That()
-            .ResideInNamespace("ExamPaper.Core.Models")
+        Classes()
+            .That().Are(CoreLayer)
             .And()
-            .AreClasses()
+            .ResideInNamespaceMatching(@"^ExamPaper\.Core\.Models(\..*)?$")
             .And()
             .AreNotAbstract()
-            .Should()
-            .BeSealed()
-            .GetResult();
-
-        Assert.True(
-            result.IsSuccessful,
-            "Модели в слое Core (папка Models) должны быть помечены как sealed."
-        );
+            .And().AreNotSealed()
+            .Should().NotExist()
+            .Because("Все модели в слое Core должны быть sealed")
+            .Check(Architecture);
     }
+
 
     /// <summary>
     ///     Проверяет, что классы конкретных реализаций в слое Infrastructure
@@ -55,21 +68,13 @@ public class DesignRulesTests
     [Fact]
     public void InfrastructureImplementations_Should_BeSealed()
     {
-        TestResult? result = Types
-            .InAssembly(_infrastructureAssembly)
-            .That()
-            .AreClasses()
-            .And()
-            .AreNotAbstract()
-            .Should()
-            .BeSealed()
-            .GetResult();
-
-        Assert.True(
-            result.IsSuccessful,
-            "Реализации в слое Infrastructure должны быть помечены как sealed."
-        );
+        Classes().That()
+            .Are(InfrastructureLayer)
+            .And().AreNotAbstract().And().AreNotSealed()
+            .Should().NotExist().Because("Реализации в слое Infrastructure должны быть помечены как sealed.")
+            .Check(Architecture);
     }
+
 
     /// <summary>
     ///     Проверяет отсутствие статических классов в слое Core.
@@ -79,18 +84,15 @@ public class DesignRulesTests
     [Fact]
     public void Classes_In_Core_ShouldNot_Be_Static()
     {
-        TestResult? result = Types
-            .InAssembly(_coreAssembly)
+        Classes()
             .That()
-            .AreClasses()
-            .ShouldNot()
-            .BeStatic()
-            .GetResult();
-
-        Assert.True(
-            result.IsSuccessful,
-            "Слой Core не должен содержать статических классов (используйте интерфейсы и DI)."
-        );
+            .Are(CoreLayer)
+            .And().AreAbstract()
+            .And().AreSealed()
+            .As("Static Classes")
+            .Should().NotExist()
+            .Because("Слой Core не должен содержать статических классов (используйте интерфейсы и DI)")
+            .Check(Architecture);
     }
 
     /// <summary>
@@ -99,18 +101,37 @@ public class DesignRulesTests
     [Fact]
     public void AllInterfaces_Should_Reside_In_Core()
     {
-        Assembly coreAssembly = typeof(Question).Assembly;
-        Assembly serviceAssembly = typeof(ExamPaperGenerator).Assembly;
-        Assembly infrastructureAssembly = typeof(QuestionRepository).Assembly;
-
-        TestResult? result = Types
-            .InAssemblies([coreAssembly, serviceAssembly, infrastructureAssembly])
+        Interfaces()
             .That()
-            .AreInterfaces()
-            .Should()
-            .ResideInNamespaceStartingWith("ExamPaper.Core")
-            .GetResult();
+            .ResideInNamespaceMatching(@"^(?!ExamPaper\.Core\.Interfaces(\..*)?$).*$")
+            .Should().NotExist()
+            .Because(
+                "Архитектура требует, чтобы все контракты системы (из любых слоев) были централизованы в ExamPaper.Core.Interfaces")
+            .Check(Architecture);
+    }
 
-        Assert.True(result.IsSuccessful, "Все контракты системы должны располагаться в слое Core");
+
+    /// <summary>
+    ///     Универсальное правило зависимостей контрактов.
+    ///     Проверяет, что ни один класс за пределами слоя Core не зависит от интерфейсов,
+    ///     которые объявлены за пределами слоя Core.
+    /// </summary>
+    [Fact]
+    public void ExternalLayers_Should_Only_Depend_On_Core_Interfaces()
+    {
+        GivenClassesConjunctionWithDescription? nonCoreClasses = Classes().That()
+            .ResideInNamespaceMatching(@"^(?!ExamPaper\.Core).*$")
+            .As("Classes outside Core");
+
+        GivenInterfacesConjunction? nonCoreInterfaces = Interfaces().That()
+            .ResideInNamespaceMatching(@"^(?!ExamPaper\.Core).*$")
+            .As("Interfaces outside Core");
+
+        Types()
+            .That().Are(nonCoreClasses)
+            .Should().NotDependOnAny(nonCoreInterfaces)
+            .Because("Детали реализации (любые внешние слои) имеют право " +
+                     "использовать и реализовывать только контракты, продиктованные слоем Core.")
+            .Check(Architecture);
     }
 }

@@ -1,12 +1,13 @@
-﻿using System.Reflection;
+﻿using ArchUnitNET.Loader;
+using ArchUnitNET.xUnit;
 
 using ExamPaper.Core.Models;
 using ExamPaper.Infrastructure.Repositories;
 using ExamPaper.Service.Generator;
 
-using NetArchTest.Rules;
-
 using Xunit;
+
+using static ArchUnitNET.Fluent.ArchRuleDefinition;
 
 namespace ExamPaper.Tests.Architecture;
 
@@ -16,11 +17,14 @@ namespace ExamPaper.Tests.Architecture;
 /// </summary>
 public class NamingConventionTests
 {
-    private readonly Assembly _coreAssembly = typeof(Question).Assembly;
-
-    private readonly Assembly _infrastructureAssembly = typeof(QuestionRepository).Assembly;
-
-    private readonly Assembly _serviceAssembly = typeof(ExamPaperGenerator).Assembly;
+    private static readonly ArchUnitNET.Domain.Architecture Architecture = new ArchLoader()
+        .LoadAssemblies(
+            typeof(Question).Assembly,
+            typeof(QuestionRepository).Assembly,
+            typeof(ExamPaperGenerator).Assembly,
+            typeof(NamingConventionTests).Assembly
+        )
+        .Build();
 
     /// <summary>
     ///     Проверяет, что абсолютно все интерфейсы в проекте (Core, Service, Infrastructure)
@@ -29,15 +33,11 @@ public class NamingConventionTests
     [Fact]
     public void AllInterfaces_Should_StartWith_I()
     {
-        TestResult? result = Types
-            .InAssemblies([_coreAssembly, _serviceAssembly, _infrastructureAssembly])
-            .That()
-            .AreInterfaces()
-            .Should()
-            .HaveNameStartingWith("I")
-            .GetResult();
-
-        Assert.True(result.IsSuccessful, "Все интерфейсы должны начинаться с заглавной буквы 'I'.");
+        Interfaces()
+            .Should().HaveNameMatching("^I.*")
+            .Because(
+                "все интерфейсы в проекте на C# должны начинаться с заглавной буквы 'I' по общепринятым стандартам")
+            .Check(Architecture);
     }
 
     /// <summary>
@@ -47,17 +47,11 @@ public class NamingConventionTests
     [Fact]
     public void Repositories_Should_Have_RepositorySuffix()
     {
-        TestResult? result = Types
-            .InAssembly(_infrastructureAssembly)
-            .That()
-            .ResideInNamespace("ExamPaper.Infrastructure.Repositories")
-            .And()
-            .AreClasses()
-            .Should()
-            .HaveNameEndingWith("Repository")
-            .GetResult();
-
-        Assert.True(result.IsSuccessful, "Все репозитории должны иметь суффикс 'Repository'.");
+        Classes()
+            .That().ResideInNamespaceMatching(@"^ExamPaper\.Infrastructure\.Repositories(\..*)?$")
+            .Should().HaveNameMatching(".*Repository$") // $ означает конец строки
+            .Because("классы доступа к данным должны явно указывать свою роль суффиксом 'Repository'")
+            .Check(Architecture);
     }
 
     /// <summary>
@@ -67,17 +61,11 @@ public class NamingConventionTests
     [Fact]
     public void Factories_Should_Have_FactorySuffix()
     {
-        TestResult? result = Types
-            .InAssembly(_serviceAssembly)
-            .That()
-            .ResideInNamespace("ExamPaper.Service.Factories")
-            .And()
-            .AreClasses()
-            .Should()
-            .HaveNameEndingWith("Factory")
-            .GetResult();
-
-        Assert.True(result.IsSuccessful, "Все фабрики должны иметь суффикс 'Factory'.");
+        Classes()
+            .That().ResideInNamespaceMatching(@"^ExamPaper\.Service\.Factories(\..*)?$")
+            .Should().HaveNameMatching(".*Factory$")
+            .Because("классы, отвечающие за порождение сложных объектов, должны иметь суффикс 'Factory'")
+            .Check(Architecture);
     }
 
     /// <summary>
@@ -87,16 +75,27 @@ public class NamingConventionTests
     [Fact]
     public void Exporters_Should_Have_ExporterSuffix()
     {
-        TestResult? result = Types
-            .InAssembly(_infrastructureAssembly)
-            .That()
-            .ResideInNamespace("ExamPaper.Infrastructure.Exporter")
-            .And()
-            .AreClasses()
-            .Should()
-            .HaveNameEndingWith("Exporter")
-            .GetResult();
+        Classes()
+            .That().ResideInNamespaceMatching(@"^ExamPaper\.Infrastructure\.Exporter(\..*)?$")
+            .Should().HaveNameMatching(".*Exporter$")
+            .Because("компоненты, выгружающие данные, должны идентифицироваться суффиксом 'Exporter'")
+            .Check(Architecture);
+    }
 
-        Assert.True(result.IsSuccessful, "Все экспортеры должны иметь суффикс 'Exporter'.");
+
+    /// <summary>
+    ///     Проверяет, что все классы в тестовой сборке имеют суффикс 'Tests'.
+    /// </summary>
+    [Fact]
+    public void AllTestClasses_Should_Have_TestsSuffix()
+    {
+        Classes()
+            .That().ResideInAssembly(typeof(NamingConventionTests).Assembly)
+            .And().AreNotAbstract()
+            .And().AreNotNested()
+            .Should().HaveNameMatching(".*Tests$")
+            .Because(
+                "согласно стандартам проекта, все тестовые классы должны заканчиваться на 'Tests' (во множественном числе)")
+            .Check(Architecture);
     }
 }
