@@ -1,9 +1,14 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 
 using ExamPaper.Core.Interfaces;
+using ExamPaper.Core.Models;
+using ExamPaper.Infrastructure.Exporter;
 using ExamPaper.Infrastructure.Repositories;
+using ExamPaper.Service.Factories;
+using ExamPaper.Service.Generator;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -20,6 +25,13 @@ string dataFolder = Path.Combine(projectRoot, "Data");
 string filePath = Path.Combine(dataFolder, "Blank.json");
 
 builder.Services.AddScoped<IQuestionRepository, QuestionRepository>((_) => new QuestionRepository(filePath));
+builder.Services.AddScoped<IQuestionRepository>(sp => new QuestionRepository(filePath));
+builder.Services.AddScoped<IQuestionProvider>(sp => sp.GetRequiredService<IQuestionRepository>());
+
+builder.Services.AddScoped<IExamPaperFactory, ExamPaperFactory>();
+builder.Services.AddScoped<IExamGenerator, ExamPaperGenerator>();
+builder.Services.AddScoped<JsonExamExporter>();
+builder.Services.AddScoped<PdfExamExporter>();
 
 builder.Services.AddCors(options =>
 {
@@ -49,6 +61,19 @@ app.MapGet("/api/questions/{id:guid}", (Guid id, IQuestionRepository repo) =>
 {
     var question = repo.GetQuestionById(id);
     return question != null ? Results.Ok(question) : Results.NotFound();
+});
+
+app.MapPost("/api/exam/generate", (GenerationSettings settings, IExamGenerator generator) =>
+{
+    try
+    {
+        var tickets = generator.Generate(settings);
+        return Results.Ok(tickets);
+    }
+    catch (InvalidOperationException ex)
+    {
+        return Results.BadRequest(new { error = ex.Message });
+    }
 });
 
 app.Run();
