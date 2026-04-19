@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection;
 
 using ExamPaper.Core.Interfaces;
+using ExamPaper.Infrastructure.Exporter;
 using ExamPaper.Infrastructure.Repositories;
 
 using Microsoft.AspNetCore.Builder;
@@ -20,6 +21,8 @@ string dataFolder = Path.Combine(projectRoot, "Data");
 string filePath = Path.Combine(dataFolder, "Blank.json");
 
 builder.Services.AddScoped<IQuestionRepository, QuestionRepository>((_) => new QuestionRepository(filePath));
+builder.Services.AddKeyedScoped<IExamExporter, JsonExamExporter>("json");
+builder.Services.AddKeyedScoped<IExamExporter, PdfExamExporter>("pdf");
 
 builder.Services.AddCors(options =>
 {
@@ -49,6 +52,12 @@ app.MapGet("/api/questions/{id:guid}", (Guid id, IQuestionRepository repo) =>
 {
     var question = repo.GetQuestionById(id);
     return question != null ? Results.Ok(question) : Results.NotFound();
+});
+
+app.MapPost("/api/exam/export/pdf", (
+    [FromKeyedServices("pdf")] IExamExporter exporter,IQuestionRepository repo) =>
+{
+    exporter.Export(repo.)
 });
 
 app.Run();

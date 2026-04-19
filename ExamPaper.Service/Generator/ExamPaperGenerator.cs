@@ -58,7 +58,7 @@ public class ExamPaperGenerator : IExamGenerator
             .Range(1, settings.TotalTicketsCount)
             .Select(ticketNum => new Core.Models.ExamPaper(
                 Guid.NewGuid(),
-                $"Билет №{ticketNum}",
+                $"{ticketNum}",
                 questions
                     .OrderBy(_ => random.Next())
                     .Take(settings.QuestionsPerTicketCount)
