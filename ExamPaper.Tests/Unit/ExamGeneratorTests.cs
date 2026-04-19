@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using ExamPaper.Core.Interfaces;
 using ExamPaper.Core.Models;
 using ExamPaper.Service.Generator;
+
 using Moq;
+
 using Xunit;
 
 namespace ExamPaper.Tests.Unit;
@@ -25,15 +28,15 @@ public class ExamPaperGeneratorTests
     {
         _questionProviderMock = new Mock<IQuestionProvider>();
         _examPaperFactoryMock = new Mock<IExamPaperFactory>();
-        
+
         _generator = new ExamPaperGenerator(
-            _questionProviderMock.Object, 
+            _questionProviderMock.Object,
             _examPaperFactoryMock.Object
         );
 
         _examPaperFactoryMock
             .Setup(f => f.CreateExamPaper(It.IsAny<Guid>(), It.IsAny<string>(), It.IsAny<IEnumerable<IQuestion>>()))
-            .Returns((Guid id, string title, IEnumerable<IQuestion> questions) => 
+            .Returns((Guid id, string title, IEnumerable<IQuestion> questions) =>
                 new ExamPaper.Core.Models.ExamPaper(id, title, questions));
     }
 
@@ -71,7 +74,7 @@ public class ExamPaperGeneratorTests
         {
             var questions = CreateTestQuestions(2);
             _questionProviderMock.Setup(p => p.GetAllQuestions()).Returns(questions);
-            
+
             var settings = new GenerationSettings { TotalTicketsCount = 5, QuestionsPerTicketCount = 3 };
 
             var exception = Assert.Throws<InvalidOperationException>(() => _generator.Generate(settings));
@@ -92,14 +95,14 @@ public class ExamPaperGeneratorTests
         {
             var questions = CreateTestQuestions(10);
             _questionProviderMock.Setup(p => p.GetAllQuestions()).Returns(questions);
-            
+
             var settings = new GenerationSettings { TotalTicketsCount = 5, QuestionsPerTicketCount = 2 };
 
             var tickets = _generator.Generate(settings).ToList();
 
             Assert.Equal(5, tickets.Count);
             _examPaperFactoryMock.Verify(f => f.CreateExamPaper(
-                It.IsAny<Guid>(), It.IsAny<string>(), It.IsAny<IEnumerable<IQuestion>>()), 
+                    It.IsAny<Guid>(), It.IsAny<string>(), It.IsAny<IEnumerable<IQuestion>>()),
                 Times.Exactly(5));
         }
 
@@ -111,7 +114,7 @@ public class ExamPaperGeneratorTests
         {
             var questions = CreateTestQuestions(20);
             _questionProviderMock.Setup(p => p.GetAllQuestions()).Returns(questions);
-            
+
             int expectedCount = 3;
             var settings = new GenerationSettings { TotalTicketsCount = 4, QuestionsPerTicketCount = expectedCount };
 
@@ -141,7 +144,7 @@ public class ExamPaperGeneratorTests
 
             bool areDifferent = !firstGen[0].Questions.Select(q => q.Id)
                 .SequenceEqual(secondGen[0].Questions.Select(q => q.Id));
-            
+
             Assert.True(areDifferent, "Наборы вопросов должны отличаться из-за случайного распределения.");
         }
     }
@@ -159,12 +162,12 @@ public class ExamPaperGeneratorTests
         {
             var questions = CreateTestQuestions(5);
             _questionProviderMock.Setup(p => p.GetAllQuestions()).Returns(questions);
-            
-            var settings = new GenerationSettings 
-            { 
-                TotalTicketsCount = 1, 
+
+            var settings = new GenerationSettings
+            {
+                TotalTicketsCount = 1,
                 QuestionsPerTicketCount = 2,
-                TicketNameTemplate = "Test Template {0}" 
+                TicketNameTemplate = "Test Template {0}"
             };
 
             var tickets = _generator.Generate(settings).ToList();
