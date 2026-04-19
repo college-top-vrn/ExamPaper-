@@ -114,6 +114,16 @@
     "title": "Namespace ExamPaper.Infrastructure.Repositories | ExamPaper",
     "summary": "Namespace ExamPaper.Infrastructure.Repositories Classes QuestionRepository Реализация провайдера вопросов для загрузки данных из файла в формате JSON."
   },
+  "api/ExamPaper.Service.DTOs.CreateQuestionDto.html": {
+    "href": "api/ExamPaper.Service.DTOs.CreateQuestionDto.html",
+    "title": "Class CreateQuestionDto | ExamPaper",
+    "summary": "Class CreateQuestionDto Namespace ExamPaper.Service.DTOs Assembly ExamPaper.Service.dll Dto для создание вопросов из WebApi public class CreateQuestionDto Inheritance object CreateQuestionDto Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Properties Text Содержимое вопроса public string Text { get; set; } Property Value string"
+  },
+  "api/ExamPaper.Service.DTOs.html": {
+    "href": "api/ExamPaper.Service.DTOs.html",
+    "title": "Namespace ExamPaper.Service.DTOs | ExamPaper",
+    "summary": "Namespace ExamPaper.Service.DTOs Classes CreateQuestionDto Dto для создание вопросов из WebApi"
+  },
   "api/ExamPaper.Service.Factories.ExamPaperFactory.html": {
     "href": "api/ExamPaper.Service.Factories.ExamPaperFactory.html",
     "title": "Class ExamPaperFactory | ExamPaper",

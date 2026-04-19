@@ -748,6 +748,31 @@ references:
   isSpec: "True"
   fullName: ExamPaper.Infrastructure.Repositories.QuestionRepository.SaveChanges
   nameWithType: QuestionRepository.SaveChanges
+- uid: ExamPaper.Service.DTOs
+  name: ExamPaper.Service.DTOs
+  href: api/ExamPaper.Service.DTOs.html
+  commentId: N:ExamPaper.Service.DTOs
+  fullName: ExamPaper.Service.DTOs
+  nameWithType: ExamPaper.Service.DTOs
+- uid: ExamPaper.Service.DTOs.CreateQuestionDto
+  name: CreateQuestionDto
+  href: api/ExamPaper.Service.DTOs.CreateQuestionDto.html
+  commentId: T:ExamPaper.Service.DTOs.CreateQuestionDto
+  fullName: ExamPaper.Service.DTOs.CreateQuestionDto
+  nameWithType: CreateQuestionDto
+- uid: ExamPaper.Service.DTOs.CreateQuestionDto.Text
+  name: Text
+  href: api/ExamPaper.Service.DTOs.CreateQuestionDto.html#ExamPaper_Service_DTOs_CreateQuestionDto_Text
+  commentId: P:ExamPaper.Service.DTOs.CreateQuestionDto.Text
+  fullName: ExamPaper.Service.DTOs.CreateQuestionDto.Text
+  nameWithType: CreateQuestionDto.Text
+- uid: ExamPaper.Service.DTOs.CreateQuestionDto.Text*
+  name: Text
+  href: api/ExamPaper.Service.DTOs.CreateQuestionDto.html#ExamPaper_Service_DTOs_CreateQuestionDto_Text_
+  commentId: Overload:ExamPaper.Service.DTOs.CreateQuestionDto.Text
+  isSpec: "True"
+  fullName: ExamPaper.Service.DTOs.CreateQuestionDto.Text
+  nameWithType: CreateQuestionDto.Text
 - uid: ExamPaper.Service.Factories
   name: ExamPaper.Service.Factories
   href: api/ExamPaper.Service.Factories.html

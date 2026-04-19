@@ -330,6 +330,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/ExamPaper.Service.DTOs.CreateQuestionDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ExamPaper.Service.DTOs.CreateQuestionDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ExamPaper.Service.DTOs.CreateQuestionDto",
+      "Summary": "<p sourcefile=\"api/ExamPaper.Service.DTOs.CreateQuestionDto.yml\" sourcestartlinenumber=\"1\">Dto для создание вопросов из WebApi</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ExamPaper.Service.DTOs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ExamPaper.Service.DTOs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ExamPaper.Service.DTOs",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/ExamPaper.Service.Factories.ExamPaperFactory.yml",
       "output": {
         ".html": {
