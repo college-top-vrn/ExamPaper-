@@ -4,8 +4,4 @@
     <ProjectReference Include="..\ExamPaper.Infrastructure\ExamPaper.Infrastructure.csproj"/>
     <ProjectReference Include="..\ExamPaper.Service\ExamPaper.Service.csproj"/>
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Unit\"/>
-  </ItemGroup>
 </Project>

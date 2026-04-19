@@ -5,15 +5,15 @@
     <ImplicitUsings>disable</ImplicitUsings>
     <AnalysisLevel>latest</AnalysisLevel>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
     <QuestPDFVersion>2026.2.4</QuestPDFVersion>
     <XUnitVersion>2.9.3</XUnitVersion>
     <ArchUnitNetVersion>0.13.3</ArchUnitNetVersion>
     <XUnitRunnerVersion>3.1.4</XUnitRunnerVersion>
     <TestSdkVersion>17.14.1</TestSdkVersion>
-  </PropertyGroup>
 
-  <PropertyGroup Condition="!$(MSBuildProjectName.EndsWith('.Tests'))">
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <OpenApiVersion>10.0.5</OpenApiVersion>
+    <SwaggerVersion>10.1.7</SwaggerVersion>
   </PropertyGroup>
 
   <ItemGroup Condition="$(MSBuildProjectName.EndsWith('.Tests'))">
@@ -25,6 +25,6 @@
     </PackageReference>
     <PackageReference Include="Moq" Version="4.20.72"/>
     <PackageReference Include="PdfPig" Version="0.1.14"/>
-    <PackageReference Include="TngTech.ArchUnitNET.xUnit" Version="0.13.3"/>
+    <PackageReference Include="TngTech.ArchUnitNET.xUnit" Version="$(ArchUnitNetVersion)"/>
   </ItemGroup>
 </Project>
