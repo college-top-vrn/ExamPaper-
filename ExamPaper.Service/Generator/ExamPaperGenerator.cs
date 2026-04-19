@@ -52,7 +52,7 @@ public class ExamPaperGenerator : IExamGenerator
 
         return Enumerable
             .Range(1, settings.TotalTicketsCount)
-            .Select(ticketNum => 
+            .Select(ticketNum =>
             {
                 var selectedQuestions = availableQuestions
                     .OrderBy(_ => random.Next())
@@ -60,7 +60,7 @@ public class ExamPaperGenerator : IExamGenerator
                     .ToList();
 
                 string ticketTitle = string.Format(
-                    settings.TicketNameTemplate ?? "Билет №{0}", 
+                    settings.TicketNameTemplate ?? "Билет №{0}",
                     ticketNum
                 );
 

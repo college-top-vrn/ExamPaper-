@@ -16,7 +16,7 @@ public interface IGenerationSettings
     /// </summary>
     /// <value>Положительное целое число.</value>
     int QuestionsPerTicketCount { get; }
-    
+
     /// <summary>
     ///     Шаблон названия билета. По умолчанию "Билет №{0}".
     /// </summary>
