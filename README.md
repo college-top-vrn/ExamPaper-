@@ -1,6 +1,30 @@
 # Диаграммы
 ## Компонентов
-![Диаграмма компонентов](docs/assets/diagram_component.SVG)
+```mermaid
+flowchart TD
+    subgraph CoreLayer [Слой ядра]
+        Models[Models]
+        Interfaces[Interfaces]
+    end
+
+    subgraph ServiceLayer [Слой сервисов]
+        ExamPaperGenerator[ExamPaper Generator]
+        Factory[Factory]
+    end
+
+    subgraph InfrastructureLayer [Слой инфраструктуры]
+        Exporter[Exporter]
+        Repository[Repository]
+    end
+
+    ExamPaperGenerator --> Factory
+    ExamPaperGenerator --> Repository
+
+    Factory --> Models
+    Factory --> Interfaces
+
+    Exporter --> Models
+```
 
 ## Прецедентов
 ```mermaid
@@ -31,9 +55,9 @@ sequenceDiagram
 ```
 
 ## Регламент
-- ![Создание ветки](docs/BranchCreation.md);
-- ![Создание файлов и директорий](docs/FileAndDirectoriesCreation.md).
-- ![Создание тест-кейсов](docs/TestCaseRegulations.md)
+- ![Создание ветки](rules/BranchCreation.md);
+- ![Создание файлов и директорий](rules/FileAndDirectoriesCreation.md).
+- ![Создание тест-кейсов](rules/TestCaseRegulations.md)
 
 ## Цель проекта: Разработка генератора экзаменационных билетов.
 
