@@ -74,7 +74,30 @@
 <h1 id="диаграммы">Диаграммы</h1>
 
 <h2 id="компонентов">Компонентов</h2>
-<p><img src="docs/assets/diagram_component.SVG" alt="Диаграмма компонентов"></p>
+<pre><code class="lang-mermaid">flowchart TD
+    subgraph CoreLayer [Слой ядра]
+        Models[Models]
+        Interfaces[Interfaces]
+    end
+
+    subgraph ServiceLayer [Слой сервисов]
+        ExamPaperGenerator[ExamPaper Generator]
+        Factory[Factory]
+    end
+
+    subgraph InfrastructureLayer [Слой инфраструктуры]
+        Exporter[Exporter]
+        Repository[Repository]
+    end
+
+    ExamPaperGenerator --&gt; Factory
+    ExamPaperGenerator --&gt; Repository
+
+    Factory --&gt; Models
+    Factory --&gt; Interfaces
+
+    Exporter --&gt; Models
+</code></pre>
 <h2 id="прецедентов">Прецедентов</h2>
 <pre><code class="lang-mermaid">flowchart LR
   actor1[Пользователь]
@@ -102,9 +125,9 @@
 </code></pre>
 <h2 id="регламент">Регламент</h2>
 <ul>
-<li><img src="docs/BranchCreation.md" alt="Создание ветки">;</li>
-<li><img src="docs/FileAndDirectoriesCreation.md" alt="Создание файлов и директорий">.</li>
-<li><img src="docs/TestCaseRegulations.md" alt="Создание тест-кейсов"></li>
+<li><img src="rules/BranchCreation.html" alt="Создание ветки">;</li>
+<li><img src="rules/FileAndDirectoriesCreation.html" alt="Создание файлов и директорий">.</li>
+<li><img src="rules/TestCaseRegulations.html" alt="Создание тест-кейсов"></li>
 </ul>
 <h2 id="цель-проекта-разработка-генератора-экзаменационных-билетов">Цель проекта: Разработка генератора экзаменационных билетов.</h2>
 <p>Ключевые функции:</p>
