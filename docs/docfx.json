@@ -26,13 +26,8 @@
           "**/*.{md,yml}"
         ],
         "exclude": [
-          "_site/**",
-          "obj/**"
-        ]
-      },
-      {
-        "files": [
-          "api/*.yml"
+          "**/_site/**",
+          "**/obj/**"
         ]
       }
     ],
@@ -50,7 +45,7 @@
         ]
       }
     ],
-    "dest": "_site",
+    "output": "_site",
     "template": [
       "default",
       "modern"
@@ -59,10 +54,8 @@
       "_appName": "ExamPaper",
       "_appTitle": "ExamPaper Documentation",
       "_enableSearch": true,
-      "pdf": true,
       "_enableNewTab": true,
-      "_appName": "ExamPaper",
-      "_appTitle": "ExamPaper Documentation",
+      "pdf": true,
       "disableClickToCopy": false
     }
   }
