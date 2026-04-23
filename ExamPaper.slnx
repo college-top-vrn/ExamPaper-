@@ -1,6 +1,6 @@
 ﻿<Solution>
-  <Project Path="ExamPaper.Core/ExamPaper.Core.csproj"/>
   <Project Path="ExamPaper.Service/ExamPaper.Service.csproj"/>
+  <Project Path="ExamPaper.Core/ExamPaper.Core.csproj"/>
   <Project Path="ExamPaper.Infrastructure/ExamPaper.Infrastructure.csproj"/>
   <Project Path="ExamPaper.Api.IntegrationTests/ExamPaper.Api.IntegrationTests.csproj"/>
   <Project Path="ExamPaper.Tests/ExamPaper.Tests.csproj"/>
