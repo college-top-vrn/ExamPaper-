@@ -3,7 +3,5 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ExamPaper.Api\ExamPaper.Api.csproj" />
-  </ItemGroup>
+
 </Project>
