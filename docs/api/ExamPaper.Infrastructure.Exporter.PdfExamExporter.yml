@@ -15,12 +15,12 @@ items:
   type: Class
   source:
     remote:
-      path: ExamPaper.Infrastructure/Exporter/PdfExamExporter.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Infrastructure/Exporter/PdfExamExporter.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: PdfExamExporter
-    path: ExamPaper.Infrastructure/Exporter/PdfExamExporter.cs
-    startLine: 15
+    path: ../src/ExamPaper.Infrastructure/Exporter/PdfExamExporter.cs
+    startLine: 16
   assemblies:
   - ExamPaper.Infrastructure
   namespace: ExamPaper.Infrastructure.Exporter
@@ -53,12 +53,12 @@ items:
   type: Method
   source:
     remote:
-      path: ExamPaper.Infrastructure/Exporter/PdfExamExporter.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Infrastructure/Exporter/PdfExamExporter.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: Export
-    path: ExamPaper.Infrastructure/Exporter/PdfExamExporter.cs
-    startLine: 24
+    path: ../src/ExamPaper.Infrastructure/Exporter/PdfExamExporter.cs
+    startLine: 25
   assemblies:
   - ExamPaper.Infrastructure
   namespace: ExamPaper.Infrastructure.Exporter

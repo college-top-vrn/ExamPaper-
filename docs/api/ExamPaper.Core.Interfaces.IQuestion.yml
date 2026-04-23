@@ -16,11 +16,11 @@ items:
   type: Interface
   source:
     remote:
-      path: ExamPaper.Core/Interfaces/IQuestion.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Interfaces/IQuestion.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: IQuestion
-    path: ExamPaper.Core/Interfaces/IQuestion.cs
+    path: ../src/ExamPaper.Core/Interfaces/IQuestion.cs
     startLine: 7
   assemblies:
   - ExamPaper.Core
@@ -45,11 +45,11 @@ items:
   type: Property
   source:
     remote:
-      path: ExamPaper.Core/Interfaces/IQuestion.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Interfaces/IQuestion.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: Id
-    path: ExamPaper.Core/Interfaces/IQuestion.cs
+    path: ../src/ExamPaper.Core/Interfaces/IQuestion.cs
     startLine: 12
   assemblies:
   - ExamPaper.Core
@@ -76,11 +76,11 @@ items:
   type: Property
   source:
     remote:
-      path: ExamPaper.Core/Interfaces/IQuestion.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Interfaces/IQuestion.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: Text
-    path: ExamPaper.Core/Interfaces/IQuestion.cs
+    path: ../src/ExamPaper.Core/Interfaces/IQuestion.cs
     startLine: 17
   assemblies:
   - ExamPaper.Core

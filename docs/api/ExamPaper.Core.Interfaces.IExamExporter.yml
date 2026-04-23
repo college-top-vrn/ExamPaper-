@@ -15,11 +15,11 @@ items:
   type: Interface
   source:
     remote:
-      path: ExamPaper.Core/Interfaces/IExamExporter.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Interfaces/IExamExporter.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: IExamExporter
-    path: ExamPaper.Core/Interfaces/IExamExporter.cs
+    path: ../src/ExamPaper.Core/Interfaces/IExamExporter.cs
     startLine: 7
   assemblies:
   - ExamPaper.Core
@@ -45,11 +45,11 @@ items:
   type: Method
   source:
     remote:
-      path: ExamPaper.Core/Interfaces/IExamExporter.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Interfaces/IExamExporter.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: Export
-    path: ExamPaper.Core/Interfaces/IExamExporter.cs
+    path: ../src/ExamPaper.Core/Interfaces/IExamExporter.cs
     startLine: 13
   assemblies:
   - ExamPaper.Core

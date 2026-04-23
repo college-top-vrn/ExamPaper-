@@ -5,7 +5,8 @@ items:
   id: ExamPaperGenerator
   parent: ExamPaper.Service.Generator
   children:
-  - ExamPaper.Service.Generator.ExamPaperGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Generation.IGenerationSettings)
+  - ExamPaper.Service.Generator.ExamPaperGenerator.#ctor(ExamPaper.Core.Interfaces.IQuestionProvider,ExamPaper.Core.Interfaces.IExamPaperFactory)
+  - ExamPaper.Service.Generator.ExamPaperGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
   langs:
   - csharp
   - vb
@@ -15,16 +16,16 @@ items:
   type: Class
   source:
     remote:
-      path: ExamPaper.Service/Generator/ExamPaperGenerator.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Service/Generator/ExamPaperGenerator.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: ExamPaperGenerator
-    path: ExamPaper.Service/Generator/ExamPaperGenerator.cs
-    startLine: 12
+    path: ../src/ExamPaper.Service/Generator/ExamPaperGenerator.cs
+    startLine: 17
   assemblies:
   - ExamPaper.Service
   namespace: ExamPaper.Service.Generator
-  summary: Генератор экзаменационных билетов, создающий набор билетов со случайными вопросами.
+  summary: Сервисный класс, оркестрирующая процесс генерации билетов.
   example: []
   syntax:
     content: 'public class ExamPaperGenerator : IExamGenerator'
@@ -41,60 +42,81 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: ExamPaper.Service.Generator.ExamPaperGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Generation.IGenerationSettings)
-  commentId: M:ExamPaper.Service.Generator.ExamPaperGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Generation.IGenerationSettings)
-  id: Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Generation.IGenerationSettings)
+- uid: ExamPaper.Service.Generator.ExamPaperGenerator.#ctor(ExamPaper.Core.Interfaces.IQuestionProvider,ExamPaper.Core.Interfaces.IExamPaperFactory)
+  commentId: M:ExamPaper.Service.Generator.ExamPaperGenerator.#ctor(ExamPaper.Core.Interfaces.IQuestionProvider,ExamPaper.Core.Interfaces.IExamPaperFactory)
+  id: '#ctor(ExamPaper.Core.Interfaces.IQuestionProvider,ExamPaper.Core.Interfaces.IExamPaperFactory)'
   parent: ExamPaper.Service.Generator.ExamPaperGenerator
   langs:
   - csharp
   - vb
-  name: Generate(IEnumerable<IQuestion>, IGenerationSettings)
-  nameWithType: ExamPaperGenerator.Generate(IEnumerable<IQuestion>, IGenerationSettings)
-  fullName: ExamPaper.Service.Generator.ExamPaperGenerator.Generate(System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IQuestion>, ExamPaper.Core.Generation.IGenerationSettings)
-  type: Method
+  name: ExamPaperGenerator(IQuestionProvider, IExamPaperFactory)
+  nameWithType: ExamPaperGenerator.ExamPaperGenerator(IQuestionProvider, IExamPaperFactory)
+  fullName: ExamPaper.Service.Generator.ExamPaperGenerator.ExamPaperGenerator(ExamPaper.Core.Interfaces.IQuestionProvider, ExamPaper.Core.Interfaces.IExamPaperFactory)
+  type: Constructor
   source:
     remote:
-      path: ExamPaper.Service/Generator/ExamPaperGenerator.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
-    id: Generate
-    path: ExamPaper.Service/Generator/ExamPaperGenerator.cs
-    startLine: 26
+      path: src/ExamPaper.Service/Generator/ExamPaperGenerator.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: .ctor
+    path: ../src/ExamPaper.Service/Generator/ExamPaperGenerator.cs
+    startLine: 25
   assemblies:
   - ExamPaper.Service
   namespace: ExamPaper.Service.Generator
-  summary: Генерирует коллекцию экзаменационных билетов на основе доступных вопросов и настроек генерации.
-  remarks: >-
-    Вопросы для каждого билета выбираются случайным образом без повторений в пределах одного билета.
-
-    Один и тот же вопрос может встречаться в разных билетах.
+  summary: Инициализирует генератор для чтения данных и создания объектов.
   example: []
   syntax:
-    content: public IEnumerable<IExamPaper> Generate(IEnumerable<IQuestion> availableQuestions, IGenerationSettings settings)
+    content: public ExamPaperGenerator(IQuestionProvider questionProvider, IExamPaperFactory examPaperFactory)
     parameters:
-    - id: availableQuestions
-      type: System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion}
-      description: Коллекция доступных вопросов для составления билетов.
+    - id: questionProvider
+      type: ExamPaper.Core.Interfaces.IQuestionProvider
+    - id: examPaperFactory
+      type: ExamPaper.Core.Interfaces.IExamPaperFactory
+    content.vb: Public Sub New(questionProvider As IQuestionProvider, examPaperFactory As IExamPaperFactory)
+  overload: ExamPaper.Service.Generator.ExamPaperGenerator.#ctor*
+  nameWithType.vb: ExamPaperGenerator.New(IQuestionProvider, IExamPaperFactory)
+  fullName.vb: ExamPaper.Service.Generator.ExamPaperGenerator.New(ExamPaper.Core.Interfaces.IQuestionProvider, ExamPaper.Core.Interfaces.IExamPaperFactory)
+  name.vb: New(IQuestionProvider, IExamPaperFactory)
+- uid: ExamPaper.Service.Generator.ExamPaperGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  commentId: M:ExamPaper.Service.Generator.ExamPaperGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  id: Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  parent: ExamPaper.Service.Generator.ExamPaperGenerator
+  langs:
+  - csharp
+  - vb
+  name: Generate(IGenerationSettings)
+  nameWithType: ExamPaperGenerator.Generate(IGenerationSettings)
+  fullName: ExamPaper.Service.Generator.ExamPaperGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  type: Method
+  source:
+    remote:
+      path: src/ExamPaper.Service/Generator/ExamPaperGenerator.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: Generate
+    path: ../src/ExamPaper.Service/Generator/ExamPaperGenerator.cs
+    startLine: 33
+  assemblies:
+  - ExamPaper.Service
+  namespace: ExamPaper.Service.Generator
+  summary: >-
+    Формирует коллекцию экзаменационных билетов на основе заданных правил.
+
+    Оркестрирует получение вопросов и создание билетов.
+  example: []
+  syntax:
+    content: public IEnumerable<IExamPaper> Generate(IGenerationSettings settings)
+    parameters:
     - id: settings
-      type: ExamPaper.Core.Generation.IGenerationSettings
-      description: Настройки генерации, определяющие количество билетов и вопросов в каждом билете.
+      type: ExamPaper.Core.Interfaces.IGenerationSettings
+      description: Объект конфигурации, определяющий параметры генерации.
     return:
       type: System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper}
-      description: Коллекция сгенерированных экзаменационных билетов.
-    content.vb: Public Function Generate(availableQuestions As IEnumerable(Of IQuestion), settings As IGenerationSettings) As IEnumerable(Of IExamPaper)
+    content.vb: Public Function Generate(settings As IGenerationSettings) As IEnumerable(Of IExamPaper)
   overload: ExamPaper.Service.Generator.ExamPaperGenerator.Generate*
-  exceptions:
-  - type: System.ArgumentNullException
-    commentId: T:System.ArgumentNullException
-    description: Выбрасывается, если <code class="paramref">availableQuestions</code> или <code class="paramref">settings</code> равны null.
-  - type: System.InvalidOperationException
-    commentId: T:System.InvalidOperationException
-    description: Выбрасывается, если количество доступных вопросов меньше, чем <xref href="ExamPaper.Core.Generation.IGenerationSettings.QuestionsPerTicketCount" data-throw-if-not-resolved="false"></xref>.
   implements:
-  - ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Generation.IGenerationSettings)
-  nameWithType.vb: ExamPaperGenerator.Generate(IEnumerable(Of IQuestion), IGenerationSettings)
-  fullName.vb: ExamPaper.Service.Generator.ExamPaperGenerator.Generate(System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IQuestion), ExamPaper.Core.Generation.IGenerationSettings)
-  name.vb: Generate(IEnumerable(Of IQuestion), IGenerationSettings)
+  - ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
 references:
 - uid: ExamPaper.Service.Generator
   commentId: N:ExamPaper.Service.Generator
@@ -400,126 +422,67 @@ references:
   - uid: ExamPaper.Core.Interfaces
     name: Interfaces
     href: ExamPaper.Core.Interfaces.html
-- uid: ExamPaper.Core.Generation.IGenerationSettings.QuestionsPerTicketCount
-  commentId: P:ExamPaper.Core.Generation.IGenerationSettings.QuestionsPerTicketCount
-  parent: ExamPaper.Core.Generation.IGenerationSettings
-  href: ExamPaper.Core.Generation.IGenerationSettings.html#ExamPaper_Core_Generation_IGenerationSettings_QuestionsPerTicketCount
-  name: QuestionsPerTicketCount
-  nameWithType: IGenerationSettings.QuestionsPerTicketCount
-  fullName: ExamPaper.Core.Generation.IGenerationSettings.QuestionsPerTicketCount
-- uid: System.ArgumentNullException
-  commentId: T:System.ArgumentNullException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
-  name: ArgumentNullException
-  nameWithType: ArgumentNullException
-  fullName: System.ArgumentNullException
-- uid: System.InvalidOperationException
-  commentId: T:System.InvalidOperationException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
-  name: InvalidOperationException
-  nameWithType: InvalidOperationException
-  fullName: System.InvalidOperationException
+- uid: ExamPaper.Service.Generator.ExamPaperGenerator.#ctor*
+  commentId: Overload:ExamPaper.Service.Generator.ExamPaperGenerator.#ctor
+  href: ExamPaper.Service.Generator.ExamPaperGenerator.html#ExamPaper_Service_Generator_ExamPaperGenerator__ctor_ExamPaper_Core_Interfaces_IQuestionProvider_ExamPaper_Core_Interfaces_IExamPaperFactory_
+  name: ExamPaperGenerator
+  nameWithType: ExamPaperGenerator.ExamPaperGenerator
+  fullName: ExamPaper.Service.Generator.ExamPaperGenerator.ExamPaperGenerator
+  nameWithType.vb: ExamPaperGenerator.New
+  fullName.vb: ExamPaper.Service.Generator.ExamPaperGenerator.New
+  name.vb: New
+- uid: ExamPaper.Core.Interfaces.IQuestionProvider
+  commentId: T:ExamPaper.Core.Interfaces.IQuestionProvider
+  parent: ExamPaper.Core.Interfaces
+  href: ExamPaper.Core.Interfaces.IQuestionProvider.html
+  name: IQuestionProvider
+  nameWithType: IQuestionProvider
+  fullName: ExamPaper.Core.Interfaces.IQuestionProvider
+- uid: ExamPaper.Core.Interfaces.IExamPaperFactory
+  commentId: T:ExamPaper.Core.Interfaces.IExamPaperFactory
+  parent: ExamPaper.Core.Interfaces
+  href: ExamPaper.Core.Interfaces.IExamPaperFactory.html
+  name: IExamPaperFactory
+  nameWithType: IExamPaperFactory
+  fullName: ExamPaper.Core.Interfaces.IExamPaperFactory
 - uid: ExamPaper.Service.Generator.ExamPaperGenerator.Generate*
   commentId: Overload:ExamPaper.Service.Generator.ExamPaperGenerator.Generate
-  href: ExamPaper.Service.Generator.ExamPaperGenerator.html#ExamPaper_Service_Generator_ExamPaperGenerator_Generate_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IQuestion__ExamPaper_Core_Generation_IGenerationSettings_
+  href: ExamPaper.Service.Generator.ExamPaperGenerator.html#ExamPaper_Service_Generator_ExamPaperGenerator_Generate_ExamPaper_Core_Interfaces_IGenerationSettings_
   name: Generate
   nameWithType: ExamPaperGenerator.Generate
   fullName: ExamPaper.Service.Generator.ExamPaperGenerator.Generate
-- uid: ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Generation.IGenerationSettings)
-  commentId: M:ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Generation.IGenerationSettings)
+- uid: ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  commentId: M:ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
   parent: ExamPaper.Core.Interfaces.IExamGenerator
-  isExternal: true
-  href: ExamPaper.Core.Interfaces.IExamGenerator.html#ExamPaper_Core_Interfaces_IExamGenerator_Generate_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IQuestion__ExamPaper_Core_Generation_IGenerationSettings_
-  name: Generate(IEnumerable<IQuestion>, IGenerationSettings)
-  nameWithType: IExamGenerator.Generate(IEnumerable<IQuestion>, IGenerationSettings)
-  fullName: ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IQuestion>, ExamPaper.Core.Generation.IGenerationSettings)
-  nameWithType.vb: IExamGenerator.Generate(IEnumerable(Of IQuestion), IGenerationSettings)
-  fullName.vb: ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IQuestion), ExamPaper.Core.Generation.IGenerationSettings)
-  name.vb: Generate(IEnumerable(Of IQuestion), IGenerationSettings)
+  href: ExamPaper.Core.Interfaces.IExamGenerator.html#ExamPaper_Core_Interfaces_IExamGenerator_Generate_ExamPaper_Core_Interfaces_IGenerationSettings_
+  name: Generate(IGenerationSettings)
+  nameWithType: IExamGenerator.Generate(IGenerationSettings)
+  fullName: ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
   spec.csharp:
-  - uid: ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Generation.IGenerationSettings)
+  - uid: ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
     name: Generate
-    href: ExamPaper.Core.Interfaces.IExamGenerator.html#ExamPaper_Core_Interfaces_IExamGenerator_Generate_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IQuestion__ExamPaper_Core_Generation_IGenerationSettings_
+    href: ExamPaper.Core.Interfaces.IExamGenerator.html#ExamPaper_Core_Interfaces_IExamGenerator_Generate_ExamPaper_Core_Interfaces_IGenerationSettings_
   - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: ExamPaper.Core.Interfaces.IQuestion
-    name: IQuestion
-    href: ExamPaper.Core.Interfaces.IQuestion.html
-  - name: '>'
-  - name: ','
-  - name: " "
-  - uid: ExamPaper.Core.Generation.IGenerationSettings
+  - uid: ExamPaper.Core.Interfaces.IGenerationSettings
     name: IGenerationSettings
-    href: ExamPaper.Core.Generation.IGenerationSettings.html
+    href: ExamPaper.Core.Interfaces.IGenerationSettings.html
   - name: )
   spec.vb:
-  - uid: ExamPaper.Core.Interfaces.IExamGenerator.Generate(System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion},ExamPaper.Core.Generation.IGenerationSettings)
+  - uid: ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
     name: Generate
-    href: ExamPaper.Core.Interfaces.IExamGenerator.html#ExamPaper_Core_Interfaces_IExamGenerator_Generate_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IQuestion__ExamPaper_Core_Generation_IGenerationSettings_
+    href: ExamPaper.Core.Interfaces.IExamGenerator.html#ExamPaper_Core_Interfaces_IExamGenerator_Generate_ExamPaper_Core_Interfaces_IGenerationSettings_
   - name: (
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: ExamPaper.Core.Interfaces.IQuestion
-    name: IQuestion
-    href: ExamPaper.Core.Interfaces.IQuestion.html
-  - name: )
-  - name: ','
-  - name: " "
-  - uid: ExamPaper.Core.Generation.IGenerationSettings
+  - uid: ExamPaper.Core.Interfaces.IGenerationSettings
     name: IGenerationSettings
-    href: ExamPaper.Core.Generation.IGenerationSettings.html
+    href: ExamPaper.Core.Interfaces.IGenerationSettings.html
   - name: )
-- uid: System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion}
-  commentId: T:System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IEnumerable`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  name: IEnumerable<IQuestion>
-  nameWithType: IEnumerable<IQuestion>
-  fullName: System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IQuestion>
-  nameWithType.vb: IEnumerable(Of IQuestion)
-  fullName.vb: System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IQuestion)
-  name.vb: IEnumerable(Of IQuestion)
-  spec.csharp:
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: <
-  - uid: ExamPaper.Core.Interfaces.IQuestion
-    name: IQuestion
-    href: ExamPaper.Core.Interfaces.IQuestion.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.IEnumerable`1
-    name: IEnumerable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: ExamPaper.Core.Interfaces.IQuestion
-    name: IQuestion
-    href: ExamPaper.Core.Interfaces.IQuestion.html
-  - name: )
-- uid: ExamPaper.Core.Generation.IGenerationSettings
-  commentId: T:ExamPaper.Core.Generation.IGenerationSettings
-  parent: ExamPaper.Core.Generation
-  href: ExamPaper.Core.Generation.IGenerationSettings.html
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings
+  commentId: T:ExamPaper.Core.Interfaces.IGenerationSettings
+  parent: ExamPaper.Core.Interfaces
+  href: ExamPaper.Core.Interfaces.IGenerationSettings.html
   name: IGenerationSettings
   nameWithType: IGenerationSettings
-  fullName: ExamPaper.Core.Generation.IGenerationSettings
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings
 - uid: System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper}
   commentId: T:System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper}
   parent: System.Collections.Generic
@@ -618,33 +581,3 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: ExamPaper.Core.Generation
-  commentId: N:ExamPaper.Core.Generation
-  href: ExamPaper.html
-  name: ExamPaper.Core.Generation
-  nameWithType: ExamPaper.Core.Generation
-  fullName: ExamPaper.Core.Generation
-  spec.csharp:
-  - uid: ExamPaper
-    name: ExamPaper
-    href: ExamPaper.html
-  - name: .
-  - uid: ExamPaper.Core
-    name: Core
-    href: ExamPaper.Core.html
-  - name: .
-  - uid: ExamPaper.Core.Generation
-    name: Generation
-    href: ExamPaper.Core.Generation.html
-  spec.vb:
-  - uid: ExamPaper
-    name: ExamPaper
-    href: ExamPaper.html
-  - name: .
-  - uid: ExamPaper.Core
-    name: Core
-    href: ExamPaper.Core.html
-  - name: .
-  - uid: ExamPaper.Core.Generation
-    name: Generation
-    href: ExamPaper.Core.Generation.html

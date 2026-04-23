@@ -15,11 +15,11 @@ items:
   type: Interface
   source:
     remote:
-      path: ExamPaper.Core/Interfaces/IQuestionRepository.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Interfaces/IQuestionRepository.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: IQuestionRepository
-    path: ExamPaper.Core/Interfaces/IQuestionRepository.cs
+    path: ../src/ExamPaper.Core/Interfaces/IQuestionRepository.cs
     startLine: 7
   assemblies:
   - ExamPaper.Core
@@ -49,11 +49,11 @@ items:
   type: Method
   source:
     remote:
-      path: ExamPaper.Core/Interfaces/IQuestionRepository.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Interfaces/IQuestionRepository.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: GetQuestionById
-    path: ExamPaper.Core/Interfaces/IQuestionRepository.cs
+    path: ../src/ExamPaper.Core/Interfaces/IQuestionRepository.cs
     startLine: 14
   assemblies:
   - ExamPaper.Core

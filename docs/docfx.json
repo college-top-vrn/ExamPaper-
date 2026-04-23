@@ -4,10 +4,11 @@
     {
       "src": [
         {
+          "src": "..",
           "files": [
-            "ExamPaper.Core/**/*.csproj",
-            "ExamPaper.Infrastructure/**/*.csproj",
-            "ExamPaper.Service/**/*.csproj"
+            "src/ExamPaper.Core/**/*.csproj",
+            "src/ExamPaper.Infrastructure/**/*.csproj",
+            "src/ExamPaper.Service/**/*.csproj"
           ],
           "exclude": [
             "**/obj/**",
@@ -25,14 +26,22 @@
           "**/*.{md,yml}"
         ],
         "exclude": [
-          "_site/**"
+          "_site/**",
+          "obj/**"
         ]
       }
     ],
     "resource": [
       {
         "files": [
+          "**/assets/**",
           "images/**"
+        ],
+        "exclude": [
+          "**/*.md",
+          "**/*.yml",
+          "**/obj/**",
+          "**/_site/**"
         ]
       }
     ],

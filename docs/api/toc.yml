@@ -1,12 +1,5 @@
 ### YamlMime:TableOfContent
 items:
-- uid: ExamPaper.Core.Generation
-  name: ExamPaper.Core.Generation
-  type: Namespace
-  items:
-  - uid: ExamPaper.Core.Generation.IGenerationSettings
-    name: IGenerationSettings
-    type: Interface
 - uid: ExamPaper.Core.Interfaces
   name: ExamPaper.Core.Interfaces
   type: Namespace
@@ -22,6 +15,9 @@ items:
     type: Interface
   - uid: ExamPaper.Core.Interfaces.IExamPaperFactory
     name: IExamPaperFactory
+    type: Interface
+  - uid: ExamPaper.Core.Interfaces.IGenerationSettings
+    name: IGenerationSettings
     type: Interface
   - uid: ExamPaper.Core.Interfaces.IQuestion
     name: IQuestion
@@ -67,6 +63,13 @@ items:
   items:
   - uid: ExamPaper.Infrastructure.Repositories.QuestionRepository
     name: QuestionRepository
+    type: Class
+- uid: ExamPaper.Service.DTOs
+  name: ExamPaper.Service.DTOs
+  type: Namespace
+  items:
+  - uid: ExamPaper.Service.DTOs.CreateQuestionDto
+    name: CreateQuestionDto
     type: Class
 - uid: ExamPaper.Service.Factories
   name: ExamPaper.Service.Factories

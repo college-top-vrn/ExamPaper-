@@ -17,11 +17,11 @@ items:
   type: Interface
   source:
     remote:
-      path: ExamPaper.Core/Interfaces/IExamPaper.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Interfaces/IExamPaper.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: IExamPaper
-    path: ExamPaper.Core/Interfaces/IExamPaper.cs
+    path: ../src/ExamPaper.Core/Interfaces/IExamPaper.cs
     startLine: 8
   assemblies:
   - ExamPaper.Core
@@ -46,11 +46,11 @@ items:
   type: Property
   source:
     remote:
-      path: ExamPaper.Core/Interfaces/IExamPaper.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Interfaces/IExamPaper.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: Id
-    path: ExamPaper.Core/Interfaces/IExamPaper.cs
+    path: ../src/ExamPaper.Core/Interfaces/IExamPaper.cs
     startLine: 13
   assemblies:
   - ExamPaper.Core
@@ -77,11 +77,11 @@ items:
   type: Property
   source:
     remote:
-      path: ExamPaper.Core/Interfaces/IExamPaper.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Interfaces/IExamPaper.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: Title
-    path: ExamPaper.Core/Interfaces/IExamPaper.cs
+    path: ../src/ExamPaper.Core/Interfaces/IExamPaper.cs
     startLine: 18
   assemblies:
   - ExamPaper.Core
@@ -108,11 +108,11 @@ items:
   type: Property
   source:
     remote:
-      path: ExamPaper.Core/Interfaces/IExamPaper.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Interfaces/IExamPaper.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: Questions
-    path: ExamPaper.Core/Interfaces/IExamPaper.cs
+    path: ../src/ExamPaper.Core/Interfaces/IExamPaper.cs
     startLine: 21
   assemblies:
   - ExamPaper.Core

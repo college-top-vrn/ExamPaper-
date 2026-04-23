@@ -20,12 +20,12 @@ items:
   type: Class
   source:
     remote:
-      path: ExamPaper.Core/Models/Question.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Models/Question.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: Question
-    path: ExamPaper.Core/Models/Question.cs
-    startLine: 8
+    path: ../src/ExamPaper.Core/Models/Question.cs
+    startLine: 10
   assemblies:
   - ExamPaper.Core
   namespace: ExamPaper.Core.Models
@@ -43,72 +43,6 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: ExamPaper.Core.Models.Question.Id
-  commentId: P:ExamPaper.Core.Models.Question.Id
-  id: Id
-  parent: ExamPaper.Core.Models.Question
-  langs:
-  - csharp
-  - vb
-  name: Id
-  nameWithType: Question.Id
-  fullName: ExamPaper.Core.Models.Question.Id
-  type: Property
-  source:
-    remote:
-      path: ExamPaper.Core/Models/Question.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
-    id: Id
-    path: ExamPaper.Core/Models/Question.cs
-    startLine: 13
-  assemblies:
-  - ExamPaper.Core
-  namespace: ExamPaper.Core.Models
-  summary: Уникальный Guid идентификатор вопроса.
-  example: []
-  syntax:
-    content: public Guid Id { get; init; }
-    parameters: []
-    return:
-      type: System.Guid
-    content.vb: Public Property Id As Guid
-  overload: ExamPaper.Core.Models.Question.Id*
-  implements:
-  - ExamPaper.Core.Interfaces.IQuestion.Id
-- uid: ExamPaper.Core.Models.Question.Text
-  commentId: P:ExamPaper.Core.Models.Question.Text
-  id: Text
-  parent: ExamPaper.Core.Models.Question
-  langs:
-  - csharp
-  - vb
-  name: Text
-  nameWithType: Question.Text
-  fullName: ExamPaper.Core.Models.Question.Text
-  type: Property
-  source:
-    remote:
-      path: ExamPaper.Core/Models/Question.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
-    id: Text
-    path: ExamPaper.Core/Models/Question.cs
-    startLine: 18
-  assemblies:
-  - ExamPaper.Core
-  namespace: ExamPaper.Core.Models
-  summary: Текст вопроса.
-  example: []
-  syntax:
-    content: public string Text { get; init; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property Text As String
-  overload: ExamPaper.Core.Models.Question.Text*
-  implements:
-  - ExamPaper.Core.Interfaces.IQuestion.Text
 - uid: ExamPaper.Core.Models.Question.#ctor(System.String)
   commentId: M:ExamPaper.Core.Models.Question.#ctor(System.String)
   id: '#ctor(System.String)'
@@ -122,12 +56,12 @@ items:
   type: Constructor
   source:
     remote:
-      path: ExamPaper.Core/Models/Question.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Models/Question.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: .ctor
-    path: ExamPaper.Core/Models/Question.cs
-    startLine: 25
+    path: ../src/ExamPaper.Core/Models/Question.cs
+    startLine: 17
   assemblies:
   - ExamPaper.Core
   namespace: ExamPaper.Core.Models
@@ -161,19 +95,22 @@ items:
   type: Constructor
   source:
     remote:
-      path: ExamPaper.Core/Models/Question.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Models/Question.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: .ctor
-    path: ExamPaper.Core/Models/Question.cs
-    startLine: 34
+    path: ../src/ExamPaper.Core/Models/Question.cs
+    startLine: 28
   assemblies:
   - ExamPaper.Core
   namespace: ExamPaper.Core.Models
   summary: Конструктор для создания экзаменационного вопроса с заданным Id.
   example: []
   syntax:
-    content: public Question(Guid id, string text)
+    content: >-
+      [JsonConstructor]
+
+      public Question(Guid id, string text)
     parameters:
     - id: id
       type: System.Guid
@@ -181,15 +118,88 @@ items:
     - id: text
       type: System.String
       description: Текст вопроса.
-    content.vb: Public Sub New(id As Guid, text As String)
+    content.vb: >-
+      <JsonConstructor>
+
+      Public Sub New(id As Guid, text As String)
   overload: ExamPaper.Core.Models.Question.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
     description: Если текст пуст.
+  attributes:
+  - type: System.Text.Json.Serialization.JsonConstructorAttribute
+    ctor: System.Text.Json.Serialization.JsonConstructorAttribute.#ctor
+    arguments: []
   nameWithType.vb: Question.New(Guid, String)
   fullName.vb: ExamPaper.Core.Models.Question.New(System.Guid, String)
   name.vb: New(Guid, String)
+- uid: ExamPaper.Core.Models.Question.Id
+  commentId: P:ExamPaper.Core.Models.Question.Id
+  id: Id
+  parent: ExamPaper.Core.Models.Question
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Question.Id
+  fullName: ExamPaper.Core.Models.Question.Id
+  type: Property
+  source:
+    remote:
+      path: src/ExamPaper.Core/Models/Question.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: Id
+    path: ../src/ExamPaper.Core/Models/Question.cs
+    startLine: 44
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Models
+  summary: Уникальный Guid идентификатор вопроса.
+  example: []
+  syntax:
+    content: public Guid Id { get; init; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: ExamPaper.Core.Models.Question.Id*
+  implements:
+  - ExamPaper.Core.Interfaces.IQuestion.Id
+- uid: ExamPaper.Core.Models.Question.Text
+  commentId: P:ExamPaper.Core.Models.Question.Text
+  id: Text
+  parent: ExamPaper.Core.Models.Question
+  langs:
+  - csharp
+  - vb
+  name: Text
+  nameWithType: Question.Text
+  fullName: ExamPaper.Core.Models.Question.Text
+  type: Property
+  source:
+    remote:
+      path: src/ExamPaper.Core/Models/Question.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: Text
+    path: ../src/ExamPaper.Core/Models/Question.cs
+    startLine: 49
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Models
+  summary: Текст вопроса.
+  example: []
+  syntax:
+    content: public string Text { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Text As String
+  overload: ExamPaper.Core.Models.Question.Text*
+  implements:
+  - ExamPaper.Core.Interfaces.IQuestion.Text
 - uid: ExamPaper.Core.Models.Question.Equals(System.Object)
   commentId: M:ExamPaper.Core.Models.Question.Equals(System.Object)
   id: Equals(System.Object)
@@ -203,12 +213,12 @@ items:
   type: Method
   source:
     remote:
-      path: ExamPaper.Core/Models/Question.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Models/Question.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: Equals
-    path: ExamPaper.Core/Models/Question.cs
-    startLine: 49
+    path: ../src/ExamPaper.Core/Models/Question.cs
+    startLine: 56
   assemblies:
   - ExamPaper.Core
   namespace: ExamPaper.Core.Models
@@ -242,12 +252,12 @@ items:
   type: Method
   source:
     remote:
-      path: ExamPaper.Core/Models/Question.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Models/Question.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: GetHashCode
-    path: ExamPaper.Core/Models/Question.cs
-    startLine: 61
+    path: ../src/ExamPaper.Core/Models/Question.cs
+    startLine: 70
   assemblies:
   - ExamPaper.Core
   namespace: ExamPaper.Core.Models
@@ -485,51 +495,6 @@ references:
   - uid: ExamPaper.Core.Interfaces
     name: Interfaces
     href: ExamPaper.Core.Interfaces.html
-- uid: ExamPaper.Core.Models.Question.Id*
-  commentId: Overload:ExamPaper.Core.Models.Question.Id
-  href: ExamPaper.Core.Models.Question.html#ExamPaper_Core_Models_Question_Id
-  name: Id
-  nameWithType: Question.Id
-  fullName: ExamPaper.Core.Models.Question.Id
-- uid: ExamPaper.Core.Interfaces.IQuestion.Id
-  commentId: P:ExamPaper.Core.Interfaces.IQuestion.Id
-  parent: ExamPaper.Core.Interfaces.IQuestion
-  href: ExamPaper.Core.Interfaces.IQuestion.html#ExamPaper_Core_Interfaces_IQuestion_Id
-  name: Id
-  nameWithType: IQuestion.Id
-  fullName: ExamPaper.Core.Interfaces.IQuestion.Id
-- uid: System.Guid
-  commentId: T:System.Guid
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.guid
-  name: Guid
-  nameWithType: Guid
-  fullName: System.Guid
-- uid: ExamPaper.Core.Models.Question.Text*
-  commentId: Overload:ExamPaper.Core.Models.Question.Text
-  href: ExamPaper.Core.Models.Question.html#ExamPaper_Core_Models_Question_Text
-  name: Text
-  nameWithType: Question.Text
-  fullName: ExamPaper.Core.Models.Question.Text
-- uid: ExamPaper.Core.Interfaces.IQuestion.Text
-  commentId: P:ExamPaper.Core.Interfaces.IQuestion.Text
-  parent: ExamPaper.Core.Interfaces.IQuestion
-  href: ExamPaper.Core.Interfaces.IQuestion.html#ExamPaper_Core_Interfaces_IQuestion_Text
-  name: Text
-  nameWithType: IQuestion.Text
-  fullName: ExamPaper.Core.Interfaces.IQuestion.Text
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
 - uid: System.ArgumentException
   commentId: T:System.ArgumentException
   isExternal: true
@@ -546,6 +511,51 @@ references:
   nameWithType.vb: Question.New
   fullName.vb: ExamPaper.Core.Models.Question.New
   name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: ExamPaper.Core.Models.Question.Id*
+  commentId: Overload:ExamPaper.Core.Models.Question.Id
+  href: ExamPaper.Core.Models.Question.html#ExamPaper_Core_Models_Question_Id
+  name: Id
+  nameWithType: Question.Id
+  fullName: ExamPaper.Core.Models.Question.Id
+- uid: ExamPaper.Core.Interfaces.IQuestion.Id
+  commentId: P:ExamPaper.Core.Interfaces.IQuestion.Id
+  parent: ExamPaper.Core.Interfaces.IQuestion
+  href: ExamPaper.Core.Interfaces.IQuestion.html#ExamPaper_Core_Interfaces_IQuestion_Id
+  name: Id
+  nameWithType: IQuestion.Id
+  fullName: ExamPaper.Core.Interfaces.IQuestion.Id
+- uid: ExamPaper.Core.Models.Question.Text*
+  commentId: Overload:ExamPaper.Core.Models.Question.Text
+  href: ExamPaper.Core.Models.Question.html#ExamPaper_Core_Models_Question_Text
+  name: Text
+  nameWithType: Question.Text
+  fullName: ExamPaper.Core.Models.Question.Text
+- uid: ExamPaper.Core.Interfaces.IQuestion.Text
+  commentId: P:ExamPaper.Core.Interfaces.IQuestion.Text
+  parent: ExamPaper.Core.Interfaces.IQuestion
+  href: ExamPaper.Core.Interfaces.IQuestion.html#ExamPaper_Core_Interfaces_IQuestion_Text
+  name: Text
+  nameWithType: IQuestion.Text
+  fullName: ExamPaper.Core.Interfaces.IQuestion.Text
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object

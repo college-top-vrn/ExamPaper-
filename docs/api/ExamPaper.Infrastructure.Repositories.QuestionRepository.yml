@@ -20,11 +20,11 @@ items:
   type: Class
   source:
     remote:
-      path: ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: QuestionRepository
-    path: ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
+    path: ../src/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
     startLine: 40
   assemblies:
   - ExamPaper.Infrastructure
@@ -32,27 +32,18 @@ items:
   summary: Реализация провайдера вопросов для загрузки данных из файла в формате JSON.
   remarks: >-
     <p>
-
-    <xref href="ExamPaper.Infrastructure.Repositories.QuestionRepository" data-throw-if-not-resolved="false"></xref> предоставляет функциональность для работы с коллекцией вопросов,
-
-    хранящихся в JSON-файле. Репозиторий поддерживает CRUD операции, загрузку и сохранение данных.
-
+        <xref href="ExamPaper.Infrastructure.Repositories.QuestionRepository" data-throw-if-not-resolved="false"></xref> предоставляет функциональность для работы с коллекцией вопросов,
+        хранящихся в JSON-файле. Репозиторий поддерживает CRUD операции, загрузку и сохранение данных.
     </p>
 
     <p>
-
-    Все изменения в коллекции вопросов накапливаются в памяти и сохраняются в файл только при вызове
-
-    метода <xref href="ExamPaper.Infrastructure.Repositories.QuestionRepository.SaveChanges" data-throw-if-not-resolved="false"></xref>.
-
+        Все изменения в коллекции вопросов накапливаются в памяти и сохраняются в файл только при вызове
+        метода <xref href="ExamPaper.Infrastructure.Repositories.QuestionRepository.SaveChanges" data-throw-if-not-resolved="false"></xref>.
     </p>
 
     <p>
-
-    <b>Пример использования:</b>
-
-    <pre><code class="lang-csharp">var repository = new QuestionRepository("questions.json");
-
+        <b>Пример использования:</b>
+        <pre><code class="lang-csharp">var repository = new QuestionRepository("questions.json");
 
     // Получение всех вопросов
 
@@ -101,11 +92,11 @@ items:
   type: Constructor
   source:
     remote:
-      path: ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: .ctor
-    path: ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
+    path: ../src/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
     startLine: 56
   assemblies:
   - ExamPaper.Infrastructure
@@ -144,12 +135,12 @@ items:
   type: Method
   source:
     remote:
-      path: ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: GetAllQuestions
-    path: ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
-    startLine: 120
+    path: ../src/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
+    startLine: 73
   assemblies:
   - ExamPaper.Infrastructure
   namespace: ExamPaper.Infrastructure.Repositories
@@ -184,12 +175,12 @@ items:
   type: Method
   source:
     remote:
-      path: ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: AddQuestion
-    path: ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
-    startLine: 136
+    path: ../src/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
+    startLine: 92
   assemblies:
   - ExamPaper.Infrastructure
   namespace: ExamPaper.Infrastructure.Repositories
@@ -229,31 +220,25 @@ items:
   type: Method
   source:
     remote:
-      path: ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: RemoveQuestion
-    path: ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
-    startLine: 159
+    path: ../src/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
+    startLine: 121
   assemblies:
   - ExamPaper.Infrastructure
   namespace: ExamPaper.Infrastructure.Repositories
   summary: Удаляет вопрос по указанному идентификатору.
   remarks: >-
     <p>
-
-    Если вопрос с указанным <code class="paramref">questionId</code> не найден, метод не выполняет никаких действий
-
-    и не выбрасывает исключение.
-
+        Если вопрос с указанным <code class="paramref">questionId</code> не найден, метод не выполняет никаких действий
+        и не выбрасывает исключение.
     </p>
 
     <p>
-
-    Вопрос удаляется только из памяти. Для сохранения изменений в файл необходимо вызвать
-
-    метод <xref href="ExamPaper.Infrastructure.Repositories.QuestionRepository.SaveChanges" data-throw-if-not-resolved="false"></xref>.
-
+        Вопрос удаляется только из памяти. Для сохранения изменений в файл необходимо вызвать
+        метод <xref href="ExamPaper.Infrastructure.Repositories.QuestionRepository.SaveChanges" data-throw-if-not-resolved="false"></xref>.
     </p>
   example: []
   syntax:
@@ -279,29 +264,24 @@ items:
   type: Method
   source:
     remote:
-      path: ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: SaveChanges
-    path: ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
-    startLine: 186
+    path: ../src/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
+    startLine: 148
   assemblies:
   - ExamPaper.Infrastructure
   namespace: ExamPaper.Infrastructure.Repositories
   summary: Сохраняет все изменения (добавления, удаления) в файл.
   remarks: >-
     <p>
-
-    Сериализует текущую коллекцию вопросов в JSON-формат с отступами (pretty print) и
-
-    записывает в файл, указанный при создании репозитория.
-
+        Сериализует текущую коллекцию вопросов в JSON-формат с отступами (pretty print) и
+        записывает в файл, указанный при создании репозитория.
     </p>
 
     <p>
-
-    Если файл не существует, он будет создан. Существующий файл будет перезаписан.
-
+        Если файл не существует, он будет создан. Существующий файл будет перезаписан.
     </p>
   example: []
   syntax:
@@ -330,12 +310,12 @@ items:
   type: Method
   source:
     remote:
-      path: ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: GetQuestionById
-    path: ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
-    startLine: 205
+    path: ../src/ExamPaper.Infrastructure/Repositories/QuestionRepository.cs
+    startLine: 167
   assemblies:
   - ExamPaper.Infrastructure
   namespace: ExamPaper.Infrastructure.Repositories

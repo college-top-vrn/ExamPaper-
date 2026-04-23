@@ -15,11 +15,11 @@ items:
   type: Class
   source:
     remote:
-      path: ExamPaper.Service/Factories/QuestionFactory.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Service/Factories/QuestionFactory.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: QuestionFactory
-    path: ExamPaper.Service/Factories/QuestionFactory.cs
+    path: ../src/ExamPaper.Service/Factories/QuestionFactory.cs
     startLine: 10
   assemblies:
   - ExamPaper.Service
@@ -54,11 +54,11 @@ items:
   type: Method
   source:
     remote:
-      path: ExamPaper.Service/Factories/QuestionFactory.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Service/Factories/QuestionFactory.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: CreateQuestion
-    path: ExamPaper.Service/Factories/QuestionFactory.cs
+    path: ../src/ExamPaper.Service/Factories/QuestionFactory.cs
     startLine: 18
   assemblies:
   - ExamPaper.Service

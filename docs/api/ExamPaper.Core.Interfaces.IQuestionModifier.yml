@@ -17,11 +17,11 @@ items:
   type: Interface
   source:
     remote:
-      path: ExamPaper.Core/Interfaces/IQuestionModifier.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: IQuestionModifier
-    path: ExamPaper.Core/Interfaces/IQuestionModifier.cs
+    path: ../src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
     startLine: 7
   assemblies:
   - ExamPaper.Core
@@ -46,11 +46,11 @@ items:
   type: Method
   source:
     remote:
-      path: ExamPaper.Core/Interfaces/IQuestionModifier.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: AddQuestion
-    path: ExamPaper.Core/Interfaces/IQuestionModifier.cs
+    path: ../src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
     startLine: 15
   assemblies:
   - ExamPaper.Core
@@ -85,11 +85,11 @@ items:
   type: Method
   source:
     remote:
-      path: ExamPaper.Core/Interfaces/IQuestionModifier.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: RemoveQuestion
-    path: ExamPaper.Core/Interfaces/IQuestionModifier.cs
+    path: ../src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
     startLine: 21
   assemblies:
   - ExamPaper.Core
@@ -117,11 +117,11 @@ items:
   type: Method
   source:
     remote:
-      path: ExamPaper.Core/Interfaces/IQuestionModifier.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: SaveChanges
-    path: ExamPaper.Core/Interfaces/IQuestionModifier.cs
+    path: ../src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
     startLine: 26
   assemblies:
   - ExamPaper.Core

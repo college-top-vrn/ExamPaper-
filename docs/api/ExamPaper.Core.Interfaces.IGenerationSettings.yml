@@ -1,0 +1,208 @@
+### YamlMime:ManagedReference
+items:
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings
+  commentId: T:ExamPaper.Core.Interfaces.IGenerationSettings
+  id: IGenerationSettings
+  parent: ExamPaper.Core.Interfaces
+  children:
+  - ExamPaper.Core.Interfaces.IGenerationSettings.QuestionsPerTicketCount
+  - ExamPaper.Core.Interfaces.IGenerationSettings.TicketNameTemplate
+  - ExamPaper.Core.Interfaces.IGenerationSettings.TotalTicketsCount
+  langs:
+  - csharp
+  - vb
+  name: IGenerationSettings
+  nameWithType: IGenerationSettings
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings
+  type: Interface
+  source:
+    remote:
+      path: src/ExamPaper.Core/Interfaces/IGenerationSettings.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: IGenerationSettings
+    path: ../src/ExamPaper.Core/Interfaces/IGenerationSettings.cs
+    startLine: 5
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Interfaces
+  summary: Контракт для хранения параметров генерации билетов.
+  example: []
+  syntax:
+    content: public interface IGenerationSettings
+    content.vb: Public Interface IGenerationSettings
+  derivedClasses:
+  - ExamPaper.Core.Models.GenerationSettings
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings.TotalTicketsCount
+  commentId: P:ExamPaper.Core.Interfaces.IGenerationSettings.TotalTicketsCount
+  id: TotalTicketsCount
+  parent: ExamPaper.Core.Interfaces.IGenerationSettings
+  langs:
+  - csharp
+  - vb
+  name: TotalTicketsCount
+  nameWithType: IGenerationSettings.TotalTicketsCount
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings.TotalTicketsCount
+  type: Property
+  source:
+    remote:
+      path: src/ExamPaper.Core/Interfaces/IGenerationSettings.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: TotalTicketsCount
+    path: ../src/ExamPaper.Core/Interfaces/IGenerationSettings.cs
+    startLine: 11
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Interfaces
+  summary: Получение общего количества билетов, которые необходимо создать.
+  example: []
+  syntax:
+    content: int TotalTicketsCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: Положительное целое число.
+    content.vb: ReadOnly Property TotalTicketsCount As Integer
+  overload: ExamPaper.Core.Interfaces.IGenerationSettings.TotalTicketsCount*
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings.QuestionsPerTicketCount
+  commentId: P:ExamPaper.Core.Interfaces.IGenerationSettings.QuestionsPerTicketCount
+  id: QuestionsPerTicketCount
+  parent: ExamPaper.Core.Interfaces.IGenerationSettings
+  langs:
+  - csharp
+  - vb
+  name: QuestionsPerTicketCount
+  nameWithType: IGenerationSettings.QuestionsPerTicketCount
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings.QuestionsPerTicketCount
+  type: Property
+  source:
+    remote:
+      path: src/ExamPaper.Core/Interfaces/IGenerationSettings.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: QuestionsPerTicketCount
+    path: ../src/ExamPaper.Core/Interfaces/IGenerationSettings.cs
+    startLine: 17
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Interfaces
+  summary: Получение количества вопросов, закрепленных за одним билетом.
+  example: []
+  syntax:
+    content: int QuestionsPerTicketCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: Положительное целое число.
+    content.vb: ReadOnly Property QuestionsPerTicketCount As Integer
+  overload: ExamPaper.Core.Interfaces.IGenerationSettings.QuestionsPerTicketCount*
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings.TicketNameTemplate
+  commentId: P:ExamPaper.Core.Interfaces.IGenerationSettings.TicketNameTemplate
+  id: TicketNameTemplate
+  parent: ExamPaper.Core.Interfaces.IGenerationSettings
+  langs:
+  - csharp
+  - vb
+  name: TicketNameTemplate
+  nameWithType: IGenerationSettings.TicketNameTemplate
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings.TicketNameTemplate
+  type: Property
+  source:
+    remote:
+      path: src/ExamPaper.Core/Interfaces/IGenerationSettings.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: TicketNameTemplate
+    path: ../src/ExamPaper.Core/Interfaces/IGenerationSettings.cs
+    startLine: 22
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Interfaces
+  summary: Шаблон названия билета. По умолчанию "Билет №{0}".
+  example: []
+  syntax:
+    content: string TicketNameTemplate { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property TicketNameTemplate As String
+  overload: ExamPaper.Core.Interfaces.IGenerationSettings.TicketNameTemplate*
+references:
+- uid: ExamPaper.Core.Interfaces
+  commentId: N:ExamPaper.Core.Interfaces
+  href: ExamPaper.html
+  name: ExamPaper.Core.Interfaces
+  nameWithType: ExamPaper.Core.Interfaces
+  fullName: ExamPaper.Core.Interfaces
+  spec.csharp:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+  spec.vb:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings.TotalTicketsCount*
+  commentId: Overload:ExamPaper.Core.Interfaces.IGenerationSettings.TotalTicketsCount
+  href: ExamPaper.Core.Interfaces.IGenerationSettings.html#ExamPaper_Core_Interfaces_IGenerationSettings_TotalTicketsCount
+  name: TotalTicketsCount
+  nameWithType: IGenerationSettings.TotalTicketsCount
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings.TotalTicketsCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings.QuestionsPerTicketCount*
+  commentId: Overload:ExamPaper.Core.Interfaces.IGenerationSettings.QuestionsPerTicketCount
+  href: ExamPaper.Core.Interfaces.IGenerationSettings.html#ExamPaper_Core_Interfaces_IGenerationSettings_QuestionsPerTicketCount
+  name: QuestionsPerTicketCount
+  nameWithType: IGenerationSettings.QuestionsPerTicketCount
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings.QuestionsPerTicketCount
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings.TicketNameTemplate*
+  commentId: Overload:ExamPaper.Core.Interfaces.IGenerationSettings.TicketNameTemplate
+  href: ExamPaper.Core.Interfaces.IGenerationSettings.html#ExamPaper_Core_Interfaces_IGenerationSettings_TicketNameTemplate
+  name: TicketNameTemplate
+  nameWithType: IGenerationSettings.TicketNameTemplate
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings.TicketNameTemplate
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

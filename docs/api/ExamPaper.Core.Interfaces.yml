@@ -8,6 +8,7 @@ items:
   - ExamPaper.Core.Interfaces.IExamGenerator
   - ExamPaper.Core.Interfaces.IExamPaper
   - ExamPaper.Core.Interfaces.IExamPaperFactory
+  - ExamPaper.Core.Interfaces.IGenerationSettings
   - ExamPaper.Core.Interfaces.IQuestion
   - ExamPaper.Core.Interfaces.IQuestionFactory
   - ExamPaper.Core.Interfaces.IQuestionModifier
@@ -51,6 +52,13 @@ references:
   name: IExamPaperFactory
   nameWithType: IExamPaperFactory
   fullName: ExamPaper.Core.Interfaces.IExamPaperFactory
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings
+  commentId: T:ExamPaper.Core.Interfaces.IGenerationSettings
+  parent: ExamPaper.Core.Interfaces
+  href: ExamPaper.Core.Interfaces.IGenerationSettings.html
+  name: IGenerationSettings
+  nameWithType: IGenerationSettings
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings
 - uid: ExamPaper.Core.Interfaces.IQuestion
   commentId: T:ExamPaper.Core.Interfaces.IQuestion
   parent: ExamPaper.Core.Interfaces

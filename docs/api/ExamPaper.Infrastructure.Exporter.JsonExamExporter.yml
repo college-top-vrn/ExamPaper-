@@ -15,11 +15,11 @@ items:
   type: Class
   source:
     remote:
-      path: ExamPaper.Infrastructure/Exporter/JsonExamExporter.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Infrastructure/Exporter/JsonExamExporter.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: JsonExamExporter
-    path: ExamPaper.Infrastructure/Exporter/JsonExamExporter.cs
+    path: ../src/ExamPaper.Infrastructure/Exporter/JsonExamExporter.cs
     startLine: 11
   assemblies:
   - ExamPaper.Infrastructure
@@ -53,11 +53,11 @@ items:
   type: Method
   source:
     remote:
-      path: ExamPaper.Infrastructure/Exporter/JsonExamExporter.cs
-      branch: develop
-      repo: https://github.com/college-top-vrn/ExamPaper-.git
+      path: src/ExamPaper.Infrastructure/Exporter/JsonExamExporter.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
     id: Export
-    path: ExamPaper.Infrastructure/Exporter/JsonExamExporter.cs
+    path: ../src/ExamPaper.Infrastructure/Exporter/JsonExamExporter.cs
     startLine: 25
   assemblies:
   - ExamPaper.Infrastructure
