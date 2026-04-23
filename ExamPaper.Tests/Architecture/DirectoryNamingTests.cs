@@ -22,7 +22,7 @@ public class DirectoryNamingTests
         string? solutionRoot = GetSolutionRoot();
         Assert.True(solutionRoot != null, "Не удалось найти корень решения (файл .sln).");
 
-        List<string> errors = new();
+        List<string> errors = [];
 
         IEnumerable<string> projects = Directory
             .GetDirectories(solutionRoot, "ExamPaper*", SearchOption.TopDirectoryOnly)
@@ -65,7 +65,7 @@ public class DirectoryNamingTests
     private static string? GetSolutionRoot()
     {
         DirectoryInfo? currentDir = new(AppDomain.CurrentDomain.BaseDirectory);
-        while (currentDir != null && !currentDir.GetFiles("*.sln").Any())
+        while (currentDir != null && !currentDir.GetFiles("*.slnx").Any())
         {
             currentDir = currentDir.Parent;
         }
