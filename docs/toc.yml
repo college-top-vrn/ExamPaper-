@@ -1,10 +1,6 @@
-- name: Introduction
+- name: Введение
   href: introduction.md
-- name: Getting Started
+- name: Начало работы
   href: getting-started.md
-- name: Docs
-  href: docs/
-- name: API
-  href: api/
-- name: Rules                   
-  href: rules/
+- name: Правила проекта
+  href: rules/toc.yml

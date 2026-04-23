@@ -1,2 +1,4 @@
-- name: Правила оформления
-  href: coding-standards.md
+- name: Создание веток
+  href: BranchCreation.md
+- name: Планирование классов
+  href: ClassPlanning.md

@@ -521,6 +521,19 @@
     },
     {
       "type": "Toc",
+      "source_relative_path": "rules/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "rules/toc.html"
+        },
+        ".json": {
+          "relative_path": "rules/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
         ".html": {
