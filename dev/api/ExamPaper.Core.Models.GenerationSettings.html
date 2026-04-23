@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/itedu-tool/ExamPaper/new/develop/apiSpec/new?filename=ExamPaper_Core_Models_GenerationSettings.md&amp;value=---%0Auid%3A%20ExamPaper.Core.Models.GenerationSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/college-top-vrn/ExamPaper-/new/develop/apiSpec/new?filename=ExamPaper_Core_Models_GenerationSettings.md&amp;value=---%0Auid%3A%20ExamPaper.Core.Models.GenerationSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="ExamPaper_Core_Models_GenerationSettings" data-uid="ExamPaper.Core.Models.GenerationSettings" class="text-break">
-Class GenerationSettings  <a class="header-action link-secondary" title="View source" href="https://github.com/itedu-tool/ExamPaper/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Class GenerationSettings  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -119,7 +119,7 @@ Class GenerationSettings  <a class="header-action link-secondary" title="View so
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="ExamPaper.Core.Interfaces.IGenerationSettings.html">IGenerationSettings</a></div>
+      <div><a class="xref" href="ExamPaper.Core.Generation.IGenerationSettings.html">IGenerationSettings</a></div>
     </dd>
   </dl>
 
@@ -157,7 +157,7 @@ Class GenerationSettings  <a class="header-action link-secondary" title="View so
 
   <h3 id="ExamPaper_Core_Models_GenerationSettings__ctor" data-uid="ExamPaper.Core.Models.GenerationSettings.#ctor">
   GenerationSettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/itedu-tool/ExamPaper/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Пустой конструктор для десериализации (JSON/XML).</p>
@@ -184,7 +184,7 @@ Class GenerationSettings  <a class="header-action link-secondary" title="View so
 
   <h3 id="ExamPaper_Core_Models_GenerationSettings__ctor_System_Int32_System_Int32_" data-uid="ExamPaper.Core.Models.GenerationSettings.#ctor(System.Int32,System.Int32)">
   GenerationSettings(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/itedu-tool/ExamPaper/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Конструктор для создания настроек с параметрами.</p>
@@ -230,7 +230,7 @@ Class GenerationSettings  <a class="header-action link-secondary" title="View so
 
   <h3 id="ExamPaper_Core_Models_GenerationSettings_QuestionsPerTicketCount" data-uid="ExamPaper.Core.Models.GenerationSettings.QuestionsPerTicketCount">
   QuestionsPerTicketCount
-  <a class="header-action link-secondary" title="View source" href="https://github.com/itedu-tool/ExamPaper/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Количество вопросов в одном билете.</p>
@@ -238,7 +238,7 @@ Class GenerationSettings  <a class="header-action link-secondary" title="View so
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int QuestionsPerTicketCount { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int QuestionsPerTicketCount { get; }</code></pre>
   </div>
 
 
@@ -258,43 +258,11 @@ Class GenerationSettings  <a class="header-action link-secondary" title="View so
 
 
 
-  <a id="ExamPaper_Core_Models_GenerationSettings_TicketNameTemplate_" data-uid="ExamPaper.Core.Models.GenerationSettings.TicketNameTemplate*"></a>
-
-  <h3 id="ExamPaper_Core_Models_GenerationSettings_TicketNameTemplate" data-uid="ExamPaper.Core.Models.GenerationSettings.TicketNameTemplate">
-  TicketNameTemplate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/itedu-tool/ExamPaper/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L55"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Шаблон названия билета. По умолчанию &quot;Билет №{0}&quot;.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string TicketNameTemplate { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="ExamPaper_Core_Models_GenerationSettings_TotalTicketsCount_" data-uid="ExamPaper.Core.Models.GenerationSettings.TotalTicketsCount*"></a>
 
   <h3 id="ExamPaper_Core_Models_GenerationSettings_TotalTicketsCount" data-uid="ExamPaper.Core.Models.GenerationSettings.TotalTicketsCount">
   TotalTicketsCount
-  <a class="header-action link-secondary" title="View source" href="https://github.com/itedu-tool/ExamPaper/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Общее количество билетов.</p>
@@ -302,7 +270,7 @@ Class GenerationSettings  <a class="header-action link-secondary" title="View so
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int TotalTicketsCount { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int TotalTicketsCount { get; }</code></pre>
   </div>
 
 
@@ -330,7 +298,7 @@ Class GenerationSettings  <a class="header-action link-secondary" title="View so
 
   <h3 id="ExamPaper_Core_Models_GenerationSettings_IsValid" data-uid="ExamPaper.Core.Models.GenerationSettings.IsValid">
   IsValid()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/itedu-tool/ExamPaper/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Вспомогательный метод для валидации настроек.</p>
@@ -362,7 +330,7 @@ Class GenerationSettings  <a class="header-action link-secondary" title="View so
 
   <h3 id="ExamPaper_Core_Models_GenerationSettings_ToString" data-uid="ExamPaper.Core.Models.GenerationSettings.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/itedu-tool/ExamPaper/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Переопределенный метод, выводящий информацию о настройках билета.</p>
@@ -395,7 +363,7 @@ Class GenerationSettings  <a class="header-action link-secondary" title="View so
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/itedu-tool/ExamPaper/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/ExamPaper.Core/Models/GenerationSettings.cs/#L10" class="edit-link">Edit this page</a>
         </div>
 
 

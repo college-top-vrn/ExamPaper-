@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="">
       
       
-      <meta name="docfx:docurl" content="https://github.com/itedu-tool/ExamPaper/blob/develop/README.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/college-top-vrn/ExamPaper-/blob/develop/README.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -73,6 +73,8 @@
         <article data-uid="">
 <h1 id="диаграммы">Диаграммы</h1>
 
+<h2 id="компонентов">Компонентов</h2>
+<p><img src="docs/assets/diagram_component.SVG" alt="Диаграмма компонентов"></p>
 <h2 id="прецедентов">Прецедентов</h2>
 <pre><code class="lang-mermaid">flowchart LR
   actor1[Пользователь]
@@ -98,41 +100,11 @@
     Система-&gt;&gt;Система: Генерирует билеты
     Система-&gt;&gt;Пользователь: Выдает PDF‑файл с билетами
 </code></pre>
-<h2 id="компонентов">Компонентов</h2>
-<pre><code class="lang-mermaid">flowchart
-subgraph Library
-subgraph Core
-Interfaces((Interfaces))
-Models[Models]
-Models-.Реализует.-&gt;Interfaces
-end
-
-subgraph Infrastructure
-Exporters[Exporters]
-Exporters-.Реализует.-&gt;Interfaces
-Repositories[Repositories]
-Repositories-.Реализует.-&gt;Interfaces
-end
-
-subgraph Service
-Factories[Factories]
-Factories-.Реализует.-&gt;Interfaces
-Factories--Зависит--&gt;Models
-Generators[Generators]
-Generators-.Реализует.-&gt;Interfaces
-end
-end
-
-subgraph Presentation layer
-API[API]
-end
-API--&gt;Library
-</code></pre>
 <h2 id="регламент">Регламент</h2>
 <ul>
-<li><img src="rules/BranchCreation.html" alt="Создание ветки">;</li>
-<li><img src="rules/FileAndDirectoriesCreation.html" alt="Создание файлов и директорий">;</li>
-<li><img src="rules/TestCaseRegulations.html" alt="Создание тест-кейсов">.</li>
+<li><img src="docs/BranchCreation.md" alt="Создание ветки">;</li>
+<li><img src="docs/FileAndDirectoriesCreation.md" alt="Создание файлов и директорий">.</li>
+<li><img src="docs/TestCaseRegulations.md" alt="Создание тест-кейсов"></li>
 </ul>
 <h2 id="цель-проекта-разработка-генератора-экзаменационных-билетов">Цель проекта: Разработка генератора экзаменационных билетов.</h2>
 <p>Ключевые функции:</p>
@@ -172,7 +144,7 @@ namespace ExamPaper.Core.Interfaces
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/itedu-tool/ExamPaper/blob/develop/README.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/college-top-vrn/ExamPaper-/blob/develop/README.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

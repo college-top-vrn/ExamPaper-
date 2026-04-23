@@ -1,5 +1,5 @@
 {
-  "source_base_path": "/home/runner/work/ExamPaper/ExamPaper",
+  "source_base_path": "C:/Projects/Rider/ExamPaper-",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -74,7 +74,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ExamPaper.Core.Interfaces.IExamGenerator",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ExamPaper.Core.Interfaces.IExamGenerator.yml\" sourcestartlinenumber=\"1\">Определяет контракт для службы автоматизированной генерации экзаменационных билетов.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -103,20 +103,6 @@
       "IsMRef": true,
       "Title": "ExamPaper.Core.Interfaces.IExamPaperFactory",
       "Summary": "<p sourcefile=\"api/ExamPaper.Core.Interfaces.IExamPaperFactory.yml\" sourcestartlinenumber=\"1\">интервейс фбрики ExamPaper</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/ExamPaper.Core.Interfaces.IGenerationSettings.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/ExamPaper.Core.Interfaces.IGenerationSettings.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "ExamPaper.Core.Interfaces.IGenerationSettings",
-      "Summary": "<p sourcefile=\"api/ExamPaper.Core.Interfaces.IGenerationSettings.yml\" sourcestartlinenumber=\"1\">Контракт для хранения параметров генерации билетов.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -330,34 +316,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ExamPaper.Service.DTOs.CreateQuestionDto.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/ExamPaper.Service.DTOs.CreateQuestionDto.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "ExamPaper.Service.DTOs.CreateQuestionDto",
-      "Summary": "<p sourcefile=\"api/ExamPaper.Service.DTOs.CreateQuestionDto.yml\" sourcestartlinenumber=\"1\">Dto для создание вопросов из WebApi</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/ExamPaper.Service.DTOs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/ExamPaper.Service.DTOs.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "ExamPaper.Service.DTOs",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/ExamPaper.Service.Factories.ExamPaperFactory.yml",
       "output": {
         ".html": {
@@ -410,7 +368,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ExamPaper.Service.Generator.ExamPaperGenerator",
-      "Summary": "<p sourcefile=\"api/ExamPaper.Service.Generator.ExamPaperGenerator.yml\" sourcestartlinenumber=\"1\">Сервисный класс, оркестрирующая процесс генерации билетов.</p>\n"
+      "Summary": "<p sourcefile=\"api/ExamPaper.Service.Generator.ExamPaperGenerator.yml\" sourcestartlinenumber=\"1\">Генератор экзаменационных билетов, создающий набор билетов со случайными вопросами.</p>\n"
     },
     {
       "type": "ManagedReference",
