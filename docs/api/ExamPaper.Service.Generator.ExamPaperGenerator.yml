@@ -1,0 +1,583 @@
+### YamlMime:ManagedReference
+items:
+- uid: ExamPaper.Service.Generator.ExamPaperGenerator
+  commentId: T:ExamPaper.Service.Generator.ExamPaperGenerator
+  id: ExamPaperGenerator
+  parent: ExamPaper.Service.Generator
+  children:
+  - ExamPaper.Service.Generator.ExamPaperGenerator.#ctor(ExamPaper.Core.Interfaces.IQuestionProvider,ExamPaper.Core.Interfaces.IExamPaperFactory)
+  - ExamPaper.Service.Generator.ExamPaperGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  langs:
+  - csharp
+  - vb
+  name: ExamPaperGenerator
+  nameWithType: ExamPaperGenerator
+  fullName: ExamPaper.Service.Generator.ExamPaperGenerator
+  type: Class
+  source:
+    remote:
+      path: src/ExamPaper.Service/Generator/ExamPaperGenerator.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: ExamPaperGenerator
+    path: ../src/ExamPaper.Service/Generator/ExamPaperGenerator.cs
+    startLine: 17
+  assemblies:
+  - ExamPaper.Service
+  namespace: ExamPaper.Service.Generator
+  summary: Сервисный класс, оркестрирующая процесс генерации билетов.
+  example: []
+  syntax:
+    content: 'public class ExamPaperGenerator : IExamGenerator'
+    content.vb: Public Class ExamPaperGenerator Implements IExamGenerator
+  inheritance:
+  - System.Object
+  implements:
+  - ExamPaper.Core.Interfaces.IExamGenerator
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ExamPaper.Service.Generator.ExamPaperGenerator.#ctor(ExamPaper.Core.Interfaces.IQuestionProvider,ExamPaper.Core.Interfaces.IExamPaperFactory)
+  commentId: M:ExamPaper.Service.Generator.ExamPaperGenerator.#ctor(ExamPaper.Core.Interfaces.IQuestionProvider,ExamPaper.Core.Interfaces.IExamPaperFactory)
+  id: '#ctor(ExamPaper.Core.Interfaces.IQuestionProvider,ExamPaper.Core.Interfaces.IExamPaperFactory)'
+  parent: ExamPaper.Service.Generator.ExamPaperGenerator
+  langs:
+  - csharp
+  - vb
+  name: ExamPaperGenerator(IQuestionProvider, IExamPaperFactory)
+  nameWithType: ExamPaperGenerator.ExamPaperGenerator(IQuestionProvider, IExamPaperFactory)
+  fullName: ExamPaper.Service.Generator.ExamPaperGenerator.ExamPaperGenerator(ExamPaper.Core.Interfaces.IQuestionProvider, ExamPaper.Core.Interfaces.IExamPaperFactory)
+  type: Constructor
+  source:
+    remote:
+      path: src/ExamPaper.Service/Generator/ExamPaperGenerator.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: .ctor
+    path: ../src/ExamPaper.Service/Generator/ExamPaperGenerator.cs
+    startLine: 25
+  assemblies:
+  - ExamPaper.Service
+  namespace: ExamPaper.Service.Generator
+  summary: Инициализирует генератор для чтения данных и создания объектов.
+  example: []
+  syntax:
+    content: public ExamPaperGenerator(IQuestionProvider questionProvider, IExamPaperFactory examPaperFactory)
+    parameters:
+    - id: questionProvider
+      type: ExamPaper.Core.Interfaces.IQuestionProvider
+    - id: examPaperFactory
+      type: ExamPaper.Core.Interfaces.IExamPaperFactory
+    content.vb: Public Sub New(questionProvider As IQuestionProvider, examPaperFactory As IExamPaperFactory)
+  overload: ExamPaper.Service.Generator.ExamPaperGenerator.#ctor*
+  nameWithType.vb: ExamPaperGenerator.New(IQuestionProvider, IExamPaperFactory)
+  fullName.vb: ExamPaper.Service.Generator.ExamPaperGenerator.New(ExamPaper.Core.Interfaces.IQuestionProvider, ExamPaper.Core.Interfaces.IExamPaperFactory)
+  name.vb: New(IQuestionProvider, IExamPaperFactory)
+- uid: ExamPaper.Service.Generator.ExamPaperGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  commentId: M:ExamPaper.Service.Generator.ExamPaperGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  id: Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  parent: ExamPaper.Service.Generator.ExamPaperGenerator
+  langs:
+  - csharp
+  - vb
+  name: Generate(IGenerationSettings)
+  nameWithType: ExamPaperGenerator.Generate(IGenerationSettings)
+  fullName: ExamPaper.Service.Generator.ExamPaperGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  type: Method
+  source:
+    remote:
+      path: src/ExamPaper.Service/Generator/ExamPaperGenerator.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: Generate
+    path: ../src/ExamPaper.Service/Generator/ExamPaperGenerator.cs
+    startLine: 33
+  assemblies:
+  - ExamPaper.Service
+  namespace: ExamPaper.Service.Generator
+  summary: >-
+    Формирует коллекцию экзаменационных билетов на основе заданных правил.
+
+    Оркестрирует получение вопросов и создание билетов.
+  example: []
+  syntax:
+    content: public IEnumerable<IExamPaper> Generate(IGenerationSettings settings)
+    parameters:
+    - id: settings
+      type: ExamPaper.Core.Interfaces.IGenerationSettings
+      description: Объект конфигурации, определяющий параметры генерации.
+    return:
+      type: System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper}
+    content.vb: Public Function Generate(settings As IGenerationSettings) As IEnumerable(Of IExamPaper)
+  overload: ExamPaper.Service.Generator.ExamPaperGenerator.Generate*
+  implements:
+  - ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+references:
+- uid: ExamPaper.Service.Generator
+  commentId: N:ExamPaper.Service.Generator
+  href: ExamPaper.html
+  name: ExamPaper.Service.Generator
+  nameWithType: ExamPaper.Service.Generator
+  fullName: ExamPaper.Service.Generator
+  spec.csharp:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Service
+    name: Service
+    href: ExamPaper.Service.html
+  - name: .
+  - uid: ExamPaper.Service.Generator
+    name: Generator
+    href: ExamPaper.Service.Generator.html
+  spec.vb:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Service
+    name: Service
+    href: ExamPaper.Service.html
+  - name: .
+  - uid: ExamPaper.Service.Generator
+    name: Generator
+    href: ExamPaper.Service.Generator.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ExamPaper.Core.Interfaces.IExamGenerator
+  commentId: T:ExamPaper.Core.Interfaces.IExamGenerator
+  parent: ExamPaper.Core.Interfaces
+  href: ExamPaper.Core.Interfaces.IExamGenerator.html
+  name: IExamGenerator
+  nameWithType: IExamGenerator
+  fullName: ExamPaper.Core.Interfaces.IExamGenerator
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ExamPaper.Core.Interfaces
+  commentId: N:ExamPaper.Core.Interfaces
+  href: ExamPaper.html
+  name: ExamPaper.Core.Interfaces
+  nameWithType: ExamPaper.Core.Interfaces
+  fullName: ExamPaper.Core.Interfaces
+  spec.csharp:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+  spec.vb:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+- uid: ExamPaper.Service.Generator.ExamPaperGenerator.#ctor*
+  commentId: Overload:ExamPaper.Service.Generator.ExamPaperGenerator.#ctor
+  href: ExamPaper.Service.Generator.ExamPaperGenerator.html#ExamPaper_Service_Generator_ExamPaperGenerator__ctor_ExamPaper_Core_Interfaces_IQuestionProvider_ExamPaper_Core_Interfaces_IExamPaperFactory_
+  name: ExamPaperGenerator
+  nameWithType: ExamPaperGenerator.ExamPaperGenerator
+  fullName: ExamPaper.Service.Generator.ExamPaperGenerator.ExamPaperGenerator
+  nameWithType.vb: ExamPaperGenerator.New
+  fullName.vb: ExamPaper.Service.Generator.ExamPaperGenerator.New
+  name.vb: New
+- uid: ExamPaper.Core.Interfaces.IQuestionProvider
+  commentId: T:ExamPaper.Core.Interfaces.IQuestionProvider
+  parent: ExamPaper.Core.Interfaces
+  href: ExamPaper.Core.Interfaces.IQuestionProvider.html
+  name: IQuestionProvider
+  nameWithType: IQuestionProvider
+  fullName: ExamPaper.Core.Interfaces.IQuestionProvider
+- uid: ExamPaper.Core.Interfaces.IExamPaperFactory
+  commentId: T:ExamPaper.Core.Interfaces.IExamPaperFactory
+  parent: ExamPaper.Core.Interfaces
+  href: ExamPaper.Core.Interfaces.IExamPaperFactory.html
+  name: IExamPaperFactory
+  nameWithType: IExamPaperFactory
+  fullName: ExamPaper.Core.Interfaces.IExamPaperFactory
+- uid: ExamPaper.Service.Generator.ExamPaperGenerator.Generate*
+  commentId: Overload:ExamPaper.Service.Generator.ExamPaperGenerator.Generate
+  href: ExamPaper.Service.Generator.ExamPaperGenerator.html#ExamPaper_Service_Generator_ExamPaperGenerator_Generate_ExamPaper_Core_Interfaces_IGenerationSettings_
+  name: Generate
+  nameWithType: ExamPaperGenerator.Generate
+  fullName: ExamPaper.Service.Generator.ExamPaperGenerator.Generate
+- uid: ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  commentId: M:ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  parent: ExamPaper.Core.Interfaces.IExamGenerator
+  href: ExamPaper.Core.Interfaces.IExamGenerator.html#ExamPaper_Core_Interfaces_IExamGenerator_Generate_ExamPaper_Core_Interfaces_IGenerationSettings_
+  name: Generate(IGenerationSettings)
+  nameWithType: IExamGenerator.Generate(IGenerationSettings)
+  fullName: ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  spec.csharp:
+  - uid: ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+    name: Generate
+    href: ExamPaper.Core.Interfaces.IExamGenerator.html#ExamPaper_Core_Interfaces_IExamGenerator_Generate_ExamPaper_Core_Interfaces_IGenerationSettings_
+  - name: (
+  - uid: ExamPaper.Core.Interfaces.IGenerationSettings
+    name: IGenerationSettings
+    href: ExamPaper.Core.Interfaces.IGenerationSettings.html
+  - name: )
+  spec.vb:
+  - uid: ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+    name: Generate
+    href: ExamPaper.Core.Interfaces.IExamGenerator.html#ExamPaper_Core_Interfaces_IExamGenerator_Generate_ExamPaper_Core_Interfaces_IGenerationSettings_
+  - name: (
+  - uid: ExamPaper.Core.Interfaces.IGenerationSettings
+    name: IGenerationSettings
+    href: ExamPaper.Core.Interfaces.IGenerationSettings.html
+  - name: )
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings
+  commentId: T:ExamPaper.Core.Interfaces.IGenerationSettings
+  parent: ExamPaper.Core.Interfaces
+  href: ExamPaper.Core.Interfaces.IGenerationSettings.html
+  name: IGenerationSettings
+  nameWithType: IGenerationSettings
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings
+- uid: System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper}
+  commentId: T:System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<IExamPaper>
+  nameWithType: IEnumerable<IExamPaper>
+  fullName: System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IExamPaper>
+  nameWithType.vb: IEnumerable(Of IExamPaper)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IExamPaper)
+  name.vb: IEnumerable(Of IExamPaper)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ExamPaper.Core.Interfaces.IExamPaper
+    name: IExamPaper
+    href: ExamPaper.Core.Interfaces.IExamPaper.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ExamPaper.Core.Interfaces.IExamPaper
+    name: IExamPaper
+    href: ExamPaper.Core.Interfaces.IExamPaper.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

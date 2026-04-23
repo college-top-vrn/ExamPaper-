@@ -1,0 +1,91 @@
+### YamlMime:TableOfContent
+items:
+- uid: ExamPaper.Core.Interfaces
+  name: ExamPaper.Core.Interfaces
+  type: Namespace
+  items:
+  - uid: ExamPaper.Core.Interfaces.IExamExporter
+    name: IExamExporter
+    type: Interface
+  - uid: ExamPaper.Core.Interfaces.IExamGenerator
+    name: IExamGenerator
+    type: Interface
+  - uid: ExamPaper.Core.Interfaces.IExamPaper
+    name: IExamPaper
+    type: Interface
+  - uid: ExamPaper.Core.Interfaces.IExamPaperFactory
+    name: IExamPaperFactory
+    type: Interface
+  - uid: ExamPaper.Core.Interfaces.IGenerationSettings
+    name: IGenerationSettings
+    type: Interface
+  - uid: ExamPaper.Core.Interfaces.IQuestion
+    name: IQuestion
+    type: Interface
+  - uid: ExamPaper.Core.Interfaces.IQuestionFactory
+    name: IQuestionFactory
+    type: Interface
+  - uid: ExamPaper.Core.Interfaces.IQuestionModifier
+    name: IQuestionModifier
+    type: Interface
+  - uid: ExamPaper.Core.Interfaces.IQuestionProvider
+    name: IQuestionProvider
+    type: Interface
+  - uid: ExamPaper.Core.Interfaces.IQuestionRepository
+    name: IQuestionRepository
+    type: Interface
+- uid: ExamPaper.Core.Models
+  name: ExamPaper.Core.Models
+  type: Namespace
+  items:
+  - uid: ExamPaper.Core.Models.ExamPaper
+    name: ExamPaper
+    type: Class
+  - uid: ExamPaper.Core.Models.GenerationSettings
+    name: GenerationSettings
+    type: Class
+  - uid: ExamPaper.Core.Models.Question
+    name: Question
+    type: Class
+- uid: ExamPaper.Infrastructure.Exporter
+  name: ExamPaper.Infrastructure.Exporter
+  type: Namespace
+  items:
+  - uid: ExamPaper.Infrastructure.Exporter.JsonExamExporter
+    name: JsonExamExporter
+    type: Class
+  - uid: ExamPaper.Infrastructure.Exporter.PdfExamExporter
+    name: PdfExamExporter
+    type: Class
+- uid: ExamPaper.Infrastructure.Repositories
+  name: ExamPaper.Infrastructure.Repositories
+  type: Namespace
+  items:
+  - uid: ExamPaper.Infrastructure.Repositories.QuestionRepository
+    name: QuestionRepository
+    type: Class
+- uid: ExamPaper.Service.DTOs
+  name: ExamPaper.Service.DTOs
+  type: Namespace
+  items:
+  - uid: ExamPaper.Service.DTOs.CreateQuestionDto
+    name: CreateQuestionDto
+    type: Class
+- uid: ExamPaper.Service.Factories
+  name: ExamPaper.Service.Factories
+  type: Namespace
+  items:
+  - uid: ExamPaper.Service.Factories.ExamPaperFactory
+    name: ExamPaperFactory
+    type: Class
+  - uid: ExamPaper.Service.Factories.QuestionFactory
+    name: QuestionFactory
+    type: Class
+- uid: ExamPaper.Service.Generator
+  name: ExamPaper.Service.Generator
+  type: Namespace
+  items:
+  - uid: ExamPaper.Service.Generator.ExamPaperGenerator
+    name: ExamPaperGenerator
+    type: Class
+memberLayout: SamePage

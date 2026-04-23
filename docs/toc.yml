@@ -1,4 +1,6 @@
-- name: Introduction
+- name: Введение
   href: introduction.md
-- name: Getting Started
+- name: Начало работы
   href: getting-started.md
+- name: Правила проекта
+  href: rules/toc.yml

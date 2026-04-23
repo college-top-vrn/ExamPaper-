@@ -1,0 +1,245 @@
+### YamlMime:ManagedReference
+items:
+- uid: ExamPaper.Core.Interfaces.IExamPaperFactory
+  commentId: T:ExamPaper.Core.Interfaces.IExamPaperFactory
+  id: IExamPaperFactory
+  parent: ExamPaper.Core.Interfaces
+  children:
+  - ExamPaper.Core.Interfaces.IExamPaperFactory.CreateExamPaper(System.Guid,System.String,System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion})
+  langs:
+  - csharp
+  - vb
+  name: IExamPaperFactory
+  nameWithType: IExamPaperFactory
+  fullName: ExamPaper.Core.Interfaces.IExamPaperFactory
+  type: Interface
+  source:
+    remote:
+      path: src/ExamPaper.Core/Interfaces/IExamPaperFactory.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: IExamPaperFactory
+    path: ../src/ExamPaper.Core/Interfaces/IExamPaperFactory.cs
+    startLine: 8
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Interfaces
+  summary: интервейс фбрики ExamPaper
+  example: []
+  syntax:
+    content: public interface IExamPaperFactory
+    content.vb: Public Interface IExamPaperFactory
+  derivedClasses:
+  - ExamPaper.Service.Factories.ExamPaperFactory
+- uid: ExamPaper.Core.Interfaces.IExamPaperFactory.CreateExamPaper(System.Guid,System.String,System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion})
+  commentId: M:ExamPaper.Core.Interfaces.IExamPaperFactory.CreateExamPaper(System.Guid,System.String,System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion})
+  id: CreateExamPaper(System.Guid,System.String,System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion})
+  parent: ExamPaper.Core.Interfaces.IExamPaperFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateExamPaper(Guid, string, IEnumerable<IQuestion>)
+  nameWithType: IExamPaperFactory.CreateExamPaper(Guid, string, IEnumerable<IQuestion>)
+  fullName: ExamPaper.Core.Interfaces.IExamPaperFactory.CreateExamPaper(System.Guid, string, System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IQuestion>)
+  type: Method
+  source:
+    remote:
+      path: src/ExamPaper.Core/Interfaces/IExamPaperFactory.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: CreateExamPaper
+    path: ../src/ExamPaper.Core/Interfaces/IExamPaperFactory.cs
+    startLine: 17
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Interfaces
+  summary: метод для создания билета
+  example: []
+  syntax:
+    content: IExamPaper CreateExamPaper(Guid id, string title, IEnumerable<IQuestion> questions)
+    parameters:
+    - id: id
+      type: System.Guid
+      description: id билета
+    - id: title
+      type: System.String
+      description: имя билета
+    - id: questions
+      type: System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion}
+      description: списовк вопросов для создания билета
+    return:
+      type: ExamPaper.Core.Interfaces.IExamPaper
+      description: ''
+    content.vb: Function CreateExamPaper(id As Guid, title As String, questions As IEnumerable(Of IQuestion)) As IExamPaper
+  overload: ExamPaper.Core.Interfaces.IExamPaperFactory.CreateExamPaper*
+  nameWithType.vb: IExamPaperFactory.CreateExamPaper(Guid, String, IEnumerable(Of IQuestion))
+  fullName.vb: ExamPaper.Core.Interfaces.IExamPaperFactory.CreateExamPaper(System.Guid, String, System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IQuestion))
+  name.vb: CreateExamPaper(Guid, String, IEnumerable(Of IQuestion))
+references:
+- uid: ExamPaper.Core.Interfaces
+  commentId: N:ExamPaper.Core.Interfaces
+  href: ExamPaper.html
+  name: ExamPaper.Core.Interfaces
+  nameWithType: ExamPaper.Core.Interfaces
+  fullName: ExamPaper.Core.Interfaces
+  spec.csharp:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+  spec.vb:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+- uid: ExamPaper.Core.Interfaces.IExamPaperFactory.CreateExamPaper*
+  commentId: Overload:ExamPaper.Core.Interfaces.IExamPaperFactory.CreateExamPaper
+  href: ExamPaper.Core.Interfaces.IExamPaperFactory.html#ExamPaper_Core_Interfaces_IExamPaperFactory_CreateExamPaper_System_Guid_System_String_System_Collections_Generic_IEnumerable_ExamPaper_Core_Interfaces_IQuestion__
+  name: CreateExamPaper
+  nameWithType: IExamPaperFactory.CreateExamPaper
+  fullName: ExamPaper.Core.Interfaces.IExamPaperFactory.CreateExamPaper
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion}
+  commentId: T:System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IQuestion}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<IQuestion>
+  nameWithType: IEnumerable<IQuestion>
+  fullName: System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IQuestion>
+  nameWithType.vb: IEnumerable(Of IQuestion)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IQuestion)
+  name.vb: IEnumerable(Of IQuestion)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ExamPaper.Core.Interfaces.IQuestion
+    name: IQuestion
+    href: ExamPaper.Core.Interfaces.IQuestion.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ExamPaper.Core.Interfaces.IQuestion
+    name: IQuestion
+    href: ExamPaper.Core.Interfaces.IQuestion.html
+  - name: )
+- uid: ExamPaper.Core.Interfaces.IExamPaper
+  commentId: T:ExamPaper.Core.Interfaces.IExamPaper
+  parent: ExamPaper.Core.Interfaces
+  href: ExamPaper.Core.Interfaces.IExamPaper.html
+  name: IExamPaper
+  nameWithType: IExamPaper
+  fullName: ExamPaper.Core.Interfaces.IExamPaper
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

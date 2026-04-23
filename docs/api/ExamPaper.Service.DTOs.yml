@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: ExamPaper.Service.DTOs
+  commentId: N:ExamPaper.Service.DTOs
+  id: ExamPaper.Service.DTOs
+  children:
+  - ExamPaper.Service.DTOs.CreateQuestionDto
+  langs:
+  - csharp
+  - vb
+  name: ExamPaper.Service.DTOs
+  nameWithType: ExamPaper.Service.DTOs
+  fullName: ExamPaper.Service.DTOs
+  type: Namespace
+  assemblies:
+  - ExamPaper.Service
+references:
+- uid: ExamPaper.Service.DTOs.CreateQuestionDto
+  commentId: T:ExamPaper.Service.DTOs.CreateQuestionDto
+  href: ExamPaper.Service.DTOs.CreateQuestionDto.html
+  name: CreateQuestionDto
+  nameWithType: CreateQuestionDto
+  fullName: ExamPaper.Service.DTOs.CreateQuestionDto

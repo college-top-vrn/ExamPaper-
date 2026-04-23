@@ -1,0 +1,210 @@
+### YamlMime:ManagedReference
+items:
+- uid: ExamPaper.Core.Interfaces.IExamGenerator
+  commentId: T:ExamPaper.Core.Interfaces.IExamGenerator
+  id: IExamGenerator
+  parent: ExamPaper.Core.Interfaces
+  children:
+  - ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  langs:
+  - csharp
+  - vb
+  name: IExamGenerator
+  nameWithType: IExamGenerator
+  fullName: ExamPaper.Core.Interfaces.IExamGenerator
+  type: Interface
+  source:
+    remote:
+      path: src/ExamPaper.Core/Interfaces/IExamGenerator.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: IExamGenerator
+    path: ../src/ExamPaper.Core/Interfaces/IExamGenerator.cs
+    startLine: 7
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Interfaces
+  syntax:
+    content: public interface IExamGenerator
+    content.vb: Public Interface IExamGenerator
+  derivedClasses:
+  - ExamPaper.Service.Generator.ExamPaperGenerator
+- uid: ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  commentId: M:ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  id: Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  parent: ExamPaper.Core.Interfaces.IExamGenerator
+  langs:
+  - csharp
+  - vb
+  name: Generate(IGenerationSettings)
+  nameWithType: IExamGenerator.Generate(IGenerationSettings)
+  fullName: ExamPaper.Core.Interfaces.IExamGenerator.Generate(ExamPaper.Core.Interfaces.IGenerationSettings)
+  type: Method
+  source:
+    remote:
+      path: src/ExamPaper.Core/Interfaces/IExamGenerator.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: Generate
+    path: ../src/ExamPaper.Core/Interfaces/IExamGenerator.cs
+    startLine: 14
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Interfaces
+  summary: >-
+    Формирует коллекцию экзаменационных билетов на основе заданных правил.
+
+    Оркестрирует получение вопросов и создание билетов.
+  example: []
+  syntax:
+    content: IEnumerable<IExamPaper> Generate(IGenerationSettings settings)
+    parameters:
+    - id: settings
+      type: ExamPaper.Core.Interfaces.IGenerationSettings
+      description: Объект конфигурации, определяющий параметры генерации.
+    return:
+      type: System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper}
+    content.vb: Function Generate(settings As IGenerationSettings) As IEnumerable(Of IExamPaper)
+  overload: ExamPaper.Core.Interfaces.IExamGenerator.Generate*
+references:
+- uid: ExamPaper.Core.Interfaces
+  commentId: N:ExamPaper.Core.Interfaces
+  href: ExamPaper.html
+  name: ExamPaper.Core.Interfaces
+  nameWithType: ExamPaper.Core.Interfaces
+  fullName: ExamPaper.Core.Interfaces
+  spec.csharp:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+  spec.vb:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+- uid: ExamPaper.Core.Interfaces.IExamGenerator.Generate*
+  commentId: Overload:ExamPaper.Core.Interfaces.IExamGenerator.Generate
+  href: ExamPaper.Core.Interfaces.IExamGenerator.html#ExamPaper_Core_Interfaces_IExamGenerator_Generate_ExamPaper_Core_Interfaces_IGenerationSettings_
+  name: Generate
+  nameWithType: IExamGenerator.Generate
+  fullName: ExamPaper.Core.Interfaces.IExamGenerator.Generate
+- uid: ExamPaper.Core.Interfaces.IGenerationSettings
+  commentId: T:ExamPaper.Core.Interfaces.IGenerationSettings
+  parent: ExamPaper.Core.Interfaces
+  href: ExamPaper.Core.Interfaces.IGenerationSettings.html
+  name: IGenerationSettings
+  nameWithType: IGenerationSettings
+  fullName: ExamPaper.Core.Interfaces.IGenerationSettings
+- uid: System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper}
+  commentId: T:System.Collections.Generic.IEnumerable{ExamPaper.Core.Interfaces.IExamPaper}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<IExamPaper>
+  nameWithType: IEnumerable<IExamPaper>
+  fullName: System.Collections.Generic.IEnumerable<ExamPaper.Core.Interfaces.IExamPaper>
+  nameWithType.vb: IEnumerable(Of IExamPaper)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of ExamPaper.Core.Interfaces.IExamPaper)
+  name.vb: IEnumerable(Of IExamPaper)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ExamPaper.Core.Interfaces.IExamPaper
+    name: IExamPaper
+    href: ExamPaper.Core.Interfaces.IExamPaper.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ExamPaper.Core.Interfaces.IExamPaper
+    name: IExamPaper
+    href: ExamPaper.Core.Interfaces.IExamPaper.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

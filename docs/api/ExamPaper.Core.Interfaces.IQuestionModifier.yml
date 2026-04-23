@@ -1,0 +1,219 @@
+### YamlMime:ManagedReference
+items:
+- uid: ExamPaper.Core.Interfaces.IQuestionModifier
+  commentId: T:ExamPaper.Core.Interfaces.IQuestionModifier
+  id: IQuestionModifier
+  parent: ExamPaper.Core.Interfaces
+  children:
+  - ExamPaper.Core.Interfaces.IQuestionModifier.AddQuestion(ExamPaper.Core.Interfaces.IQuestion)
+  - ExamPaper.Core.Interfaces.IQuestionModifier.RemoveQuestion(System.Guid)
+  - ExamPaper.Core.Interfaces.IQuestionModifier.SaveChanges
+  langs:
+  - csharp
+  - vb
+  name: IQuestionModifier
+  nameWithType: IQuestionModifier
+  fullName: ExamPaper.Core.Interfaces.IQuestionModifier
+  type: Interface
+  source:
+    remote:
+      path: src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: IQuestionModifier
+    path: ../src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
+    startLine: 7
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Interfaces
+  summary: Контракт для изменения пула экзаменационных вопросов
+  example: []
+  syntax:
+    content: public interface IQuestionModifier
+    content.vb: Public Interface IQuestionModifier
+  derivedClasses:
+  - ExamPaper.Infrastructure.Repositories.QuestionRepository
+- uid: ExamPaper.Core.Interfaces.IQuestionModifier.AddQuestion(ExamPaper.Core.Interfaces.IQuestion)
+  commentId: M:ExamPaper.Core.Interfaces.IQuestionModifier.AddQuestion(ExamPaper.Core.Interfaces.IQuestion)
+  id: AddQuestion(ExamPaper.Core.Interfaces.IQuestion)
+  parent: ExamPaper.Core.Interfaces.IQuestionModifier
+  langs:
+  - csharp
+  - vb
+  name: AddQuestion(IQuestion)
+  nameWithType: IQuestionModifier.AddQuestion(IQuestion)
+  fullName: ExamPaper.Core.Interfaces.IQuestionModifier.AddQuestion(ExamPaper.Core.Interfaces.IQuestion)
+  type: Method
+  source:
+    remote:
+      path: src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: AddQuestion
+    path: ../src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
+    startLine: 15
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Interfaces
+  summary: Добавляет новый вопрос в пул
+  example: []
+  syntax:
+    content: void AddQuestion(IQuestion question)
+    parameters:
+    - id: question
+      type: ExamPaper.Core.Interfaces.IQuestion
+      description: Вопрос
+    content.vb: Sub AddQuestion(question As IQuestion)
+  overload: ExamPaper.Core.Interfaces.IQuestionModifier.AddQuestion*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Если question == null
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Если ID уже существует
+- uid: ExamPaper.Core.Interfaces.IQuestionModifier.RemoveQuestion(System.Guid)
+  commentId: M:ExamPaper.Core.Interfaces.IQuestionModifier.RemoveQuestion(System.Guid)
+  id: RemoveQuestion(System.Guid)
+  parent: ExamPaper.Core.Interfaces.IQuestionModifier
+  langs:
+  - csharp
+  - vb
+  name: RemoveQuestion(Guid)
+  nameWithType: IQuestionModifier.RemoveQuestion(Guid)
+  fullName: ExamPaper.Core.Interfaces.IQuestionModifier.RemoveQuestion(System.Guid)
+  type: Method
+  source:
+    remote:
+      path: src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: RemoveQuestion
+    path: ../src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
+    startLine: 21
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Interfaces
+  summary: Удаляет вопрос по уникальному идентификатору
+  example: []
+  syntax:
+    content: void RemoveQuestion(Guid questionId)
+    parameters:
+    - id: questionId
+      type: System.Guid
+      description: GUID вопроса
+    content.vb: Sub RemoveQuestion(questionId As Guid)
+  overload: ExamPaper.Core.Interfaces.IQuestionModifier.RemoveQuestion*
+- uid: ExamPaper.Core.Interfaces.IQuestionModifier.SaveChanges
+  commentId: M:ExamPaper.Core.Interfaces.IQuestionModifier.SaveChanges
+  id: SaveChanges
+  parent: ExamPaper.Core.Interfaces.IQuestionModifier
+  langs:
+  - csharp
+  - vb
+  name: SaveChanges()
+  nameWithType: IQuestionModifier.SaveChanges()
+  fullName: ExamPaper.Core.Interfaces.IQuestionModifier.SaveChanges()
+  type: Method
+  source:
+    remote:
+      path: src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
+      branch: refactor/folder-structure
+      repo: git@github.com:college-top-vrn/ExamPaper-.git
+    id: SaveChanges
+    path: ../src/ExamPaper.Core/Interfaces/IQuestionModifier.cs
+    startLine: 26
+  assemblies:
+  - ExamPaper.Core
+  namespace: ExamPaper.Core.Interfaces
+  summary: Сохраняет все изменения в постоянное хранилище
+  example: []
+  syntax:
+    content: void SaveChanges()
+    content.vb: Sub SaveChanges()
+  overload: ExamPaper.Core.Interfaces.IQuestionModifier.SaveChanges*
+references:
+- uid: ExamPaper.Core.Interfaces
+  commentId: N:ExamPaper.Core.Interfaces
+  href: ExamPaper.html
+  name: ExamPaper.Core.Interfaces
+  nameWithType: ExamPaper.Core.Interfaces
+  fullName: ExamPaper.Core.Interfaces
+  spec.csharp:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+  spec.vb:
+  - uid: ExamPaper
+    name: ExamPaper
+    href: ExamPaper.html
+  - name: .
+  - uid: ExamPaper.Core
+    name: Core
+    href: ExamPaper.Core.html
+  - name: .
+  - uid: ExamPaper.Core.Interfaces
+    name: Interfaces
+    href: ExamPaper.Core.Interfaces.html
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: ExamPaper.Core.Interfaces.IQuestionModifier.AddQuestion*
+  commentId: Overload:ExamPaper.Core.Interfaces.IQuestionModifier.AddQuestion
+  href: ExamPaper.Core.Interfaces.IQuestionModifier.html#ExamPaper_Core_Interfaces_IQuestionModifier_AddQuestion_ExamPaper_Core_Interfaces_IQuestion_
+  name: AddQuestion
+  nameWithType: IQuestionModifier.AddQuestion
+  fullName: ExamPaper.Core.Interfaces.IQuestionModifier.AddQuestion
+- uid: ExamPaper.Core.Interfaces.IQuestion
+  commentId: T:ExamPaper.Core.Interfaces.IQuestion
+  parent: ExamPaper.Core.Interfaces
+  href: ExamPaper.Core.Interfaces.IQuestion.html
+  name: IQuestion
+  nameWithType: IQuestion
+  fullName: ExamPaper.Core.Interfaces.IQuestion
+- uid: ExamPaper.Core.Interfaces.IQuestionModifier.RemoveQuestion*
+  commentId: Overload:ExamPaper.Core.Interfaces.IQuestionModifier.RemoveQuestion
+  href: ExamPaper.Core.Interfaces.IQuestionModifier.html#ExamPaper_Core_Interfaces_IQuestionModifier_RemoveQuestion_System_Guid_
+  name: RemoveQuestion
+  nameWithType: IQuestionModifier.RemoveQuestion
+  fullName: ExamPaper.Core.Interfaces.IQuestionModifier.RemoveQuestion
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ExamPaper.Core.Interfaces.IQuestionModifier.SaveChanges*
+  commentId: Overload:ExamPaper.Core.Interfaces.IQuestionModifier.SaveChanges
+  href: ExamPaper.Core.Interfaces.IQuestionModifier.html#ExamPaper_Core_Interfaces_IQuestionModifier_SaveChanges
+  name: SaveChanges
+  nameWithType: IQuestionModifier.SaveChanges
+  fullName: ExamPaper.Core.Interfaces.IQuestionModifier.SaveChanges
