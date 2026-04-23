@@ -58,7 +58,11 @@
     "globalMetadata": {
       "_appName": "ExamPaper",
       "_appTitle": "ExamPaper Documentation",
-      "_enableSearch": true
+      "_enableSearch": true,
+      "_enableNewTab": true,
+      "_appName": "ExamPaper",
+      "_appTitle": "ExamPaper Documentation",
+      "disableClickToCopy": false
     }
   }
 }
