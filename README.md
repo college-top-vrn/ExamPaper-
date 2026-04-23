@@ -1,31 +1,4 @@
 # Диаграммы
-## Компонентов
-```mermaid
-flowchart TD
-    subgraph CoreLayer [Слой ядра]
-        Models[Models]
-        Interfaces[Interfaces]
-    end
-
-    subgraph ServiceLayer [Слой сервисов]
-        ExamPaperGenerator[ExamPaper Generator]
-        Factory[Factory]
-    end
-
-    subgraph InfrastructureLayer [Слой инфраструктуры]
-        Exporter[Exporter]
-        Repository[Repository]
-    end
-
-    ExamPaperGenerator --> Factory
-    ExamPaperGenerator --> Repository
-
-    Factory --> Models
-    Factory --> Interfaces
-
-    Exporter --> Models
-```
-
 ## Прецедентов
 ```mermaid
 flowchart LR
@@ -41,6 +14,7 @@ flowchart LR
   uc1 --> uc2
   uc2 --> uc3
 ```
+
 ## Последовательности
 ```mermaid
 sequenceDiagram
@@ -54,10 +28,42 @@ sequenceDiagram
     Система->>Пользователь: Выдает PDF‑файл с билетами
 ```
 
+## Компонентов
+```mermaid
+flowchart
+subgraph Library
+subgraph Core
+Interfaces((Interfaces))
+Models[Models]
+Models-.Реализует.->Interfaces
+end
+
+subgraph Infrastructure
+Exporters[Exporters]
+Exporters-.Реализует.->Interfaces
+Repositories[Repositories]
+Repositories-.Реализует.->Interfaces
+end
+
+subgraph Service
+Factories[Factories]
+Factories-.Реализует.->Interfaces
+Factories--Зависит-->Models
+Generators[Generators]
+Generators-.Реализует.->Interfaces
+end
+end
+
+subgraph Presentation layer
+API[API]
+end
+API-->Library
+```
+
 ## Регламент
 - ![Создание ветки](rules/BranchCreation.md);
-- ![Создание файлов и директорий](rules/FileAndDirectoriesCreation.md).
-- ![Создание тест-кейсов](rules/TestCaseRegulations.md)
+- ![Создание файлов и директорий](rules/FileAndDirectoriesCreation.md);
+- ![Создание тест-кейсов](rules/TestCaseRegulations.md).
 
 ## Цель проекта: Разработка генератора экзаменационных билетов.
 
