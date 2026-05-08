@@ -1,8 +1,0 @@
-﻿<Solution>
-  <Project Path="src/ExamPaper.Service/ExamPaper.Service.csproj"/>
-  <Project Path="src/ExamPaper.Core/ExamPaper.Core.csproj"/>
-  <Project Path="src/ExamPaper.Infrastructure/ExamPaper.Infrastructure.csproj"/>
-  <Project Path="tests/ExamPaper.Api.IntegrationTests/ExamPaper.Api.IntegrationTests.csproj"/>
-  <Project Path="tests/ExamPaper.Tests/ExamPaper.Tests.csproj"/>
-  <Project Path="src/ExamPaper.Api/ExamPaper.Api.csproj"/>
-</Solution>
