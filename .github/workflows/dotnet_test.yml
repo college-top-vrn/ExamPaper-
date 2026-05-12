@@ -2,28 +2,54 @@ name: dotnet test
 
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches: 
+      - main
+      - develop
   pull_request:
-    branches: [ "main", "develop" ]
+    branches: 
+      - main
+      - develop
+        
+env:
+  SLN: back/ExamPaper.slnx
 
 jobs:
-  build:
+  check-format:
     runs-on: ubuntu-latest
-
+    concurrency:
+      group: format-${{ github.ref }}
+      cancel-in-progress: true
+    
     steps:
-      - name: Check out code
+      - name: Checkout code
         uses: actions/checkout@v6
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v5
+        
+      - name: Setup environment
+        uses: ./.github/actions/setup-dotnet-env
         with:
-          dotnet-version: 10.0.x
+          restore: 'true'
 
-      - name: Restore dependencies
-        run: dotnet restore
+      - name: Verify formatting
+        run: dotnet format $SLN --verify-no-changes --no-restore
+
+  test:
+    needs: check-format
+    runs-on: ubuntu-latest
+    concurrency:
+      group: test-${{ github.ref }}
+      cancel-in-progress: true
+        
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        
+      - name: Setup environment
+        uses: ./.github/actions/setup-dotnet-env
+        with:
+          restore: 'true'
 
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build $SLN --no-restore --configuration Release
 
       - name: Test
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test $SLN --no-build --configuration Release --verbosity normal

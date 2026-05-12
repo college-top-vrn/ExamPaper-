@@ -1,7 +1,13 @@
 name: dotnet docs
 on:
-  push:
-    branches: [ main, develop ]
+  workflow_run:
+    workflows: [ "dotnet test" ]
+    types:
+      - completed
+    branches: 
+      - main
+      - develop
+      
   workflow_dispatch:
 
 permissions:
@@ -10,6 +16,8 @@ permissions:
 jobs:
   publish-docs:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -19,7 +27,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: '10.0.x'
+          dotnet-version: 10.0.x
 
       - name: Install DocFX
         run: dotnet tool update -g docfx

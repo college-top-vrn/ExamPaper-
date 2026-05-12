@@ -13,8 +13,8 @@
     <File Path="../.gitattributes" />
   </Folder>
   <Folder Name="/github_actions/">
+    <File Path="../.github/actions/setup-dotnet-env/action.yml" />
     <File Path="../.github/workflows/dotnet_docs.yml" />
-    <File Path="../.github/workflows/dotnet_format.yml" />
     <File Path="../.github/workflows/dotnet_test.yml" />
   </Folder>
   <Folder Name="/others/">

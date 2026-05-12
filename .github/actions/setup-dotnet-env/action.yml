@@ -1,0 +1,35 @@
+name: 'Setup .NET environment'
+description: 'Checkout, setup .NET, restore and cache dependencies'
+inputs:
+  dotnet-version:
+    description: '.NET SDK version'
+    required: false
+    default: '10.0.x'
+  restore:
+    description: 'Whether to run dotnet restore'
+    required: false
+    default: 'true'
+  solution-path:
+    description: 'Path to solution file'
+    required: false
+    default: 'back/ExamPaper.slnx'
+    
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v5
+      with:
+        dotnet-version: ${{ inputs.dotnet-version }}
+
+    - name: Cache NuGet
+      uses: actions/cache@v4
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        restore-keys: ${{ runner.os }}-nuget-
+
+    - name: Restore dependencies
+      if: inputs.restore == 'true'
+      shell: bash
+      run: dotnet restore ${{ inputs.solution-path }}
