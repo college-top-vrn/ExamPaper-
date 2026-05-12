@@ -1,0 +1,5 @@
+_site/
+*.manifest
+api/*.yml
+!api/index.md
+api/.manifest

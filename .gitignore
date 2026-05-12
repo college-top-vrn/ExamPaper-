@@ -480,11 +480,3 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
-
-#DocFX
-_site/
-docs/
-*.manifest
-api/*.yml
-!api/index.md
-api/.manifest

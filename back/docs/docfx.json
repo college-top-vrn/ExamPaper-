@@ -1,0 +1,62 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../src",
+          "files": [
+            "ExamPaper.Core/ExamPaper.Core.csproj",
+            "ExamPaper.Infrastructure/ExamPaper.Infrastructure.csproj",
+            "ExamPaper.Service/ExamPaper.Service.csproj"
+          ],
+          "exclude": [
+            "**/obj/**",
+            "**/bin/**"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "**/_site/**",
+          "**/obj/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "**/assets/**",
+          "images/**"
+        ],
+        "exclude": [
+          "**/*.md",
+          "**/*.yml",
+          "**/obj/**",
+          "**/_site/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "ExamPaper",
+      "_appTitle": "ExamPaper Documentation",
+      "_enableSearch": true,
+      "_enableNewTab": true,
+      "pdf": true,
+      "disableClickToCopy": false
+    }
+  }
+}
