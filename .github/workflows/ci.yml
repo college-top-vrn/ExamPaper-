@@ -7,6 +7,10 @@ on:
   pull_request:
     branches: [main, develop]
   workflow_dispatch:
+    
+permissions:
+  contents: read
+  pull-requests: write
 
 env:
   SLN: back/ExamPaper.slnx
@@ -28,8 +32,14 @@ jobs:
         uses: ./.github/actions/setup-dotnet-env
         with:
           restore: 'true'
-      - name: Verify formatting
-        run: dotnet format $SLN --verify-no-changes --no-restore
+      - name: dotnet format with reviewdog
+        uses: reviewdog/action-dotnetformat@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          level: error
+          fail_on_error: true
+          dotnetformat_flags: '${{ env.SLN }} --verify-no-changes --no-restore'
 
   lint-yaml:
     runs-on: ubuntu-latest
@@ -39,11 +49,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Lint YAML files
-        uses: ibiqlik/action-yamllint@v3
+      - name: yamllint with reviewdog
+        uses: reviewdog/action-yamllint@v1
         with:
-          file_or_dir: .github/workflows/ .yamllint.yml
-          config_file: .yamllint.yml
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          level: error
+          fail_on_error: true
+          yamllint_flags: '-c .yamllint.yml .github/workflows/ .yamllint.yml'
 
   lint-markdown:
     runs-on: ubuntu-latest
@@ -53,11 +66,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Lint Markdown
-        uses: DavidAnson/markdownlint-cli2-action@v17
+      - name: markdownlint with reviewdog
+        uses: reviewdog/action-markdownlint@v0
         with:
-          config: .markdownlint.json
-          globs: '**/*.md'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          level: error
+          fail_on_error: true
+          markdownlint_flags: '**/*.md --config .markdownlint.json'
 
   test:
     needs: [dotnet-format, lint-yaml, lint-markdown]
