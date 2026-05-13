@@ -13,7 +13,7 @@ inputs:
     description: 'Path to solution file'
     required: false
     default: 'back/ExamPaper.slnx'
-    
+
 runs:
   using: 'composite'
   steps:
@@ -21,7 +21,7 @@ runs:
       uses: actions/setup-dotnet@v5
       with:
         dotnet-version: ${{ inputs.dotnet-version }}
-        
+
     - name: Display .NET version
       shell: bash
       run: dotnet --version
