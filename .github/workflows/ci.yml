@@ -98,6 +98,8 @@ jobs:
           path: '**/TestResults/*.trx'
 
   publish-docs:
+    permissions:
+      contents: write
     needs: test
     if: >
       (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'))
