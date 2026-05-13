@@ -32,14 +32,13 @@ jobs:
         uses: ./.github/actions/setup-dotnet-env
         with:
           restore: 'true'
-      - name: dotnet format with reviewdog
-        uses: reviewdog/action-dotnetformat@v1
+      - name: Check dotnet format
+        uses: wzrdtales/action-dotnet-format@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
-          level: error
-          fail_on_error: true
-          dotnetformat_flags: '${{ env.SLN }} --verify-no-changes --no-restore'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: ${{ env.SLN }}
+          only-check: true
+          fail-on-error: true
 
   lint-yaml:
     runs-on: ubuntu-latest
