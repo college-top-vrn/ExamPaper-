@@ -7,16 +7,21 @@ on:
     branches: 
       - main
       - develop
-      
   workflow_dispatch:
 
 permissions:
   contents: write
+  
+env: 
+  BASE_PATH: back/docs
 
 jobs:
   publish-docs:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    concurrency:
+      group: docs-${{ github.ref }}
+      cancel-in-progress: true
     
     steps:
       - name: Checkout
@@ -25,19 +30,27 @@ jobs:
           fetch-depth: 0
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v5
+        uses: ./.github/actions/setup-dotnet-env
         with:
-          dotnet-version: 10.0.x
+          restore: 'false'
+          
+      - name: Cache DocFX tool
+        uses: actions/cache@v5
+        with:
+          path: ~/.dotnet/tools
+          key: ${{ runner.os }}-docfx-${{ hashFiles('**/docfx.json') }}
+          restore-keys: ${{ runner.os }}-docfx-
 
       - name: Install DocFX
         run: dotnet tool update -g docfx
 
       - name: Build Docs
-        run: docfx back/docs/docfx.json
+        run: docfx $BASE_PATH/docfx.json
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/_site
+          publish_dir: $BASE_PATH/_site
           destination_dir: ${{ github.ref == 'refs/heads/develop' && 'dev' || '' }}
+          keep_files: true

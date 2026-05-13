@@ -21,12 +21,16 @@ runs:
       uses: actions/setup-dotnet@v5
       with:
         dotnet-version: ${{ inputs.dotnet-version }}
+        
+    - name: Display .NET version
+      shell: bash
+      run: dotnet --version
 
     - name: Cache NuGet
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: ~/.nuget/packages
-        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/Directory.Build.props', '**/global.json') }}
         restore-keys: ${{ runner.os }}-nuget-
 
     - name: Restore dependencies

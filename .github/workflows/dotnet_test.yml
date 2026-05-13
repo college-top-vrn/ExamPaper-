@@ -9,13 +9,17 @@ on:
     branches: 
       - main
       - develop
+  workflow_dispatch:
         
 env:
   SLN: back/ExamPaper.slnx
+  TYPE_BUILD: Release
+  VERBOSITY: normal
 
 jobs:
   check-format:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     concurrency:
       group: format-${{ github.ref }}
       cancel-in-progress: true
@@ -49,7 +53,7 @@ jobs:
           restore: 'true'
 
       - name: Build
-        run: dotnet build $SLN --no-restore --configuration Release
+        run: dotnet build $SLN --no-restore --configuration $TYPE_BUILD
 
       - name: Test
-        run: dotnet test $SLN --no-build --configuration Release --verbosity normal
+        run: dotnet test $SLN --no-build --configuration $TYPE_BUILD --verbosity $VERBOSITY
