@@ -18,8 +18,8 @@
     <File Path="../.github/workflows/dotnet_test.yml" />
   </Folder>
   <Folder Name="/others/">
+    <File Path="../.yamllint.yml" />
     <File Path=".editorconfig" />
-    <File Path=".yamllint.yml" />
     <File Path="data.json" />
     <File Path="Directory.Build.props" />
   </Folder>
