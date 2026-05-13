@@ -32,14 +32,9 @@ jobs:
         uses: ./.github/actions/setup-dotnet-env
         with:
           restore: 'true'
-      - name: Check dotnet format
-        uses: wzrdtales/action-dotnet-format@v1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path: ${{ env.SLN }}
-          only-check: true
-          fail-on-error: true
-
+      - name: Verify formatting
+        run: dotnet format $SLN --verify-no-changes --no-restore
+        
   lint-yaml:
     runs-on: ubuntu-latest
     concurrency:
@@ -54,7 +49,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
           level: error
-          fail_on_error: true
+          fail_level: any
           yamllint_flags: '-c .yamllint.yml .github/workflows/ .yamllint.yml'
 
   lint-markdown:
@@ -71,7 +66,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
           level: error
-          fail_on_error: true
+          fail_level: any
           markdownlint_flags: '**/*.md --config .markdownlint.json'
 
   test:
@@ -129,11 +124,11 @@ jobs:
       - name: Install DocFX
         run: dotnet tool update -g docfx
       - name: Build Docs
-        run: docfx $BASE_PATH/docfx.json
+        run: docfx ${{ env.BASE_PATH_DOCS }}/docfx.json
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: $BASE_PATH/_site
+          publish_dir: ${{ env.BASE_PATH_DOCS }}/_site
           destination_dir: ${{ github.ref == 'refs/heads/develop' && 'dev' || '' }}
           keep_files: true
