@@ -35,10 +35,30 @@ jobs:
 
       - name: Verify formatting
         run: dotnet format $SLN --verify-no-changes --no-restore
+        
+      - name: Check solution file format
+        run: |
+          if [ -f "back/ExamPaper.slnx" ]; then
+            echo "Solution file exists, checking..."
+            # можно добавить утилиту slnx-validator
+          fi
+        
+      - name: Lint YAML files
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          file_or_dir: .github/workflows/
+
+      - name: Lint Markdown
+        uses: avto-dev/markdown-lint@v1
+        with:
+          args: '**/*.md'
 
   test:
     needs: check-format
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest ]
+    runs-on: ${{ matrix.os }}
     concurrency:
       group: test-${{ github.ref }}
       cancel-in-progress: true
@@ -51,9 +71,26 @@ jobs:
         uses: ./.github/actions/setup-dotnet-env
         with:
           restore: 'true'
+          
+      - name: Check vulnerabilities
+        run: dotnet list package --vulnerable --include-transitive
 
       - name: Build
         run: dotnet build $SLN --no-restore --configuration $TYPE_BUILD
 
       - name: Test
         run: dotnet test $SLN --no-build --configuration $TYPE_BUILD --verbosity $VERBOSITY
+      
+      - name: Test with coverage
+        run: dotnet test $SLN --no-build --configuration $TYPE_BUILD --verbosity $VERBOSITY /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+      
+      - name: Upload coverage
+        uses: codecov/codecov-action@v5
+            
+      - name: Publish test results
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Test results (${{ matrix.os }})
+          path: '**/TestResults/*.trx'
+          reporter: dotnet-trx
