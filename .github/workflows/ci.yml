@@ -88,7 +88,7 @@ jobs:
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          spectral lint back/src/ExamPaper.Api/openapi.json -f text | \
+          spectral lint back/src/ExamPaper.Api/ExamPaper.Api.json -f text | \
           reviewdog -efm="%f:%l:%c %t%*[^ ] %m" -name="spectral" -reporter=github-pr-review
 
   test:

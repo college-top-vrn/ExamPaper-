@@ -15,13 +15,14 @@ using ExamPaper.Service.Generator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi;
 
 using Scalar.AspNetCore;
 
-var builder = WebApplication.CreateBuilder();
+WebApplicationBuilder builder = WebApplication.CreateBuilder();
 
 builder.Services.AddOpenApi(options =>
 {
@@ -29,13 +30,12 @@ builder.Services.AddOpenApi(options =>
     {
         document.Info.Version = "v1";
         document.Info.Title = "Генератор экзаменационных билетов";
-      
+
         document.Info.License = new OpenApiLicense
         {
-            Name = "Apache License, Version 2",
-            Url = new Uri("https://opensource.org/licenses/Apache-2.0")
+            Name = "Apache License, Version 2", Url = new Uri("https://opensource.org/licenses/Apache-2.0")
         };
-      
+
         return Task.CompletedTask;
     });
 });
@@ -55,7 +55,7 @@ builder.Services.AddScoped<IExamGenerator, ExamPaperGenerator>();
 builder.Services.AddScoped<PdfExamExporter>();
 builder.Services.AddScoped<JsonExamExporter>();
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 app.MapOpenApi();
 
 if (app.Environment.IsDevelopment())
@@ -77,12 +77,12 @@ app.UseExceptionHandler(exceptionHandlerApp =>
 
 #region Questions
 
-var questionsGroup = app.MapGroup("/api/questions")
+RouteGroupBuilder questionsGroup = app.MapGroup("/api/questions")
     .WithTags("Questions");
 
 questionsGroup.MapGet("/", (IQuestionRepository repo) =>
     {
-        var questions = repo.GetAllQuestions();
+        IEnumerable<IQuestion> questions = repo.GetAllQuestions();
         return Results.Ok(questions);
     })
     .WithName("GetAllQuestions")
@@ -90,7 +90,7 @@ questionsGroup.MapGet("/", (IQuestionRepository repo) =>
 
 questionsGroup.MapGet("/{id:guid}", (Guid id, IQuestionRepository repo) =>
     {
-        var question = repo.GetQuestionById(id);
+        IQuestion? question = repo.GetQuestionById(id);
         return question is not null ? Results.Ok(question) : Results.NotFound(new { error = "Вопрос не найден." });
     })
     .WithName("GetQuestionById")
@@ -109,8 +109,8 @@ questionsGroup.MapPost("/", (
 
         try
         {
-            var newId = Guid.NewGuid();
-            var newQuestion = factory.CreateQuestion(newId, dto.Text);
+            Guid newId = Guid.NewGuid();
+            IQuestion newQuestion = factory.CreateQuestion(newId, dto.Text);
 
             repo.AddQuestion(newQuestion);
             repo.SaveChanges();
@@ -129,7 +129,7 @@ questionsGroup.MapPost("/", (
 
 questionsGroup.MapDelete("/{id:guid}", (Guid id, IQuestionRepository repo) =>
     {
-        var question = repo.GetQuestionById(id);
+        IQuestion? question = repo.GetQuestionById(id);
         if (question is null)
         {
             return Results.NotFound(new { error = "Вопрос не найден." });
@@ -148,7 +148,7 @@ questionsGroup.MapDelete("/{id:guid}", (Guid id, IQuestionRepository repo) =>
 
 #region Examinations
 
-var examinationGroup = app.MapGroup("/api/exam")
+RouteGroupBuilder examinationGroup = app.MapGroup("/api/exam")
     .WithTags("Exams");
 
 examinationGroup.MapPost("/generate", (
@@ -157,7 +157,7 @@ examinationGroup.MapPost("/generate", (
     {
         try
         {
-            var tickets = generator.Generate(settings);
+            IEnumerable<IExamPaper> tickets = generator.Generate(settings);
             return Results.Ok(tickets);
         }
         catch (InvalidOperationException ex)
@@ -176,7 +176,7 @@ examinationGroup.MapPost("/export/pdf", (
     {
         try
         {
-            var tickets = generator.Generate(settings).ToList();
+            List<IExamPaper> tickets = generator.Generate(settings).ToList();
             byte[] fileBytes = exporter.Export(tickets);
             return Results.File(fileBytes, "application/pdf", "exams.pdf");
         }
@@ -196,7 +196,7 @@ examinationGroup.MapPost("/export/json", (
     {
         try
         {
-            var tickets = generator.Generate(settings).ToList();
+            List<IExamPaper> tickets = generator.Generate(settings).ToList();
             byte[] fileBytes = exporter.Export(tickets);
             return Results.File(fileBytes, "application/json", "exams.json");
         }
