@@ -69,7 +69,7 @@ jobs:
           level: error
           fail_level: any
           markdownlint_flags: '**/*.md --config .markdownlint.json'
-          
+
   lint-openapi:
     runs-on: ubuntu-latest
     concurrency:
@@ -96,7 +96,7 @@ jobs:
           reviewdog -efm="%f:%l:%c %t%*[^ ] %m" -name="spectral" -reporter=github-pr-review
 
   test:
-    needs: [ dotnet-format, lint-yaml, lint-markdown ]
+    needs: [ dotnet-format, lint-yaml, lint-markdown, lint-openapi ]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     concurrency:
