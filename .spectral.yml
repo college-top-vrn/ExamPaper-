@@ -1,13 +1,3 @@
-<<<<<<< Updated upstream
-extends: spectral:oas
-rules:
-  operation-operationId: error
-  operation-description: warning
-  path-params: error
-  no-$ref-siblings: error
-  oas3-valid-schema-example: error
-  info-contact: info
-=======
 extends:
   - spectral:oas
 rules:
@@ -26,4 +16,3 @@ rules:
     then:
       field: examples
       function: truthy
->>>>>>> Stashed changes
