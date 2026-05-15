@@ -1,9 +1,9 @@
 name: CI
 on:
   push:
-    branches: [main, develop]
+    branches: [ main, develop ]
   pull_request:
-    branches: [main, develop]
+    branches: [ main, develop ]
   workflow_dispatch:
 
 permissions:
@@ -94,7 +94,7 @@ jobs:
           reviewdog -efm="%f:%l:%c %t%*[^ ] %m" -name="spectral" -reporter=github-pr-review
 
   test:
-    needs: [dotnet-format, lint-yaml, lint-markdown, lint-openapi]
+    needs: [ dotnet-format, lint-yaml, lint-markdown, lint-openapi ]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     concurrency:
