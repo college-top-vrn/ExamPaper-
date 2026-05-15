@@ -489,3 +489,5 @@ _artifacts/
 # Cake local tool (if installed via dotnet tool)
 .dotnet/
 packages/
+
+build_report_*.html

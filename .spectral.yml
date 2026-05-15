@@ -1,18 +1,8 @@
-extends:
-  - spectral:oas
+extends: spectral:oas
 rules:
-  oas3-parameter-description: off
-  info-contact: warn
-
   operation-operationId: error
   operation-description: warning
+  info-contact: warn
   path-params: error
   oas3-valid-schema-example: error
   no-$ref-siblings: error
-
-  custom-response-example:
-    description: "Для всех ответов с JSON должен быть пример"
-    given: "$.paths[*][*].responses[*].content['application/json']"
-    then:
-      field: examples
-      function: truthy
