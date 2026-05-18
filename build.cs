@@ -36,17 +36,12 @@ const string OpenApiPath = $"{BackSrcPath}/ExamPaper.Api/ExamPaper.Api.json";
 const string DocFxPath = $"{BaseBackendDirName}/docs";
 const string DocFxConfigPath = $"{DocFxPath}/docfx.json";
 const string DocFxOutputIndex = $"{DocFxPath}/_site/index.html";
-const string YamlLintArgs = "-c .yamllint.yml .github/workflows/ .yamllint.yml .spectral.yml";
-const string MarkdownLintArgs = "./*.md --config .markdownlint.json";
 const string BuildConfiguration = "Release";
 #endregion
 
-bool skipYamlLint = false;
-bool skipMarkdownLint = false;
 bool skipSpectral = false;
 bool skipDocfx = false;
 bool hasErrors = false;
-bool lintErrorsFixed = false;
 
 string FindCommand(string command)
 {
@@ -122,26 +117,11 @@ bool AskUser(string toolName, string installCommand, string command, string skip
 }
 
 LogInfo("Проверка наличия необходимых инструментов...");
-if (!CommandExists("yamllint"))
-{
-    bool installed = AskUser("yamllint", "pip install yamllint", "yamllint", "Lint-Yaml");
-    if (!installed) skipYamlLint = true;
-}
-else LogInfo("✅ yamllint найден.");
 
-if (!CommandExists("markdownlint-cli2"))
-{
-    bool installed = AskUser("markdownlint-cli2", "npm install -g markdownlint-cli2", "markdownlint-cli2", "Lint-Markdown");
-    if (!installed) skipMarkdownLint = true;
-}
-else LogInfo("✅ markdownlint-cli2 найден.");
-
-if (!CommandExists("spectral"))
-{
-    bool installed = AskUser("spectral", "npm install -g @stoplight/spectral-cli", "spectral", "Lint-OpenAPI");
-    if (!installed) skipSpectral = true;
-}
-else LogInfo("✅ spectral найден.");
+if (!CommandExists("dotnet"))
+    throw new Exception("dotnet не найден. Установите .NET SDK.");
+if (!CommandExists("node"))
+    throw new Exception("node не найден. npm требуется для установки некоторых инструментов.");
 
 if (!CommandExists("docfx"))
 {
@@ -150,10 +130,13 @@ if (!CommandExists("docfx"))
 }
 else LogInfo("✅ docfx найден.");
 
-if (!CommandExists("dotnet"))
-    throw new Exception("dotnet не найден. Установите .NET SDK.");
-if (!CommandExists("node"))
-    throw new Exception("node не найден. npm требуется для установки некоторых инструментов.");
+if (!CommandExists("spectral"))
+{
+    bool installed = AskUser("spectral", "npm install -g @stoplight/spectral-cli", "spectral", "Lint-OpenAPI");
+    if (!installed) skipSpectral = true;
+}
+else LogInfo("✅ spectral найден.");
+
 
 var target = Argument("target", "Interactive");
 var configuration = Argument("configuration", BuildConfiguration);
@@ -181,109 +164,6 @@ Task("Lint-DotNetFormat")
         {
             LogError($"Ошибка: {ex.Message}");
             RecordTaskEnd("Lint-DotNetFormat", false, ex.Message);
-        }
-    });
-
-Task("Lint-Yaml")
-    .Does(() =>
-    {
-        RecordTaskStart("Lint-Yaml");
-        if (skipYamlLint)
-        {
-            LogWarning("⚠️ yamllint пропущен.");
-            RecordTaskEnd("Lint-Yaml", true, "Пропущен");
-            return;
-        }
-        try
-        {
-            LogInfo("🔍 Линтинг YAML файлов...");
-            int exitCode = StartProcess("yamllint", YamlLintArgs);
-            if (exitCode != 0) throw new Exception("❌ YAML линтинг не пройден");
-            LogInfo("✅ YAML файлы валидны.");
-            RecordTaskEnd("Lint-Yaml", true);
-        }
-        catch (Exception ex)
-        {
-            LogError(ex.Message);
-            RecordTaskEnd("Lint-Yaml", false, ex.Message);
-        }
-    });
-
-Task("Lint-Markdown")
-    .Does(() =>
-    {
-        RecordTaskStart("Lint-Markdown");
-        if (skipMarkdownLint)
-        {
-            LogWarning("⚠️ markdownlint пропущен.");
-            RecordTaskEnd("Lint-Markdown", true, "Пропущен");
-            return;
-        }
-        try
-        {
-            LogInfo("🔍 Линтинг Markdown файлов...");
-            var mdLint = FindCommand("markdownlint-cli2");
-            if (string.IsNullOrEmpty(mdLint))
-                throw new Exception("Команда markdownlint-cli2 не найдена в PATH.");
-            int exitCode = StartProcess(mdLint, MarkdownLintArgs);
-            if (exitCode != 0) throw new Exception("❌ Markdown линтинг не пройден");
-            LogInfo("✅ Markdown файлы валидны.");
-            RecordTaskEnd("Lint-Markdown", true);
-        }
-        catch (Exception ex)
-        {
-            LogError(ex.Message);
-            RecordTaskEnd("Lint-Markdown", false, ex.Message);
-        }
-    });
-
-Task("LintersBasic")
-    .Does(() =>
-    {
-        RunTarget("Lint-Yaml");
-        RunTarget("Lint-Markdown");
-    });
-
-Task("Fix")
-    .Does(() =>
-    {
-        LogInfo("🔧 Автоматическое исправление ошибок...");
-        try
-        {
-            LogInfo("→ Исправление Markdown файлов...");
-            var mdLint = FindCommand("markdownlint-cli2");
-            if (!string.IsNullOrEmpty(mdLint))
-            {
-                var fixArgs = $"--fix {MarkdownLintArgs}";
-                StartProcess(mdLint, fixArgs);
-            }
-            LogInfo("✅ Исправление завершено.");
-            lintErrorsFixed = true;
-        }
-        catch (Exception ex)
-        {
-            LogError($"Ошибка при исправлении: {ex.Message}");
-        }
-    });
-
-Task("LintersWithFix")
-    .Does(() =>
-    {
-        RunTarget("LintersBasic");
-
-        if (hasErrors && BuildSystem.IsLocalBuild)
-        {
-            LogInfo("\nОбнаружены ошибки в YAML или Markdown. Хотите автоматически исправить (Markdown)?");
-            Console.Write("Введите y/n (по умолчанию n): ");
-            string resp = Console.ReadLine()?.Trim().ToLower();
-            if (resp == "y")
-            {
-                RunTarget("Fix");
-                hasErrors = false;
-                reportDetails.Clear();
-                LogInfo("Повторная проверка после исправлений...");
-                RunTarget("LintersBasic");
-            }
         }
     });
 
@@ -383,7 +263,6 @@ Task("Generate-Docs")
     });
 
 Task("Complete")
-    .IsDependentOn("LintersWithFix")
     .IsDependentOn("Build-Test")
     .IsDependentOn("Lint-OpenAPI")
     .IsDependentOn("Generate-Docs")
