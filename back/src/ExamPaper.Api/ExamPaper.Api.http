@@ -1,4 +1,4 @@
-@baseUrl = https://localhost:5047/api
+@baseUrl = http://localhost:5047/api
 @questionId = 123e4567-e89b-12d3-a456-426614174000
 
 @questionsUrl = {{baseUrl}}/questions

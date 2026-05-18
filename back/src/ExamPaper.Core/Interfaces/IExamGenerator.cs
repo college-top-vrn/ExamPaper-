@@ -4,6 +4,9 @@ namespace ExamPaper.Core.Interfaces;
 
 using System.Collections.Generic;
 
+/// <summary>
+/// Интерфейс для класса-генератора экзаменационных билетов.
+/// </summary>
 public interface IExamGenerator
 {
     /// <summary>
