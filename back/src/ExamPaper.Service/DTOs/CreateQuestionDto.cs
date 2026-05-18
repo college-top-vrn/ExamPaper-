@@ -1,6 +1,5 @@
 namespace ExamPaper.Service.DTOs;
 
-
 /// <summary>
 ///     Dto для создание вопросов из WebApi 
 /// </summary>

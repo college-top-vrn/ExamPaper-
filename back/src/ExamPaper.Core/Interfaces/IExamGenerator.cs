@@ -4,7 +4,6 @@ namespace ExamPaper.Core.Interfaces;
 
 using System.Collections.Generic;
 
-
 public interface IExamGenerator
 {
     /// <summary>
